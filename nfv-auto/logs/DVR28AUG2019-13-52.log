@@ -1,0 +1,37 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 8:     Create the router and attach an instance to it.                    =====
+====     Verify namespace qrouter is created on the Compute node where instance is scheduled.        =====
+==========================================================================================================
+Creating Network: tt_net
+Creating Router: tt_router
+Creating Server: tt_vm
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Multiple matches found for centos
+Line No: 696 
+
+
+Unable to create 1 instances on same compute and same network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 1137 
+
+TEST FAILED
+Deleting Server: tt_vm..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

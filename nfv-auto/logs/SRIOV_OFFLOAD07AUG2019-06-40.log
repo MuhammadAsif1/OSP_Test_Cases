@@ -1,0 +1,161 @@
+==========================================================================================================
+====         TEST CASE 1:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+vfcount in ini ['4']
+vfport on stamp ['p8p1', 'p4p1']
+12: p8p1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 98:03:9b:7f:80:a8 brd ff:ff:ff:ff:ff:ff
+    vf 0 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 1 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 2 MAC fa:16:3e:89:28:bd, spoof checking on, link-state enable, trust off, query_rss off
+    vf 3 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+
+VF Present for port p8p1
+10: p4p1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 98:03:9b:7f:7e:f0 brd ff:ff:ff:ff:ff:ff
+    vf 0 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 1 MAC fa:16:3e:f3:d5:ef, spoof checking on, link-state enable, trust off, query_rss off
+    vf 2 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 3 MAC fa:16:3e:3d:33:d6, spoof checking on, link-state enable, trust off, query_rss off
+
+VF Present for port p4p1
+2
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+vfcount in ini ['4']
+vfport on stamp ['p8p1', 'p4p1']
+12: p8p1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 98:03:9b:7f:7e:e8 brd ff:ff:ff:ff:ff:ff
+    vf 0 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 1 MAC fa:16:3e:73:2b:fa, spoof checking on, link-state enable, trust off, query_rss off
+    vf 2 MAC fa:16:3e:d5:8e:2b, spoof checking on, link-state enable, trust off, query_rss off
+    vf 3 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+
+VF Present for port p8p1
+10: p4p1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 98:03:9b:7f:8e:38 brd ff:ff:ff:ff:ff:ff
+    vf 0 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 1 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 2 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 3 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+
+VF Present for port p4p1
+4
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+vfcount in ini ['4']
+vfport on stamp ['p8p1', 'p4p1']
+12: p8p1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 98:03:9b:7f:7f:20 brd ff:ff:ff:ff:ff:ff
+    vf 0 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 1 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 2 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 3 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+
+VF Present for port p8p1
+10: p4p1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ovs-system state UP mode DEFAULT group default qlen 1000
+    link/ether 98:03:9b:7f:80:88 brd ff:ff:ff:ff:ff:ff
+    vf 0 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 1 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 2 MAC 00:00:00:00:00:00, spoof checking off, link-state auto, trust off, query_rss off
+    vf 3 MAC fa:16:3e:3d:33:d6, spoof checking on, link-state enable, trust off, query_rss off
+
+VF Present for port p4p1
+6
+Test Successful
+==========================================================================================================
+====         TEST CASE 2:     Verify the Switc Mode for OVS-Offload.                                 =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+['4']:['p8p1', 'p4p1']:switchdev
+  NeutronSriovNumVFs: 'p8p1:4:switchdev,p4p1:4:switchdev'
+VF count is set Successfully
+Switchdev is set Successfully
+Switch Mode is set Successfully for port p8p1:4:switchdev
+VF count is set Successfully
+Switchdev is set Successfully
+Switch Mode is set Successfully for port p4p1:4:switchdev
+Test Successful
+==========================================================================================================
+====         TEST CASE 3:     Verify that Mode of PCI DEVICE.            =====
+==========================================================================================================
+Compute ip's ['192.168.120.137', '192.168.120.130', '192.168.120.138']
+Test running for compute- 192.168.120.137
+af:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.130
+af:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.138
+af:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+
+TEST SUCCESSFUL
+==========================================================================================================
+====         TEST CASE 4:     Verify that Offloading Status on all the compute nodes.            =====
+==========================================================================================================
+Compute ip's ['192.168.120.137', '192.168.120.130', '192.168.120.138']
+Test running for compute- 192.168.120.137
+"true"
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.130
+"true"
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.138
+"true"
+
+TEST SUCCESSFUL

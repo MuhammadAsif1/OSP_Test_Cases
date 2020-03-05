@@ -1,0 +1,150 @@
+==========================================================================================================
+====         TEST CASE 3:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+ComputeSriovInterface1=p1p1
+ComputeSriovInterface2=p1p2
+ComputeSriovInterface3=p2p1
+ComputeSriovInterface4=p2p2
+['p1p1', 'p1p2', 'p2p1', 'p2p2']
+['p1p1_', 'p1p2_', 'p2p1_', 'p2p2_']
+p1p1_0
+p1p1_1
+p1p1_2
+p1p1_3
+p1p2_0
+p1p2_1
+p1p2_2
+p1p2_3
+p2p1_0
+p2p1_1
+p2p1_2
+p2p1_3
+p2p2_0
+p2p2_1
+p2p2_2
+p2p2_3
+['p1p1_0', 'p1p1_1', 'p1p1_2', 'p1p1_3', 'p1p2_0', 'p1p2_1', 'p1p2_2', 'p1p2_3', 'p2p1_0', 'p2p1_1', 'p2p1_2', 'p2p1_3', 'p2p2_0', 'p2p2_1', 'p2p2_2', 'p2p2_3']
+16
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.4) , Floating IP: (100.82.39.74)
+ComputeSriovInterface1=p1p1
+ComputeSriovInterface2=p1p2
+ComputeSriovInterface3=p2p1
+ComputeSriovInterface4=p2p2
+['p1p1', 'p1p2', 'p2p1', 'p2p2']
+['p1p1_', 'p1p2_', 'p2p1_', 'p2p2_']
+p1p1_0
+p1p1_1
+p1p1_2
+p1p1_3
+p1p2_0
+p1p2_1
+p1p2_2
+p1p2_3
+p2p1_0
+p2p1_1
+p2p1_2
+p2p1_3
+p2p2_0
+p2p2_1
+p2p2_2
+['p1p1_0', 'p1p1_1', 'p1p1_2', 'p1p1_3', 'p1p2_0', 'p1p2_1', 'p1p2_2', 'p1p2_3', 'p2p1_0', 'p2p1_1', 'p2p1_2', 'p2p1_3', 'p2p2_0', 'p2p2_1', 'p2p2_2']
+15
+Deleting Server: s_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+ComputeSriovInterface1=p1p1
+ComputeSriovInterface2=p1p2
+ComputeSriovInterface3=p2p1
+ComputeSriovInterface4=p2p2
+['p1p1', 'p1p2', 'p2p1', 'p2p2']
+['p1p1_', 'p1p2_', 'p2p1_', 'p2p2_']
+p1p1_0
+p1p1_1
+p1p1_2
+p1p1_3
+p1p2_0
+p1p2_1
+p1p2_2
+p1p2_3
+p2p1_0
+p2p1_1
+p2p1_2
+p2p1_3
+p2p2_0
+p2p2_1
+p2p2_2
+p2p2_3
+['p1p1_0', 'p1p1_1', 'p1p1_2', 'p1p1_3', 'p1p2_0', 'p1p2_1', 'p1p2_2', 'p1p2_3', 'p2p1_0', 'p2p1_1', 'p2p1_2', 'p2p1_3', 'p2p2_0', 'p2p2_1', 'p2p2_2', 'p2p2_3']
+16
+Total number of VF's 16
+1 VF is consumed when instance created....15
+1 VF is returned when instance deleted....16
+Test Successful
+==========================================================================================================
+====         TEST CASE 4:     Creating Same Compute and network sriov Instances.                =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.11) , Floating IP: (100.82.39.72)
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.12) , Floating IP: (100.82.39.79)
+Pinging 192.168.100.12 from 100.82.39.72
+PING 192.168.100.12 (192.168.100.12) 56(84) bytes of data.
+64 bytes from 192.168.100.12: icmp_seq=1 ttl=64 time=0.115 ms
+64 bytes from 192.168.100.12: icmp_seq=2 ttl=64 time=0.062 ms
+64 bytes from 192.168.100.12: icmp_seq=3 ttl=64 time=0.046 ms
+64 bytes from 192.168.100.12: icmp_seq=4 ttl=64 time=0.060 ms
+64 bytes from 192.168.100.12: icmp_seq=5 ttl=64 time=0.040 ms
+
+--- 192.168.100.12 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.040/0.064/0.115/0.027 ms
+
+---Ping Successful!
+Test 4 SUCCESSFUL
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

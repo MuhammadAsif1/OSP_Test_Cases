@@ -1,0 +1,26 @@
+==========================================================================================================
+====         TEST CASE 6:     Verify Representor Port Creation.                                     =====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net
+Creating Sriov Offload Enabled SubNet: sriov_subnet
+Creating Sriov Offload Enabled Port: s_port
+Setting Switchdev Capabilities to Port: s_port
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.22) , Floating IP: (100.67.154.199)
+Test 6 SUCCESSFUL
+Deleting Server: s_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

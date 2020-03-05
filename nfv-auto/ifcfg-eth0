@@ -1,0 +1,9 @@
+DEVICE="eth0."
+BOOTPROTO=none
+IPADDR=
+DEFROUTE=no                                                        
+ONBOOT=yes
+USERCTL=yes
+NETMASK=255.255.255.0
+PEERDNS=no
+VLAN=yes

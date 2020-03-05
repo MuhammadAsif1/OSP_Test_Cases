@@ -1,0 +1,7 @@
+Creating Parent Network
+Creating Sub Network
+Creating port: parent_port_new
+Creating port: sub_port_new
+Deleting Server: trunk_server..
+Server deletion failed!
+Deleting all unattached floating IPs.

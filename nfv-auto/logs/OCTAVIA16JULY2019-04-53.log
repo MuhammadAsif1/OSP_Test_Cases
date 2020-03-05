@@ -1,0 +1,12 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+VM IP 100.67.153.93
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 134 
+
+member1 deleting..

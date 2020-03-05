@@ -1,0 +1,64 @@
+==========================================================================================================
+====         TEST CASE 1:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+p4p1
+p4p1_1
+p4p1_3
+p8p1
+p8p1_2
+['p4p1', 'p4p1_1', 'p4p1_3', 'p8p1', 'p8p1_2']
+5
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+p4p1_1
+p4p1_3
+p8p1_2
+['p4p1_1', 'p4p1_3', 'p8p1_2']
+3
+vfcount in ini ['4']
+vfport on stamp ['p4p1', 'p4p1_1', 'p4p1_3', 'p8p1', 'p8p1_2']
+vfpot on stamp ['p4p1_1', 'p4p1_3', 'p8p1_2']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+p4p1
+p8p1
+['p4p1', 'p8p1']
+2
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+[]
+0
+vfcount in ini ['4']
+vfport on stamp ['p4p1', 'p8p1']
+vfpot on stamp []
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+p4p1
+p4p1_3
+p8p1
+['p4p1', 'p4p1_3', 'p8p1']
+3
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+p4p1_3
+['p4p1_3']
+1
+vfcount in ini ['4']
+vfport on stamp ['p4p1', 'p4p1_3', 'p8p1']
+vfpot on stamp ['p4p1_3']

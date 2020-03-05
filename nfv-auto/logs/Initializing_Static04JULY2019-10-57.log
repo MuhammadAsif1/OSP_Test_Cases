@@ -1,0 +1,39 @@
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: net1
+Creating Network: net2
+Creating Router: router
+Creating Server: test_1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: test_2
+Server Count: 1
+
+Server Created Successfully!
+Instance1 >> Fixed IP: (192.168.10.17)
+Instance2 >> Fixed IP: (192.168.20.9)
+Deleting Server: test_1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: test_2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: net1 and net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: router..
+Router Deleted successfully

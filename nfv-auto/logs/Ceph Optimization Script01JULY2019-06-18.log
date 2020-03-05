@@ -1,0 +1,31 @@
+==========================================================================================================
+====         CEPH ENVIRONMENT SETUP:      CREATE VM'S FOR COMPUTE NODE 0.                            =====
+==========================================================================================================
+Creating Network: storage-net
+Creating Router: storage-router
+Creating Server: ceph_vm_1
+Assigning floating ip to ceph_vm_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.7) , Floating IP: (100.82.36.211)
+output [u'0195da51-abe4-44ee-8f63-e7f9aa4df857', u'c863eb7e-8967-40ee-9d41-9113b1f69ba1', u'72bdd55a-2be6-402c-8066-f49aca18349f', '192.168.70.7', '100.82.36.211']
+VM IP 100.82.36.211
+Unable to execute test case 1
+
+Error: <class 'socket.error'>
+Cause: [Errno 110] Connection timed out
+Line No: 143 
+
+Deleting Server: ceph_vm_1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

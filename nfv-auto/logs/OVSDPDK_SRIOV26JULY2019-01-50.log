@@ -1,0 +1,18 @@
+==========================================================================================================
+====  TEST CASE 8:Create an Instance on OVS-DPDK enabled compute node with all necessary metadata tags====
+====      i-e cpu_policy, cpu_thread_policy, mem_page_size, numa_nodes and numa_mempolicy in mode 2.. ====
+==========================================================================================================
+Deleting Server: dpdk_server_1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

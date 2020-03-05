@@ -1,0 +1,50 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net_1
+Creating Sriov Enabled SubNet: sriov_subnet_1
+Creating Sriov Enabled Port: sriov_net1_port_0
+Creating Router: sriov_router_1
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.7) , Floating IP: (100.82.39.76)
+PING 100.82.39.76 (100.82.39.76) 56(84) bytes of data.
+64 bytes from 100.82.39.76: icmp_seq=1 ttl=62 time=0.664 ms
+64 bytes from 100.82.39.76: icmp_seq=2 ttl=62 time=0.501 ms
+64 bytes from 100.82.39.76: icmp_seq=3 ttl=62 time=0.258 ms
+64 bytes from 100.82.39.76: icmp_seq=4 ttl=62 time=0.303 ms
+64 bytes from 100.82.39.76: icmp_seq=5 ttl=62 time=0.413 ms
+
+--- 100.82.39.76 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.258/0.427/0.664/0.147 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled SubNet: sriov_subnet_1
+
+Unable to create sriov network / subnet / port.
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.39.60:9696/v2.0/subnets, Invalid input for operation: Requested subnet with cidr: 192.168.100.0/24 for network: ece66322-e218-4791-85fb-a4721856117c overlaps with another subnet.
+Line No: 449 
+
+Creating Router: sriov_router_1
+Router already exists.
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 838 
+
+Unable to execute test case 1(1)
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 184 
+
+Deleting Server: sriov-vm-7..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

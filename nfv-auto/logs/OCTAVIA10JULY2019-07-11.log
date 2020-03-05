@@ -1,0 +1,24 @@
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia-vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: octavia-vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

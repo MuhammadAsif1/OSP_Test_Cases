@@ -1,0 +1,32 @@
+==========================================================================================================
+====         TEST CASE 5:     Create SRIOV OFFLOAD Enabled Instance.                                     =====
+==========================================================================================================
+Network already exists with the same name.
+Creating Sriov Offload Enabled SubNet: sriov_subnet
+Creating Sriov Offload Enabled Port: s_port
+Setting Switchdev Capabilities to Port: s_port
+Creating Router: sriov_router
+
+Unable to create router!
+Error: <class 'openstack.exceptions.ConflictException'>
+Cause: Error attaching interface to router d1fd8218-3a4c-4e6f-9cbd-34aaabc571b6: Client Error for url: http://100.67.154.160:9696/v2.0/routers/d1fd8218-3a4c-4e6f-9cbd-34aaabc571b6/add_router_interface.json, IP address 192.168.50.1 already allocated in subnet e746ad8f-2c32-4adf-b067-7b89e6007428
+Line No: 581 
+
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Multiple matches found for centos
+Line No: 837 
+
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 491 
+
+Deleting Server: s_instance..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

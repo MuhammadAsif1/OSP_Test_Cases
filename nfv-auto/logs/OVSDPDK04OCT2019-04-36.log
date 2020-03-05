@@ -1,0 +1,37 @@
+
+================================================================================
+Executing Test Case 14 (Test the network traffic with packet size 89,512 & 1500)
+================================================================================
+Creating two instances on Different Compute and Same Tenant Network..
+Creating Network: tt_net
+
+Unable to create 2 instances on different compute and different network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'Connection' object has no attribute 'get_network'
+Line No: 1446 
+
+Two instances Created Successfully.
+>>Will be checking bandwidth through private IPs.
+Packet sizes: [89, 512, 1470]
+
+Iteration 1 : For Packet size: 89
+Error encountered while verifying Performance with Iperf3 between 2 Instances 
+ on Different Compute and Same Tenant Network!
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 162 
+
+Deleting both instances..
+Deleting Server: tt_vm1..
+
+Error encountered while executing Test Case: 14!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'Connection' object has no attribute 'delete_server'
+Line No: 386 
+
+
+==========================================================================
+Executing Test Case 3 (Validates the OVS DPDK works fine with floating IP)
+==========================================================================
+Deleting Server: tt_vm..

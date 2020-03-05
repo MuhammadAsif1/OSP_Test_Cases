@@ -1,0 +1,58 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net_1
+Creating Sriov Enabled SubNet: sriov_subnet_1
+Creating Sriov Enabled Port: sriov_net1_port_1
+Creating Router: sriov_router_1
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.13) , Floating IP: (100.67.153.80)
+PING 100.67.153.80 (100.67.153.80) 56(84) bytes of data.
+From 100.67.153.80 icmp_seq=1 Destination Host Unreachable
+From 100.67.153.80 icmp_seq=2 Destination Host Unreachable
+From 100.67.153.80 icmp_seq=3 Destination Host Unreachable
+From 100.67.153.80 icmp_seq=4 Destination Host Unreachable
+From 100.67.153.80 icmp_seq=5 Destination Host Unreachable
+
+--- 100.67.153.80 ping statistics ---
+5 packets transmitted, 0 received, +5 errors, 100% packet loss, time 4002ms
+pipe 4
+Test 1 FAILED
+Deleting Server: sriov-vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+==========================================================================================================
+====        TEST CASE 6:    Check the Port assigned to OVS-DPDK are active after the deployment.      ====
+==========================================================================================================
+---- ovs_dpdk_bond10 ----
+bond_mode: balance-tcp
+bond may use recirculation: yes, Recirc-ID : 1
+bond-hash-basis: 0
+updelay: 0 ms
+downdelay: 0 ms
+next rebalance: 7914 ms
+lacp_status: negotiated
+lacp_fallback_ab: false
+active slave mac: 3c:fd:fe:bf:af:60(dpdk0)
+
+slave dpdk0: enabled
+	active slave
+	may_enable: true
+
+slave dpdk1: enabled
+	may_enable: true
+
+
+TEST SUCCESSFUL

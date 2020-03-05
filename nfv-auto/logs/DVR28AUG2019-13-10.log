@@ -1,0 +1,60 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 4:     Verify traffic between 2 Compute nodes bypasses Controller node.   =====
+==========================================================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: tt_vm2
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to tt_vm1
+Creating & Assigning Floating IP..
+Assigning floating ip to tt_vm2
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.20.11) , Floating IP: (100.82.39.95)
+Instance2 >> Fixed IP: (192.168.30.19) , Floating IP: (100.82.39.88)
+['100.82.39.95', '192.168.20.11', '100.82.39.88', '192.168.30.19']
+5ca83641-c26c-4b98-9a45-1210f100a54e
+qrouter-5ca83641-c26c-4b98-9a45-1210f100a54e
+qr-10bf7d88-16
+qr-dcb8985c-e7
+['qr-10bf7d88-16', 'qr-dcb8985c-e7']
+Unable to execute test case 4
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 277 
+
+Deleting Server: tt_vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully

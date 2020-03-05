@@ -1,0 +1,21 @@
+==========================================================================================================
+====  TEST CASE 8:Create an Instance on OVS-DPDK enabled compute node with all necessary metadata tags====
+====      i-e cpu_policy, cpu_thread_policy, mem_page_size, numa_nodes and numa_mempolicy in mode 2.. ====
+==========================================================================================================
+Creating Network: dpdk_net_1
+Creating Router: dpdk_router
+Creating Server: dpdk_server_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.13) , Floating IP: (100.67.153.76)
+PING 100.67.153.76 (100.67.153.76) 56(84) bytes of data.
+64 bytes from 100.67.153.76: icmp_seq=1 ttl=62 time=11.7 ms
+64 bytes from 100.67.153.76: icmp_seq=2 ttl=62 time=1.56 ms
+64 bytes from 100.67.153.76: icmp_seq=3 ttl=62 time=0.425 ms
+64 bytes from 100.67.153.76: icmp_seq=4 ttl=62 time=1.84 ms
+64 bytes from 100.67.153.76: icmp_seq=5 ttl=62 time=0.577 ms
+
+--- 100.67.153.76 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 0.425/3.235/11.759/4.297 ms
+Test 8 SUCCESSFUL
+Note: Nothing is deleted!

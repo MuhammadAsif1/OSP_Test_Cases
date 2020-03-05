@@ -1,0 +1,28 @@
+================================ Node Reboot Log File =====================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-cephstorage-0> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-cephstorage-1> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-cephstorage-2> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-controller-0> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-controller-1> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-controller-2> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-dell-compute-0> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-dell-compute-1> has been accepted.
+=============================================================================================================
+================ REBOOTING ALL NODES ========================
+Request to reboot server <Server: r8-14g-dell-compute-2> has been accepted.
+=============================================================================================================

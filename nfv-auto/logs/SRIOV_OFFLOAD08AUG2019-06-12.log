@@ -1,0 +1,43 @@
+==========================================================================================================
+==== TEST CASE 8: Verify OVS Offloading for sriov instance to sriov instance in different scenarios   ====
+====  .same compute same network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_legacy_net
+Creating Sriov Offload Enabled SubNet: sriov_legacy_subnet
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.14) , Floating IP: (100.67.154.197)
+Network already exists with the same name.
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.16) , Floating IP: (100.67.154.199)
+system@ovs-system:
+	lookups: hit:4548173 missed:10686881 lost:0
+	flows: 96
+	masks: hit:71127405 total:9 hit/pkt:4.67
+	port 0: ovs-system (internal)
+	port 1: br-tenant (internal)
+	port 2: mlx_br2 (internal)
+	port 3: mlx_br1 (internal)
+	port 4: br-bond1 (internal)
+	port 5: p4p1
+	port 6: p8p1
+	port 7: vlan130 (internal)
+	port 8: bond0
+	port 9: vlan140 (internal)
+	port 10: bond1
+	port 11: vlan170 (internal)
+	port 12: br-ex (internal)
+	port 13: br-int (internal)
+	port 14: eth1
+	port 15: eth0
+
+representor port eth0
+Test 8 diff compute and diff network successful

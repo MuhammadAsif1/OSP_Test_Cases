@@ -1,0 +1,1483 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 2:      CREATE A LOADBALANCER For TCP Traffic.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network-tcp
+Creating Router: octavia-router
+Creating Server: octavia_vm1_tcp
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia_vm2_ycp
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia_vm1_tcp
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia_vm2_ycp
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.80.18) , Floating IP: (100.67.153.71)
+Instance2 >> Fixed IP: (192.168.80.15) , Floating IP: (100.67.153.80)
+output ['100.67.153.71', '192.168.80.18', '100.67.153.80', '192.168.80.15']
+VM IP 100.67.153.71
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:f8:42:ae
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:f8:42:ae
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+PING google.com (172.217.1.142) 56(84) bytes of data.
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=1 ttl=42 time=10.5 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=2 ttl=42 time=10.4 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=3 ttl=42 time=10.4 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=4 ttl=42 time=10.3 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=5 ttl=42 time=10.4 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 10.384/10.454/10.591/0.117 ms
+Checking if nginx.repo file is present..
+Trying to send /home/osp_admin/NFV_window/nfv-auto/nginx.repo to ./nginx.repo...
+Sent.
+nginx.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo  nginx.repo
+Loaded plugins: fastestmirror
+================================= repo: nginx ==================================
+[nginx]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://nginx.org/packages/centos/7/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/nginx
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage =
+enabled = True
+enablegroups = True
+exclude =
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/nginx/gpgcadir
+gpgcakey =
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/nginx/gpgdir
+gpgkey = https://nginx.org/keys/nginx_signing.key
+hdrdir = /var/cache/yum/x86_64/7/nginx/headers
+http_caching = all
+includepkgs =
+ip_resolve =
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid =
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink =
+minrate = 0
+mirrorlist =
+mirrorlist_expire = 86400
+name = nginx mainline repo
+old_base_cache_dir =
+password =
+persistdir = /var/lib/yum/repos/x86_64/7/nginx
+pkgdir = /var/cache/yum/x86_64/7/nginx/packages
+proxy = False
+proxy_dict =
+proxy_password =
+proxy_username =
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert =
+sslclientcert =
+sslclientkey =
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = nginx/x86_64
+ui_repoid_vars = releasever,
+basearch
+username =
+
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+* base: repos.dfw.quadranet.com
+* extras: repos.dfw.quadranet.com
+* updates: repos.dfw.quadranet.com
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+nginx                                                    | 2.9 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/5): base/7/x86_64/group_gz                              | 166 kB   00:00
+(2/5): extras/7/x86_64/primary_db                          | 215 kB   00:00
+(4/5): nginx/x86_64/primar 2% [                 ]  0.0 B/s | 381 kB   --:-- ETA (3/5): nginx/x86_64/primary_db                             |  46 kB   00:00
+(5/5): updates/7/x86_64/pr 38% [======          ] 6.1 MB/s | 5.3 MB   00:01 ETA (5/5): updates/7/x86_64/pr 70% [===========     ] 6.6 MB/s | 9.7 MB   00:00 ETA (4/5): base/7/x86_64/primary_db                            | 6.0 MB   00:01
+(5/5): updates/7/x86_64/primary_db                         | 7.4 MB   00:01
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.0-1.el7.ngx will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package       Arch           Version                       Repository     Size
+================================================================================
+Installing:
+nginx         x86_64         1:1.16.0-1.el7.ngx            nginx         766 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 766 k
+Installed size: 2.7 M
+Downloading packages:
+nginx-1.16.0-1.el7.ngx.x86 13% [==              ]  0.0 B/s | 100 kB   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 25% [====            ]  96 kB/s | 197 kB   00:05 ETA nginx-1.16.0-1.el7.ngx.x86 26% [====            ]  91 kB/s | 202 kB   00:06 ETA nginx-1.16.0-1.el7.ngx.x86 26% [====            ]  85 kB/s | 206 kB   00:06 ETA nginx-1.16.0-1.el7.ngx.x86 46% [=======         ] 109 kB/s | 354 kB   00:03 ETA nginx-1.16.0-1.el7.ngx.x86 47% [=======-        ] 103 kB/s | 364 kB   00:03 ETA nginx-1.16.0-1.el7.ngx.x86 48% [=======-        ]  97 kB/s | 371 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 49% [=======-        ]  92 kB/s | 378 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 50% [========        ]  87 kB/s | 384 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 51% [========        ]  82 kB/s | 391 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 51% [========        ]  78 kB/s | 398 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 71% [===========     ] 102 kB/s | 547 kB   00:02 ETA nginx-1.16.0-1.el7.ngx.x86 89% [==============  ] 122 kB/s | 686 kB   00:00 ETA warning: /var/cache/yum/x86_64/7/nginx/packages/nginx-1.16.0-1.el7.ngx.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+Public key for nginx-1.16.0-1.el7.ngx.x86_64.rpm is not installed
+nginx-1.16.0-1.el7.ngx.x86_64.rpm                          | 766 kB   00:04
+Retrieving key from https://nginx.org/keys/nginx_signing.key
+Importing GPG key 0x7BD9BF62:
+Userid     : "nginx signing key <signing-key@nginx.com>"
+Fingerprint: 573b fd6b 3d8f bc64 1079 a6ab abf5 bd82 7bd9 bf62
+From       : https://nginx.org/keys/nginx_signing.key
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [                             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#                            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##                           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###                          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####                         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####                        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######                       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######                      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########                     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########                    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########                   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########                  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############                 ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#############                ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##############               ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###############              ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [################             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#################            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##################           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###################          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####################         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####################        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######################       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######################      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########################     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########################    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########################   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########################  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############################ ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* http://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
+----------------------------------------------------------------------
+Verifying  : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+
+Installed:
+nginx.x86_64 1:1.16.0-1.el7.ngx
+
+Complete!
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Tue 2019-08-06 06:29:45 UTC; 986ms ago
+Docs: http://nginx.org/en/docs/
+Process: 12806 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+Main PID: 12807 (nginx)
+CGroup: /system.slice/nginx.service
+├─12807 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12808 nginx: worker process
+
+Aug 06 06:29:45 octavia-vm1-tcp systemd[1]: Starting nginx - high performanc....
+Aug 06 06:29:45 octavia-vm1-tcp systemd[1]: PID file /var/run/nginx.pid not ....
+Aug 06 06:29:45 octavia-vm1-tcp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Tue 2019-08-06 06:29:45 UTC; 3s ago
+Docs: http://nginx.org/en/docs/
+Main PID: 12807 (nginx)
+CGroup: /system.slice/nginx.service
+├─12807 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12808 nginx: worker process
+
+Aug 06 06:29:45 octavia-vm1-tcp systemd[1]: Starting nginx - high performanc....
+Aug 06 06:29:45 octavia-vm1-tcp systemd[1]: PID file /var/run/nginx.pid not ....
+Aug 06 06:29:45 octavia-vm1-tcp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+* base: repos.dfw.quadranet.com
+* extras: repos.dfw.quadranet.com
+* updates: repos.dfw.quadranet.com
+Resolving Dependencies
+--> Running transaction check
+---> Package fio.x86_64 0:3.1-2.el7 will be installed
+--> Processing Dependency: librdmacm.so.1(RDMACM_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmemblk.so.1(LIBPMEMBLK_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmem.so.1(LIBPMEM_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libibverbs.so.1(IBVERBS_1.1)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libibverbs.so.1(IBVERBS_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: librdmacm.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: librbd.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: librados.so.2()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmemblk.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmem.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libibverbs.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Running transaction check
+---> Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+---> Package libibverbs.x86_64 0:17.2-3.el7 will be installed
+--> Processing Dependency: rdma-core(x86-64) = 17.2-3.el7 for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(warnings) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(strict) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(Getopt::Long) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(File::Path) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(File::Basename) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: /usr/bin/perl for package: libibverbs-17.2-3.el7.x86_64
+---> Package libpmem.x86_64 0:1.4-3.el7 will be installed
+---> Package libpmemblk.x86_64 0:1.4-3.el7 will be installed
+--> Processing Dependency: libndctl.so.6(LIBNDCTL_3)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libndctl.so.6(LIBNDCTL_14)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libndctl.so.6(LIBNDCTL_1)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libdaxctl.so.1(LIBDAXCTL_2)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libndctl.so.6()(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libdaxctl.so.1()(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+---> Package librados2.x86_64 1:10.2.5-4.el7 will be installed
+--> Processing Dependency: libboost_thread-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_system-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_random-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_iostreams-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+---> Package librbd1.x86_64 1:10.2.5-4.el7 will be installed
+---> Package librdmacm.x86_64 0:17.2-3.el7 will be installed
+--> Running transaction check
+---> Package boost-iostreams.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-random.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-system.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-thread.x86_64 0:1.53.0-27.el7 will be installed
+---> Package daxctl-libs.x86_64 0:62-1.el7 will be installed
+---> Package ndctl-libs.x86_64 0:62-1.el7 will be installed
+---> Package perl.x86_64 4:5.16.3-294.el7_6 will be installed
+--> Processing Dependency: perl-libs = 4:5.16.3-294.el7_6 for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Socket) >= 1.3 for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Scalar::Util) >= 1.10 for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl-macros for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl-libs for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(threads::shared) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(threads) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(constant) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Time::Local) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Time::HiRes) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Storable) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Socket) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Scalar::Util) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Pod::Simple::XHTML) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Pod::Simple::Search) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Filter::Util::Call) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Temp) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Spec::Unix) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Spec::Functions) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Spec) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Exporter) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Cwd) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Carp) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: libperl.so()(64bit) for package: 4:perl-5.16.3-294.el7_6.x86_64
+---> Package perl-File-Path.noarch 0:2.09-2.el7 will be installed
+---> Package perl-Getopt-Long.noarch 0:2.40-3.el7 will be installed
+--> Processing Dependency: perl(Pod::Usage) >= 1.14 for package: perl-Getopt-Long-2.40-3.el7.noarch
+--> Processing Dependency: perl(Text::ParseWords) for package: perl-Getopt-Long-2.40-3.el7.noarch
+---> Package rdma-core.x86_64 0:17.2-3.el7 will be installed
+--> Processing Dependency: pciutils for package: rdma-core-17.2-3.el7.x86_64
+--> Running transaction check
+---> Package pciutils.x86_64 0:3.5.1-3.el7 will be installed
+---> Package perl-Carp.noarch 0:1.26-244.el7 will be installed
+---> Package perl-Exporter.noarch 0:5.68-3.el7 will be installed
+---> Package perl-File-Temp.noarch 0:0.23.01-3.el7 will be installed
+---> Package perl-Filter.x86_64 0:1.49-3.el7 will be installed
+---> Package perl-PathTools.x86_64 0:3.40-5.el7 will be installed
+---> Package perl-Pod-Simple.noarch 1:3.28-4.el7 will be installed
+--> Processing Dependency: perl(Pod::Escapes) >= 1.04 for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+--> Processing Dependency: perl(Encode) for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+---> Package perl-Pod-Usage.noarch 0:1.63-3.el7 will be installed
+--> Processing Dependency: perl(Pod::Text) >= 3.15 for package: perl-Pod-Usage-1.63-3.el7.noarch
+--> Processing Dependency: perl-Pod-Perldoc for package: perl-Pod-Usage-1.63-3.el7.noarch
+---> Package perl-Scalar-List-Utils.x86_64 0:1.27-248.el7 will be installed
+---> Package perl-Socket.x86_64 0:2.010-4.el7 will be installed
+---> Package perl-Storable.x86_64 0:2.45-3.el7 will be installed
+---> Package perl-Text-ParseWords.noarch 0:3.29-4.el7 will be installed
+---> Package perl-Time-HiRes.x86_64 4:1.9725-3.el7 will be installed
+---> Package perl-Time-Local.noarch 0:1.2300-2.el7 will be installed
+---> Package perl-constant.noarch 0:1.27-2.el7 will be installed
+---> Package perl-libs.x86_64 4:5.16.3-294.el7_6 will be installed
+---> Package perl-macros.x86_64 4:5.16.3-294.el7_6 will be installed
+---> Package perl-threads.x86_64 0:1.87-4.el7 will be installed
+---> Package perl-threads-shared.x86_64 0:1.43-6.el7 will be installed
+--> Running transaction check
+---> Package perl-Encode.x86_64 0:2.51-7.el7 will be installed
+---> Package perl-Pod-Escapes.noarch 1:1.04-294.el7_6 will be installed
+---> Package perl-Pod-Perldoc.noarch 0:3.20-4.el7 will be installed
+--> Processing Dependency: perl(parent) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+--> Processing Dependency: perl(HTTP::Tiny) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+---> Package perl-podlators.noarch 0:2.5.1-3.el7 will be installed
+--> Running transaction check
+---> Package perl-HTTP-Tiny.noarch 0:0.033-3.el7 will be installed
+---> Package perl-parent.noarch 1:0.225-244.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package                    Arch       Version                Repository   Size
+================================================================================
+Installing:
+fio                        x86_64     3.1-2.el7              base        451 k
+Installing for dependencies:
+boost-iostreams            x86_64     1.53.0-27.el7          base         61 k
+boost-random               x86_64     1.53.0-27.el7          base         39 k
+boost-system               x86_64     1.53.0-27.el7          base         40 k
+boost-thread               x86_64     1.53.0-27.el7          base         57 k
+daxctl-libs                x86_64     62-1.el7               base         26 k
+libaio                     x86_64     0.3.109-13.el7         base         24 k
+libibverbs                 x86_64     17.2-3.el7             base        246 k
+libpmem                    x86_64     1.4-3.el7              base         53 k
+libpmemblk                 x86_64     1.4-3.el7              base         68 k
+librados2                  x86_64     1:10.2.5-4.el7         base        1.8 M
+librbd1                    x86_64     1:10.2.5-4.el7         base        2.4 M
+librdmacm                  x86_64     17.2-3.el7             base         62 k
+ndctl-libs                 x86_64     62-1.el7               base         61 k
+pciutils                   x86_64     3.5.1-3.el7            base         93 k
+perl                       x86_64     4:5.16.3-294.el7_6     updates     8.0 M
+perl-Carp                  noarch     1.26-244.el7           base         19 k
+perl-Encode                x86_64     2.51-7.el7             base        1.5 M
+perl-Exporter              noarch     5.68-3.el7             base         28 k
+perl-File-Path             noarch     2.09-2.el7             base         26 k
+perl-File-Temp             noarch     0.23.01-3.el7          base         56 k
+perl-Filter                x86_64     1.49-3.el7             base         76 k
+perl-Getopt-Long           noarch     2.40-3.el7             base         56 k
+perl-HTTP-Tiny             noarch     0.033-3.el7            base         38 k
+perl-PathTools             x86_64     3.40-5.el7             base         82 k
+perl-Pod-Escapes           noarch     1:1.04-294.el7_6       updates      51 k
+perl-Pod-Perldoc           noarch     3.20-4.el7             base         87 k
+perl-Pod-Simple            noarch     1:3.28-4.el7           base        216 k
+perl-Pod-Usage             noarch     1.63-3.el7             base         27 k
+perl-Scalar-List-Utils     x86_64     1.27-248.el7           base         36 k
+perl-Socket                x86_64     2.010-4.el7            base         49 k
+perl-Storable              x86_64     2.45-3.el7             base         77 k
+perl-Text-ParseWords       noarch     3.29-4.el7             base         14 k
+perl-Time-HiRes            x86_64     4:1.9725-3.el7         base         45 k
+perl-Time-Local            noarch     1.2300-2.el7           base         24 k
+perl-constant              noarch     1.27-2.el7             base         19 k
+perl-libs                  x86_64     4:5.16.3-294.el7_6     updates     688 k
+perl-macros                x86_64     4:5.16.3-294.el7_6     updates      44 k
+perl-parent                noarch     1:0.225-244.el7        base         12 k
+perl-podlators             noarch     2.5.1-3.el7            base        112 k
+perl-threads               x86_64     1.87-4.el7             base         49 k
+perl-threads-shared        x86_64     1.43-6.el7             base         39 k
+rdma-core                  x86_64     17.2-3.el7             base         49 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+42 Dependent packages)
+
+Total download size: 17 M
+Installed size: 53 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/base/packages/boost-random-1.53.0-27.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for boost-random-1.53.0-27.el7.x86_64.rpm is not installed
+(1/43): boost-random-1.53.0-27.el7.x86_64.rpm              |  39 kB   00:00
+(2/43): boost-iostreams-1.53.0-27.el7.x86_64.rpm           |  61 kB   00:00
+(3/43): boost-thread-1.53.0-27.el7.x86_64.rpm              |  57 kB   00:00
+(4/43): boost-system-1.53.0-27.el7.x86_64.rpm              |  40 kB   00:00
+(5/43): daxctl-libs-62-1.el7.x86_64.rpm                    |  26 kB   00:00
+(6/43): libaio-0.3.109-13.el7.x86_64.rpm                   |  24 kB   00:00
+(7/43): libpmem-1.4-3.el7.x86_64.rpm                       |  53 kB   00:00
+(8/43): libpmemblk-1.4-3.el7.x86_64.rpm                    |  68 kB   00:00
+(9/43): libibverbs-17.2-3.el7.x86_64.rpm                   | 246 kB   00:00
+(10/43): fio-3.1-2.el7.x86_64.rpm                          | 451 kB   00:00
+(12/43): librbd1-10.2.5-4. 15% [==              ]  0.0 B/s | 2.6 MB   --:-- ETA (11/43): librbd1-10.2.5-4.el7.x86_64.rpm                   | 2.4 MB   00:00
+(12/43): librados2-10.2.5-4.el7.x86_64.rpm                 | 1.8 MB   00:00
+(13/43): librdmacm-17.2-3.el7.x86_64.rpm                   |  62 kB   00:00
+(14/43): perl-Carp-1.26-244.el7.noarch.rpm                 |  19 kB   00:00
+(15/43): ndctl-libs-62-1.el7.x86_64.rpm                    |  61 kB   00:00
+(16/43): perl-Exporter-5.68-3.el7.noarch.rpm               |  28 kB   00:00
+(17/43): perl-File-Temp-0.23.01-3.el7.noarch.rpm           |  56 kB   00:00
+(18/43): perl-File-Path-2.09-2.el7.noarch.rpm              |  26 kB   00:00
+(19/43): perl-Filter-1.49-3.el7.x86_64.rpm                 |  76 kB   00:00
+(20/43): perl-HTTP-Tiny-0.033-3.el7.noarch.rpm             |  38 kB   00:00
+(21/43): perl-Getopt-Long-2.40-3.el7.noarch.rpm            |  56 kB   00:00
+(22/43): perl-PathTools-3.40-5.el7.x86_64.rpm              |  82 kB   00:00
+(23/43): perl-Pod-Perldoc-3.20-4.el7.noarch.rpm            |  87 kB   00:00
+Public key for perl-Pod-Escapes-1.04-294.el7_6.noarch.rpm is not installed
+(24/43): perl-Pod-Escapes-1.04-294.el7_6.noarch.rpm        |  51 kB   00:00
+(25/43): pciutils-3.5.1-3.el7.x86_64.rpm                   |  93 kB   00:00
+(26/43): perl-Pod-Simple-3.28-4.el7.noarch.rpm             | 216 kB   00:00
+(27/43): perl-Pod-Usage-1.63-3.el7.noarch.rpm              |  27 kB   00:00
+(28/43): perl-Scalar-List-Utils-1.27-248.el7.x86_64.rpm    |  36 kB   00:00
+(29/43): perl-Text-ParseWords-3.29-4.el7.noarch.rpm        |  14 kB   00:00
+(30/43): perl-Storable-2.45-3.el7.x86_64.rpm               |  77 kB   00:00
+(31/43): perl-Time-Local-1.2300-2.el7.noarch.rpm           |  24 kB   00:00
+(32/43): perl-Time-HiRes-1.9725-3.el7.x86_64.rpm           |  45 kB   00:00
+(33/43): perl-Socket-2.010-4.el7.x86_64.rpm                |  49 kB   00:00
+(34/43): perl-macros-5.16.3-294.el7_6.x86_64.rpm           |  44 kB   00:00
+(35/43): perl-parent-0.225-244.el7.noarch.rpm              |  12 kB   00:00
+(36/43): perl-constant-1.27-2.el7.noarch.rpm               |  19 kB   00:00
+(37/43): perl-podlators-2.5.1-3.el7.noarch.rpm             | 112 kB   00:00
+(38/43): perl-threads-shared-1.43-6.el7.x86_64.rpm         |  39 kB   00:00
+(39/43): perl-threads-1.87-4.el7.x86_64.rpm                |  49 kB   00:00
+(40/43): rdma-core-17.2-3.el7.x86_64.rpm                   |  49 kB   00:00
+(42/43): perl-Encode-2.51- 47% [=======-        ] 4.8 MB/s | 8.0 MB   00:01 ETA (41/43): perl-Encode-2.51-7.el7.x86_64.rpm                 | 1.5 MB   00:00
+(42/43): perl-libs-5.16.3-294.el7_6.x86_64.rpm             | 688 kB   00:00
+(43/43): perl-5.16.3-294.e 63% [==========      ] 5.0 MB/s |  11 MB   00:01 ETA (43/43): perl-5.16.3-294.e 74% [===========-    ] 5.0 MB/s |  13 MB   00:00 ETA (43/43): perl-5.16.3-294.e 88% [==============  ] 5.2 MB/s |  15 MB   00:00 ETA (43/43): perl-5.16.3-294.e 99% [===============-] 5.2 MB/s |  17 MB   00:00 ETA (43/43): perl-5.16.3-294.el7_6.x86_64.rpm                  | 8.0 MB   00:01
+--------------------------------------------------------------------------------
+Total                                              6.8 MB/s |  17 MB  00:02
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+Package    : centos-release-7-6.1810.2.el7.centos.x86_64 (installed)
+From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : boost-system-1.53.0-27.el7. [                            ]  1/43  Installing : boost-system-1.53.0-27.el7. [#############               ]  1/43  Installing : boost-system-1.53.0-27.el7. [##########################  ]  1/43  Installing : boost-system-1.53.0-27.el7. [########################### ]  1/43  Installing : boost-system-1.53.0-27.el7.x86_64                           1/43
+Installing : boost-thread-1.53.0-27.el7. [                            ]  2/43  Installing : boost-thread-1.53.0-27.el7. [###################         ]  2/43  Installing : boost-thread-1.53.0-27.el7. [########################### ]  2/43  Installing : boost-thread-1.53.0-27.el7.x86_64                           2/43
+Installing : libpmem-1.4-3.el7.x86_64 [                               ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [###########                    ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [######################         ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [#######################        ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [########################       ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [###########################    ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [############################## ]  3/43  Installing : libpmem-1.4-3.el7.x86_64                                    3/43
+Installing : boost-random-1.53.0-27.el7. [                            ]  4/43  Installing : boost-random-1.53.0-27.el7. [###############             ]  4/43  Installing : boost-random-1.53.0-27.el7. [##########################  ]  4/43  Installing : boost-random-1.53.0-27.el7. [########################### ]  4/43  Installing : boost-random-1.53.0-27.el7.x86_64                           4/43
+Installing : boost-iostreams-1.53.0-27.e [                            ]  5/43  Installing : boost-iostreams-1.53.0-27.e [########                    ]  5/43  Installing : boost-iostreams-1.53.0-27.e [#############               ]  5/43  Installing : boost-iostreams-1.53.0-27.e [######################      ]  5/43  Installing : boost-iostreams-1.53.0-27.e [########################### ]  5/43  Installing : boost-iostreams-1.53.0-27.el7.x86_64                        5/43
+Installing : 1:librados2-10.2.5-4.el7.x8 [                            ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#                           ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##                          ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###                         ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [####                        ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#####                       ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [######                      ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#######                     ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [########                    ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#########                   ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##########                  ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###########                 ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [############                ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#############               ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##############              ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###############             ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [################            ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#################           ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##################          ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###################         ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [####################        ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#####################       ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [######################      ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#######################     ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [########################    ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#########################   ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##########################  ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [########################### ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x86_64                             6/43
+Installing : daxctl-libs-62-1.el7.x86_64 [                            ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [###########                 ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [#############               ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [##############              ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [#################           ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [########################### ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64                                 7/43
+Installing : ndctl-libs-62-1.el7.x86_64 [                             ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [###########                  ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [######################       ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [#######################      ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [########################     ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [#########################    ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [############################ ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64                                  8/43
+Installing : libpmemblk-1.4-3.el7.x86_64 [                            ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [###########                 ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [####################        ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [#####################       ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [#########################   ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [########################### ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64                                 9/43
+Installing : 1:librbd1-10.2.5-4.el7.x86_ [                            ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#                           ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##                          ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###                         ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [####                        ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#####                       ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [######                      ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#######                     ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [########                    ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#########                   ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##########                  ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###########                 ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [############                ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#############               ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##############              ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###############             ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [################            ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#################           ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##################          ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###################         ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [####################        ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#####################       ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [######################      ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#######################     ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [########################    ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#########################   ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##########################  ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [########################### ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_64                              10/43
+Installing : 1:perl-parent-0.225-244.el7 [                            ] 11/43  Installing : 1:perl-parent-0.225-244.el7 [########                    ] 11/43  Installing : 1:perl-parent-0.225-244.el7 [#################           ] 11/43  Installing : 1:perl-parent-0.225-244.el7 [########################### ] 11/43  Installing : 1:perl-parent-0.225-244.el7.noarch                         11/43
+Installing : perl-HTTP-Tiny-0.033-3.el7. [                            ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [##                          ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [#######                     ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [############                ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [##############              ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [###############             ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [########################### ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7.noarch                          12/43
+Installing : perl-podlators-2.5.1-3.el7. [                            ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#                           ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##                          ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [########                    ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#########                   ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##########                  ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [###########                 ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [############                ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#############               ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##############              ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [###############             ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#####################       ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [######################      ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##########################  ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [########################### ] 13/43  Installing : perl-podlators-2.5.1-3.el7.noarch                          13/43
+Installing : perl-Pod-Perldoc-3.20-4.el7 [                            ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#                           ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [###                         ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [####                        ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#####                       ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [######                      ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#######                     ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [########                    ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#########                   ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [###################         ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [####################        ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#####################       ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#######################     ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [########################    ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#########################   ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [##########################  ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [########################### ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7.noarch                         14/43
+Installing : 1:perl-Pod-Escapes-1.04-294 [                            ] 15/43  Installing : 1:perl-Pod-Escapes-1.04-294 [#####                       ] 15/43  Installing : 1:perl-Pod-Escapes-1.04-294 [########################### ] 15/43  Installing : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                   15/43
+Installing : perl-Encode-2.51-7.el7.x86_ [                            ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#                           ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##                          ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###                         ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [####                        ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#####                       ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [######                      ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#######                     ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [########                    ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#########                   ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##########                  ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###########                 ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [############                ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#############               ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##############              ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###############             ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [################            ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#################           ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##################          ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###################         ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [####################        ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#####################       ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [######################      ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#######################     ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [########################    ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#########################   ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##########################  ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [########################### ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_64                              16/43
+Installing : perl-Text-ParseWords-3.29-4 [                            ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [#                           ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [###                         ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [########                    ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [##############              ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [########################### ] 17/43  Installing : perl-Text-ParseWords-3.29-4.el7.noarch                     17/43
+Installing : perl-Pod-Usage-1.63-3.el7.n [                            ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [##                          ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [###                         ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [#####                       ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [#######                     ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [###########                 ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [########################### ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.noarch                           18/43
+Installing : 4:perl-libs-5.16.3-294.el7_ [                            ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#                           ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [###                         ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [####                        ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#####                       ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [######                      ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#######                     ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [########                    ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#########                   ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##########                  ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [############                ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#############               ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##############              ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [###############             ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [################            ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#################           ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##################          ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [###################         ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#####################       ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [######################      ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#######################     ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [########################    ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#########################   ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##########################  ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [########################### ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_6.x86_64                        19/43
+Installing : 4:perl-macros-5.16.3-294.el [                            ] 20/43  Installing : 4:perl-macros-5.16.3-294.el [########################### ] 20/43  Installing : 4:perl-macros-5.16.3-294.el7_6.x86_64                      20/43
+Installing : 4:perl-Time-HiRes-1.9725-3. [                            ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [######                      ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [#############               ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [########################    ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [#########################   ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [########################### ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      21/43
+Installing : perl-Exporter-5.68-3.el7.no [                            ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [#                           ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [##########                  ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [##############              ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [###############             ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [########################    ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [########################### ] 22/43  Installing : perl-Exporter-5.68-3.el7.noarch                            22/43
+Installing : perl-constant-1.27-2.el7.no [                            ] 23/43  Installing : perl-constant-1.27-2.el7.no [#####                       ] 23/43  Installing : perl-constant-1.27-2.el7.no [#######                     ] 23/43  Installing : perl-constant-1.27-2.el7.no [########                    ] 23/43  Installing : perl-constant-1.27-2.el7.no [##############              ] 23/43  Installing : perl-constant-1.27-2.el7.no [########################### ] 23/43  Installing : perl-constant-1.27-2.el7.noarch                            23/43
+Installing : perl-Time-Local-1.2300-2.el [                            ] 24/43  Installing : perl-Time-Local-1.2300-2.el [#####                       ] 24/43  Installing : perl-Time-Local-1.2300-2.el [################            ] 24/43  Installing : perl-Time-Local-1.2300-2.el [####################        ] 24/43  Installing : perl-Time-Local-1.2300-2.el [########################### ] 24/43  Installing : perl-Time-Local-1.2300-2.el7.noarch                        24/43
+Installing : perl-Socket-2.010-4.el7.x86 [                            ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [########                    ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [###################         ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [#####################       ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [######################      ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [#########################   ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [########################### ] 25/43  Installing : perl-Socket-2.010-4.el7.x86_64                             25/43
+Installing : perl-Carp-1.26-244.el7.noar [                            ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [#                           ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [##                          ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [#######                     ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [########################### ] 26/43  Installing : perl-Carp-1.26-244.el7.noarch                              26/43
+Installing : perl-Storable-2.45-3.el7.x8 [                            ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [######                      ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [################            ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [###################         ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [########################    ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [#########################   ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [########################### ] 27/43  Installing : perl-Storable-2.45-3.el7.x86_64                            27/43
+Installing : perl-PathTools-3.40-5.el7.x [                            ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [###                         ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#####                       ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [######                      ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#########                   ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [##########                  ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#############               ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [###############             ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [################            ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [######################      ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#######################     ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [########################    ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#########################   ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [##########################  ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [########################### ] 28/43  Installing : perl-PathTools-3.40-5.el7.x86_64                           28/43
+Installing : perl-Scalar-List-Utils-1.27 [                            ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [##                          ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [###                         ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [######                      ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [#################           ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [######################      ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [#######################     ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [########################    ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [##########################  ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [########################### ] 29/43  Installing : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 29/43
+Installing : 1:perl-Pod-Simple-3.28-4.el [                            ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#                           ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##                          ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [###                         ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [####                        ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#####                       ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [######                      ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#########                   ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#############               ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##############              ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [###############             ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#################           ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##################          ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [####################        ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#####################       ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#######################     ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#########################   ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##########################  ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [########################### ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el7.noarch                        30/43
+Installing : perl-File-Temp-0.23.01-3.el [                            ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [##                          ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [#####                       ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [###########                 ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [##############              ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [#########################   ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [########################### ] 31/43  Installing : perl-File-Temp-0.23.01-3.el7.noarch                        31/43
+Installing : perl-File-Path-2.09-2.el7.n [                            ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [###                         ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [####                        ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [#########                   ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [########################### ] 32/43  Installing : perl-File-Path-2.09-2.el7.noarch                           32/43
+Installing : perl-threads-shared-1.43-6. [                            ] 33/43  Installing : perl-threads-shared-1.43-6. [###############             ] 33/43  Installing : perl-threads-shared-1.43-6. [######################      ] 33/43  Installing : perl-threads-shared-1.43-6. [########################    ] 33/43  Installing : perl-threads-shared-1.43-6. [########################### ] 33/43  Installing : perl-threads-shared-1.43-6.el7.x86_64                      33/43
+Installing : perl-threads-1.87-4.el7.x86 [                            ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [###########                 ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [#####################       ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [#######################     ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [########################    ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [########################### ] 34/43  Installing : perl-threads-1.87-4.el7.x86_64                             34/43
+Installing : perl-Filter-1.49-3.el7.x86_ [                            ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##                          ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [######                      ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#######                     ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [########                    ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [###########                 ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##############              ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [###############             ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#################           ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##################          ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [###################         ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [####################        ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#####################       ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [######################      ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#######################     ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#########################   ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##########################  ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [########################### ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_64                              35/43
+Installing : perl-Getopt-Long-2.40-3.el7 [                            ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [###                         ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [#####                       ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [######                      ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [#######                     ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [##########                  ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [########################    ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [########################### ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7.noarch                         36/43
+Installing : 4:perl-5.16.3-294.el7_6.x86 [                            ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#                           ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##                          ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###                         ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [####                        ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#####                       ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [######                      ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#######                     ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [########                    ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#########                   ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##########                  ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###########                 ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [############                ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#############               ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##############              ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###############             ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [################            ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#################           ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##################          ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###################         ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [####################        ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#####################       ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [######################      ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#######################     ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [########################    ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#########################   ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##########################  ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [########################### ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86_64                             37/43
+Installing : pciutils-3.5.1-3.el7.x86_64 [                            ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [########                    ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [##########                  ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [#############               ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [##############              ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [################            ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [#########################   ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [##########################  ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [########################### ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64                                38/43
+Installing : rdma-core-17.2-3.el7.x86_64 [                            ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#                           ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [##                          ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###                         ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#####                       ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#######                     ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [########                    ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#########                   ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [##########                  ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###########                 ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [############                ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#############               ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###############             ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###################         ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [####################        ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#####################       ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [######################      ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [##########################  ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [########################### ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64                                39/43
+Installing : libibverbs-17.2-3.el7.x86_6 [                            ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###                         ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [####                        ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#####                       ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [######                      ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#######                     ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [########                    ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##########                  ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###########                 ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [############                ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#############               ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##############              ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###############             ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#################           ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##################          ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###################         ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#####################       ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#######################     ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##########################  ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [########################### ] 40/43  Installing : libibverbs-17.2-3.el7.x86_64                               40/43
+Installing : librdmacm-17.2-3.el7.x86_64 [                            ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [##############              ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [####################        ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [##########################  ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [########################### ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64                                41/43
+Installing : libaio-0.3.109-13.el7.x86_6 [                            ] 42/43  Installing : libaio-0.3.109-13.el7.x86_6 [####                        ] 42/43  Installing : libaio-0.3.109-13.el7.x86_6 [########                    ] 42/43  Installing : libaio-0.3.109-13.el7.x86_6 [########################### ] 42/43  Installing : libaio-0.3.109-13.el7.x86_64                               42/43
+Installing : fio-3.1-2.el7.x86_64 [                                   ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#                                  ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##                                 ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###                                ] 43/43  Installing : fio-3.1-2.el7.x86_64 [####                               ] 43/43  Installing : fio-3.1-2.el7.x86_64 [######                             ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#######                            ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#########                          ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##########                         ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###########                        ] 43/43  Installing : fio-3.1-2.el7.x86_64 [############                       ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##############                     ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###############                    ] 43/43  Installing : fio-3.1-2.el7.x86_64 [################                   ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##################                 ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###################                ] 43/43  Installing : fio-3.1-2.el7.x86_64 [####################               ] 43/43  Installing : fio-3.1-2.el7.x86_64 [######################             ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#######################            ] 43/43  Installing : fio-3.1-2.el7.x86_64 [########################           ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#########################          ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##########################         ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###########################        ] 43/43  Installing : fio-3.1-2.el7.x86_64 [############################       ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#############################      ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##############################     ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###############################    ] 43/43  Installing : fio-3.1-2.el7.x86_64 [################################   ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#################################  ] 43/43  Installing : fio-3.1-2.el7.x86_64 [################################## ] 43/43  Installing : fio-3.1-2.el7.x86_64                                       43/43
+Verifying  : 1:librbd1-10.2.5-4.el7.x86_64                               1/43
+Verifying  : perl-HTTP-Tiny-0.033-3.el7.noarch                           2/43
+Verifying  : boost-system-1.53.0-27.el7.x86_64                           3/43
+Verifying  : perl-threads-shared-1.43-6.el7.x86_64                       4/43
+Verifying  : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                       5/43
+Verifying  : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                    6/43
+Verifying  : librdmacm-17.2-3.el7.x86_64                                 7/43
+Verifying  : perl-Exporter-5.68-3.el7.noarch                             8/43
+Verifying  : perl-constant-1.27-2.el7.noarch                             9/43
+Verifying  : perl-PathTools-3.40-5.el7.x86_64                           10/43
+Verifying  : daxctl-libs-62-1.el7.x86_64                                11/43
+Verifying  : rdma-core-17.2-3.el7.x86_64                                12/43
+Verifying  : 1:perl-parent-0.225-244.el7.noarch                         13/43
+Verifying  : 4:perl-libs-5.16.3-294.el7_6.x86_64                        14/43
+Verifying  : perl-File-Temp-0.23.01-3.el7.noarch                        15/43
+Verifying  : 1:perl-Pod-Simple-3.28-4.el7.noarch                        16/43
+Verifying  : perl-Getopt-Long-2.40-3.el7.noarch                         17/43
+Verifying  : fio-3.1-2.el7.x86_64                                       18/43
+Verifying  : boost-iostreams-1.53.0-27.el7.x86_64                       19/43
+Verifying  : boost-random-1.53.0-27.el7.x86_64                          20/43
+Verifying  : perl-Time-Local-1.2300-2.el7.noarch                        21/43
+Verifying  : libaio-0.3.109-13.el7.x86_64                               22/43
+Verifying  : 4:perl-macros-5.16.3-294.el7_6.x86_64                      23/43
+Verifying  : perl-Socket-2.010-4.el7.x86_64                             24/43
+Verifying  : boost-thread-1.53.0-27.el7.x86_64                          25/43
+Verifying  : perl-Carp-1.26-244.el7.noarch                              26/43
+Verifying  : perl-Storable-2.45-3.el7.x86_64                            27/43
+Verifying  : 1:librados2-10.2.5-4.el7.x86_64                            28/43
+Verifying  : libpmem-1.4-3.el7.x86_64                                   29/43
+Verifying  : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 30/43
+Verifying  : ndctl-libs-62-1.el7.x86_64                                 31/43
+Verifying  : perl-Pod-Usage-1.63-3.el7.noarch                           32/43
+Verifying  : perl-Encode-2.51-7.el7.x86_64                              33/43
+Verifying  : perl-Pod-Perldoc-3.20-4.el7.noarch                         34/43
+Verifying  : perl-podlators-2.5.1-3.el7.noarch                          35/43
+Verifying  : perl-File-Path-2.09-2.el7.noarch                           36/43
+Verifying  : perl-threads-1.87-4.el7.x86_64                             37/43
+Verifying  : perl-Filter-1.49-3.el7.x86_64                              38/43
+Verifying  : libibverbs-17.2-3.el7.x86_64                               39/43
+Verifying  : perl-Text-ParseWords-3.29-4.el7.noarch                     40/43
+Verifying  : 4:perl-5.16.3-294.el7_6.x86_64                             41/43
+Verifying  : pciutils-3.5.1-3.el7.x86_64                                42/43
+Verifying  : libpmemblk-1.4-3.el7.x86_64                                43/43
+
+Installed:
+fio.x86_64 0:3.1-2.el7
+
+Dependency Installed:
+boost-iostreams.x86_64 0:1.53.0-27.el7
+boost-random.x86_64 0:1.53.0-27.el7
+boost-system.x86_64 0:1.53.0-27.el7
+boost-thread.x86_64 0:1.53.0-27.el7
+daxctl-libs.x86_64 0:62-1.el7
+libaio.x86_64 0:0.3.109-13.el7
+libibverbs.x86_64 0:17.2-3.el7
+libpmem.x86_64 0:1.4-3.el7
+libpmemblk.x86_64 0:1.4-3.el7
+librados2.x86_64 1:10.2.5-4.el7
+librbd1.x86_64 1:10.2.5-4.el7
+librdmacm.x86_64 0:17.2-3.el7
+ndctl-libs.x86_64 0:62-1.el7
+pciutils.x86_64 0:3.5.1-3.el7
+perl.x86_64 4:5.16.3-294.el7_6
+perl-Carp.noarch 0:1.26-244.el7
+perl-Encode.x86_64 0:2.51-7.el7
+perl-Exporter.noarch 0:5.68-3.el7
+perl-File-Path.noarch 0:2.09-2.el7
+perl-File-Temp.noarch 0:0.23.01-3.el7
+perl-Filter.x86_64 0:1.49-3.el7
+perl-Getopt-Long.noarch 0:2.40-3.el7
+perl-HTTP-Tiny.noarch 0:0.033-3.el7
+perl-PathTools.x86_64 0:3.40-5.el7
+perl-Pod-Escapes.noarch 1:1.04-294.el7_6
+perl-Pod-Perldoc.noarch 0:3.20-4.el7
+perl-Pod-Simple.noarch 1:3.28-4.el7
+perl-Pod-Usage.noarch 0:1.63-3.el7
+perl-Scalar-List-Utils.x86_64 0:1.27-248.el7
+perl-Socket.x86_64 0:2.010-4.el7
+perl-Storable.x86_64 0:2.45-3.el7
+perl-Text-ParseWords.noarch 0:3.29-4.el7
+perl-Time-HiRes.x86_64 4:1.9725-3.el7
+perl-Time-Local.noarch 0:1.2300-2.el7
+perl-constant.noarch 0:1.27-2.el7
+perl-libs.x86_64 4:5.16.3-294.el7_6
+perl-macros.x86_64 4:5.16.3-294.el7_6
+perl-parent.noarch 1:0.225-244.el7
+perl-podlators.noarch 0:2.5.1-3.el7
+perl-threads.x86_64 0:1.87-4.el7
+perl-threads-shared.x86_64 0:1.43-6.el7
+rdma-core.x86_64 0:17.2-3.el7
+
+Complete!
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+VM IP 100.67.153.80
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:f1:c9:71
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:f1:c9:71
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+PING google.com (172.217.1.142) 56(84) bytes of data.
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=1 ttl=42 time=10.6 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=2 ttl=42 time=10.5 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=3 ttl=42 time=10.4 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=4 ttl=42 time=10.6 ms
+64 bytes from dfw28s23-in-f14.1e100.net (172.217.1.142): icmp_seq=5 ttl=42 time=10.4 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 10.417/10.530/10.652/0.128 ms
+Checking if nginx.repo file is present..
+Trying to send /home/osp_admin/NFV_window/nfv-auto/nginx.repo to ./nginx.repo...
+Sent.
+nginx.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo  nginx.repo
+Loaded plugins: fastestmirror
+================================= repo: nginx ==================================
+[nginx]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://nginx.org/packages/centos/7/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/nginx
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage =
+enabled = True
+enablegroups = True
+exclude =
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/nginx/gpgcadir
+gpgcakey =
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/nginx/gpgdir
+gpgkey = https://nginx.org/keys/nginx_signing.key
+hdrdir = /var/cache/yum/x86_64/7/nginx/headers
+http_caching = all
+includepkgs =
+ip_resolve =
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid =
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink =
+minrate = 0
+mirrorlist =
+mirrorlist_expire = 86400
+name = nginx mainline repo
+old_base_cache_dir =
+password =
+persistdir = /var/lib/yum/repos/x86_64/7/nginx
+pkgdir = /var/cache/yum/x86_64/7/nginx/packages
+proxy = False
+proxy_dict =
+proxy_password =
+proxy_username =
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert =
+sslclientcert =
+sslclientkey =
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = nginx/x86_64
+ui_repoid_vars = releasever,
+basearch
+username =
+
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+* base: mirror.dal.nexril.net
+* extras: mirror.dal.nexril.net
+* updates: mirror.dal.nexril.net
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+nginx                                                    | 2.9 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/5): extras/7/x86_64/primary_db                          | 215 kB   00:00
+(2/5): base/7/x86_64/group_gz                              | 166 kB   00:00
+(4/5): nginx/x86_64/primar 2% [                 ]  0.0 B/s | 381 kB   --:-- ETA (3/5): nginx/x86_64/primary_db                             |  46 kB   00:00
+(5/5): updates/7/x86_64/pr 46% [=======         ] 7.0 MB/s | 6.4 MB   00:01 ETA (4/5): base/7/x86_64/primary_db                            | 6.0 MB   00:01
+(5/5): updates/7/x86_64/pr 95% [=============== ] 7.9 MB/s |  13 MB   00:00 ETA (5/5): updates/7/x86_64/primary_db                         | 7.4 MB   00:01
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.0-1.el7.ngx will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package       Arch           Version                       Repository     Size
+================================================================================
+Installing:
+nginx         x86_64         1:1.16.0-1.el7.ngx            nginx         766 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 766 k
+Installed size: 2.7 M
+Downloading packages:
+nginx-1.16.0-1.el7.ngx.x86 0% [                 ]  0.0 B/s |    0 B   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 12% [==              ]  0.0 B/s |  97 kB   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 34% [=====           ] 226 kB/s | 261 kB   00:02 ETA nginx-1.16.0-1.el7.ngx.x86 49% [=======-        ] 235 kB/s | 379 kB   00:01 ETA nginx-1.16.0-1.el7.ngx.x86 67% [==========-     ] 247 kB/s | 514 kB   00:01 ETA nginx-1.16.0-1.el7.ngx.x86 90% [==============- ] 266 kB/s | 694 kB   00:00 ETA warning: /var/cache/yum/x86_64/7/nginx/packages/nginx-1.16.0-1.el7.ngx.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+Public key for nginx-1.16.0-1.el7.ngx.x86_64.rpm is not installed
+nginx-1.16.0-1.el7.ngx.x86_64.rpm                          | 766 kB   00:02
+Retrieving key from https://nginx.org/keys/nginx_signing.key
+Importing GPG key 0x7BD9BF62:
+Userid     : "nginx signing key <signing-key@nginx.com>"
+Fingerprint: 573b fd6b 3d8f bc64 1079 a6ab abf5 bd82 7bd9 bf62
+From       : https://nginx.org/keys/nginx_signing.key
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [                             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#                            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##                           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###                          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####                         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####                        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######                       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######                      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########                     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########                    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########                   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########                  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############                 ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#############                ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##############               ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###############              ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [################             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#################            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##################           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###################          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####################         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####################        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######################       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######################      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########################     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########################    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########################   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########################  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############################ ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* http://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
+----------------------------------------------------------------------
+Verifying  : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+
+Installed:
+nginx.x86_64 1:1.16.0-1.el7.ngx
+
+Complete!
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Tue 2019-08-06 06:30:29 UTC; 985ms ago
+Docs: http://nginx.org/en/docs/
+Process: 12798 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+Main PID: 12799 (nginx)
+CGroup: /system.slice/nginx.service
+├─12799 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12800 nginx: worker process
+
+Aug 06 06:30:29 octavia-vm2-ycp systemd[1]: Starting nginx - high performanc....
+Aug 06 06:30:29 octavia-vm2-ycp systemd[1]: PID file /var/run/nginx.pid not ....
+Aug 06 06:30:29 octavia-vm2-ycp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Tue 2019-08-06 06:30:29 UTC; 2s ago
+Docs: http://nginx.org/en/docs/
+Main PID: 12799 (nginx)
+CGroup: /system.slice/nginx.service
+├─12799 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12800 nginx: worker process
+
+Aug 06 06:30:29 octavia-vm2-ycp systemd[1]: Starting nginx - high performanc....
+Aug 06 06:30:29 octavia-vm2-ycp systemd[1]: PID file /var/run/nginx.pid not ....
+Aug 06 06:30:29 octavia-vm2-ycp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+* base: mirror.dal.nexril.net
+* extras: mirror.dal.nexril.net
+* updates: mirror.dal.nexril.net
+Resolving Dependencies
+--> Running transaction check
+---> Package fio.x86_64 0:3.1-2.el7 will be installed
+--> Processing Dependency: librdmacm.so.1(RDMACM_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmemblk.so.1(LIBPMEMBLK_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmem.so.1(LIBPMEM_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libibverbs.so.1(IBVERBS_1.1)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libibverbs.so.1(IBVERBS_1.0)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: librdmacm.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: librbd.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: librados.so.2()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmemblk.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libpmem.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libibverbs.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: fio-3.1-2.el7.x86_64
+--> Running transaction check
+---> Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+---> Package libibverbs.x86_64 0:17.2-3.el7 will be installed
+--> Processing Dependency: rdma-core(x86-64) = 17.2-3.el7 for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(warnings) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(strict) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(Getopt::Long) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(File::Path) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: perl(File::Basename) for package: libibverbs-17.2-3.el7.x86_64
+--> Processing Dependency: /usr/bin/perl for package: libibverbs-17.2-3.el7.x86_64
+---> Package libpmem.x86_64 0:1.4-3.el7 will be installed
+---> Package libpmemblk.x86_64 0:1.4-3.el7 will be installed
+--> Processing Dependency: libndctl.so.6(LIBNDCTL_3)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libndctl.so.6(LIBNDCTL_14)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libndctl.so.6(LIBNDCTL_1)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libdaxctl.so.1(LIBDAXCTL_2)(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libndctl.so.6()(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+--> Processing Dependency: libdaxctl.so.1()(64bit) for package: libpmemblk-1.4-3.el7.x86_64
+---> Package librados2.x86_64 1:10.2.5-4.el7 will be installed
+--> Processing Dependency: libboost_thread-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_system-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_random-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_iostreams-mt.so.1.53.0()(64bit) for package: 1:librados2-10.2.5-4.el7.x86_64
+---> Package librbd1.x86_64 1:10.2.5-4.el7 will be installed
+---> Package librdmacm.x86_64 0:17.2-3.el7 will be installed
+--> Running transaction check
+---> Package boost-iostreams.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-random.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-system.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-thread.x86_64 0:1.53.0-27.el7 will be installed
+---> Package daxctl-libs.x86_64 0:62-1.el7 will be installed
+---> Package ndctl-libs.x86_64 0:62-1.el7 will be installed
+---> Package perl.x86_64 4:5.16.3-294.el7_6 will be installed
+--> Processing Dependency: perl-libs = 4:5.16.3-294.el7_6 for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Socket) >= 1.3 for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Scalar::Util) >= 1.10 for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl-macros for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl-libs for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(threads::shared) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(threads) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(constant) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Time::Local) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Time::HiRes) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Storable) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Socket) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Scalar::Util) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Pod::Simple::XHTML) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Pod::Simple::Search) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Filter::Util::Call) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Temp) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Spec::Unix) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Spec::Functions) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(File::Spec) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Exporter) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Cwd) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: perl(Carp) for package: 4:perl-5.16.3-294.el7_6.x86_64
+--> Processing Dependency: libperl.so()(64bit) for package: 4:perl-5.16.3-294.el7_6.x86_64
+---> Package perl-File-Path.noarch 0:2.09-2.el7 will be installed
+---> Package perl-Getopt-Long.noarch 0:2.40-3.el7 will be installed
+--> Processing Dependency: perl(Pod::Usage) >= 1.14 for package: perl-Getopt-Long-2.40-3.el7.noarch
+--> Processing Dependency: perl(Text::ParseWords) for package: perl-Getopt-Long-2.40-3.el7.noarch
+---> Package rdma-core.x86_64 0:17.2-3.el7 will be installed
+--> Processing Dependency: pciutils for package: rdma-core-17.2-3.el7.x86_64
+--> Running transaction check
+---> Package pciutils.x86_64 0:3.5.1-3.el7 will be installed
+---> Package perl-Carp.noarch 0:1.26-244.el7 will be installed
+---> Package perl-Exporter.noarch 0:5.68-3.el7 will be installed
+---> Package perl-File-Temp.noarch 0:0.23.01-3.el7 will be installed
+---> Package perl-Filter.x86_64 0:1.49-3.el7 will be installed
+---> Package perl-PathTools.x86_64 0:3.40-5.el7 will be installed
+---> Package perl-Pod-Simple.noarch 1:3.28-4.el7 will be installed
+--> Processing Dependency: perl(Pod::Escapes) >= 1.04 for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+--> Processing Dependency: perl(Encode) for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+---> Package perl-Pod-Usage.noarch 0:1.63-3.el7 will be installed
+--> Processing Dependency: perl(Pod::Text) >= 3.15 for package: perl-Pod-Usage-1.63-3.el7.noarch
+--> Processing Dependency: perl-Pod-Perldoc for package: perl-Pod-Usage-1.63-3.el7.noarch
+---> Package perl-Scalar-List-Utils.x86_64 0:1.27-248.el7 will be installed
+---> Package perl-Socket.x86_64 0:2.010-4.el7 will be installed
+---> Package perl-Storable.x86_64 0:2.45-3.el7 will be installed
+---> Package perl-Text-ParseWords.noarch 0:3.29-4.el7 will be installed
+---> Package perl-Time-HiRes.x86_64 4:1.9725-3.el7 will be installed
+---> Package perl-Time-Local.noarch 0:1.2300-2.el7 will be installed
+---> Package perl-constant.noarch 0:1.27-2.el7 will be installed
+---> Package perl-libs.x86_64 4:5.16.3-294.el7_6 will be installed
+---> Package perl-macros.x86_64 4:5.16.3-294.el7_6 will be installed
+---> Package perl-threads.x86_64 0:1.87-4.el7 will be installed
+---> Package perl-threads-shared.x86_64 0:1.43-6.el7 will be installed
+--> Running transaction check
+---> Package perl-Encode.x86_64 0:2.51-7.el7 will be installed
+---> Package perl-Pod-Escapes.noarch 1:1.04-294.el7_6 will be installed
+---> Package perl-Pod-Perldoc.noarch 0:3.20-4.el7 will be installed
+--> Processing Dependency: perl(parent) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+--> Processing Dependency: perl(HTTP::Tiny) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+---> Package perl-podlators.noarch 0:2.5.1-3.el7 will be installed
+--> Running transaction check
+---> Package perl-HTTP-Tiny.noarch 0:0.033-3.el7 will be installed
+---> Package perl-parent.noarch 1:0.225-244.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package                    Arch       Version                Repository   Size
+================================================================================
+Installing:
+fio                        x86_64     3.1-2.el7              base        451 k
+Installing for dependencies:
+boost-iostreams            x86_64     1.53.0-27.el7          base         61 k
+boost-random               x86_64     1.53.0-27.el7          base         39 k
+boost-system               x86_64     1.53.0-27.el7          base         40 k
+boost-thread               x86_64     1.53.0-27.el7          base         57 k
+daxctl-libs                x86_64     62-1.el7               base         26 k
+libaio                     x86_64     0.3.109-13.el7         base         24 k
+libibverbs                 x86_64     17.2-3.el7             base        246 k
+libpmem                    x86_64     1.4-3.el7              base         53 k
+libpmemblk                 x86_64     1.4-3.el7              base         68 k
+librados2                  x86_64     1:10.2.5-4.el7         base        1.8 M
+librbd1                    x86_64     1:10.2.5-4.el7         base        2.4 M
+librdmacm                  x86_64     17.2-3.el7             base         62 k
+ndctl-libs                 x86_64     62-1.el7               base         61 k
+pciutils                   x86_64     3.5.1-3.el7            base         93 k
+perl                       x86_64     4:5.16.3-294.el7_6     updates     8.0 M
+perl-Carp                  noarch     1.26-244.el7           base         19 k
+perl-Encode                x86_64     2.51-7.el7             base        1.5 M
+perl-Exporter              noarch     5.68-3.el7             base         28 k
+perl-File-Path             noarch     2.09-2.el7             base         26 k
+perl-File-Temp             noarch     0.23.01-3.el7          base         56 k
+perl-Filter                x86_64     1.49-3.el7             base         76 k
+perl-Getopt-Long           noarch     2.40-3.el7             base         56 k
+perl-HTTP-Tiny             noarch     0.033-3.el7            base         38 k
+perl-PathTools             x86_64     3.40-5.el7             base         82 k
+perl-Pod-Escapes           noarch     1:1.04-294.el7_6       updates      51 k
+perl-Pod-Perldoc           noarch     3.20-4.el7             base         87 k
+perl-Pod-Simple            noarch     1:3.28-4.el7           base        216 k
+perl-Pod-Usage             noarch     1.63-3.el7             base         27 k
+perl-Scalar-List-Utils     x86_64     1.27-248.el7           base         36 k
+perl-Socket                x86_64     2.010-4.el7            base         49 k
+perl-Storable              x86_64     2.45-3.el7             base         77 k
+perl-Text-ParseWords       noarch     3.29-4.el7             base         14 k
+perl-Time-HiRes            x86_64     4:1.9725-3.el7         base         45 k
+perl-Time-Local            noarch     1.2300-2.el7           base         24 k
+perl-constant              noarch     1.27-2.el7             base         19 k
+perl-libs                  x86_64     4:5.16.3-294.el7_6     updates     688 k
+perl-macros                x86_64     4:5.16.3-294.el7_6     updates      44 k
+perl-parent                noarch     1:0.225-244.el7        base         12 k
+perl-podlators             noarch     2.5.1-3.el7            base        112 k
+perl-threads               x86_64     1.87-4.el7             base         49 k
+perl-threads-shared        x86_64     1.43-6.el7             base         39 k
+rdma-core                  x86_64     17.2-3.el7             base         49 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+42 Dependent packages)
+
+Total download size: 17 M
+Installed size: 53 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/base/packages/boost-iostreams-1.53.0-27.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for boost-iostreams-1.53.0-27.el7.x86_64.rpm is not installed
+(1/43): boost-iostreams-1.53.0-27.el7.x86_64.rpm           |  61 kB   00:00
+(2/43): daxctl-libs-62-1.el7.x86_64.rpm                    |  26 kB   00:00
+(3/43): boost-random-1.53.0-27.el7.x86_64.rpm              |  39 kB   00:00
+(4/43): boost-system-1.53.0-27.el7.x86_64.rpm              |  40 kB   00:00
+(5/43): libaio-0.3.109-13.el7.x86_64.rpm                   |  24 kB   00:00
+(6/43): boost-thread-1.53.0-27.el7.x86_64.rpm              |  57 kB   00:00
+(7/43): libpmem-1.4-3.el7.x86_64.rpm                       |  53 kB   00:00
+(8/43): libpmemblk-1.4-3.el7.x86_64.rpm                    |  68 kB   00:00
+(9/43): fio-3.1-2.el7.x86_64.rpm                           | 451 kB   00:00
+(10/43): libibverbs-17.2-3.el7.x86_64.rpm                  | 246 kB   00:00
+(11/43): librdmacm-17.2-3.el7.x86_64.rpm                   |  62 kB   00:00
+(12/43): ndctl-libs-62-1.el7.x86_64.rpm                    |  61 kB   00:00
+(13/43): perl-Carp-1.26-244.el7.noarch.rpm                 |  19 kB   00:00
+(14/43): pciutils-3.5.1-3.el7.x86_64.rpm                   |  93 kB   00:00
+(15/43): perl-Exporter-5.68-3.el7.noarch.rpm               |  28 kB   00:00
+(16/43): perl-File-Path-2.09-2.el7.noarch.rpm              |  26 kB   00:00
+(17/43): perl-File-Temp-0.23.01-3.el7.noarch.rpm           |  56 kB   00:00
+(18/43): perl-Filter-1.49-3.el7.x86_64.rpm                 |  76 kB   00:00
+(19/43): perl-Encode-2.51-7.el7.x86_64.rpm                 | 1.5 MB   00:00
+(20/43): librados2-10.2.5-4.el7.x86_64.rpm                 | 1.8 MB   00:00
+(21/43): librbd1-10.2.5-4.el7.x86_64.rpm                   | 2.4 MB   00:00
+(22/43): perl-HTTP-Tiny-0.033-3.el7.noarch.rpm             |  38 kB   00:00
+(23/43): perl-Getopt-Long-2.40-3.el7.noarch.rpm            |  56 kB   00:00
+(24/43): perl-Pod-Perldoc-3.20-4.el7.noarch.rpm            |  87 kB   00:00
+(25/43): perl-Pod-Usage-1.63-3.el7.noarch.rpm              |  27 kB   00:00
+(26/43): perl-PathTools-3.40-5.el7.x86_64.rpm              |  82 kB   00:00
+(27/43): perl-Socket-2.010-4.el7.x86_64.rpm                |  49 kB   00:00
+(28/43): perl-Storable-2.45-3.el7.x86_64.rpm               |  77 kB   00:00
+(29/43): perl-Scalar-List-Utils-1.27-248.el7.x86_64.rpm    |  36 kB   00:00
+(30/43): perl-Text-ParseWords-3.29-4.el7.noarch.rpm        |  14 kB   00:00
+(32/43): perl-Pod-Escapes- 58% [=========       ]  0.0 B/s | 9.8 MB   --:-- ETA (31/43): perl-Time-Local-1.2300-2.el7.noarch.rpm           |  24 kB   00:00
+(32/43): perl-constant-1.27-2.el7.noarch.rpm               |  19 kB   00:00
+(33/43): perl-Time-HiRes-1.9725-3.el7.x86_64.rpm           |  45 kB   00:00
+(34/43): perl-Pod-Simple-3.28-4.el7.noarch.rpm             | 216 kB   00:00
+Public key for perl-Pod-Escapes-1.04-294.el7_6.noarch.rpm is not installed
+(35/43): perl-Pod-Escapes-1.04-294.el7_6.noarch.rpm        |  51 kB   00:00
+(36/43): perl-parent-0.225-244.el7.noarch.rpm              |  12 kB   00:00
+(37/43): perl-threads-1.87-4.el7.x86_64.rpm                |  49 kB   00:00
+(38/43): perl-threads-shared-1.43-6.el7.x86_64.rpm         |  39 kB   00:00
+(39/43): perl-macros-5.16.3-294.el7_6.x86_64.rpm           |  44 kB   00:00
+(40/43): rdma-core-17.2-3.el7.x86_64.rpm                   |  49 kB   00:00
+(41/43): perl-libs-5.16.3-294.el7_6.x86_64.rpm             | 688 kB   00:00
+(42/43): perl-podlators-2.5.1-3.el7.noarch.rpm             | 112 kB   00:00
+(43/43): perl-5.16.3-294.e 79% [============-   ] 3.7 MB/s |  13 MB   00:00 ETA (43/43): perl-5.16.3-294.e 94% [=============== ] 4.0 MB/s |  16 MB   00:00 ETA (43/43): perl-5.16.3-294.el7_6.x86_64.rpm                  | 8.0 MB   00:01
+--------------------------------------------------------------------------------
+Total                                               12 MB/s |  17 MB  00:01
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+Package    : centos-release-7-6.1810.2.el7.centos.x86_64 (installed)
+From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : boost-system-1.53.0-27.el7. [                            ]  1/43  Installing : boost-system-1.53.0-27.el7. [#############               ]  1/43  Installing : boost-system-1.53.0-27.el7. [##########################  ]  1/43  Installing : boost-system-1.53.0-27.el7. [########################### ]  1/43  Installing : boost-system-1.53.0-27.el7.x86_64                           1/43
+Installing : boost-thread-1.53.0-27.el7. [                            ]  2/43  Installing : boost-thread-1.53.0-27.el7. [###################         ]  2/43  Installing : boost-thread-1.53.0-27.el7. [########################### ]  2/43  Installing : boost-thread-1.53.0-27.el7.x86_64                           2/43
+Installing : libpmem-1.4-3.el7.x86_64 [                               ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [###########                    ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [######################         ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [#######################        ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [########################       ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [###########################    ]  3/43  Installing : libpmem-1.4-3.el7.x86_64 [############################## ]  3/43  Installing : libpmem-1.4-3.el7.x86_64                                    3/43
+Installing : boost-random-1.53.0-27.el7. [                            ]  4/43  Installing : boost-random-1.53.0-27.el7. [###############             ]  4/43  Installing : boost-random-1.53.0-27.el7. [##########################  ]  4/43  Installing : boost-random-1.53.0-27.el7. [########################### ]  4/43  Installing : boost-random-1.53.0-27.el7.x86_64                           4/43
+Installing : boost-iostreams-1.53.0-27.e [                            ]  5/43  Installing : boost-iostreams-1.53.0-27.e [########                    ]  5/43  Installing : boost-iostreams-1.53.0-27.e [#############               ]  5/43  Installing : boost-iostreams-1.53.0-27.e [######################      ]  5/43  Installing : boost-iostreams-1.53.0-27.e [########################### ]  5/43  Installing : boost-iostreams-1.53.0-27.el7.x86_64                        5/43
+Installing : 1:librados2-10.2.5-4.el7.x8 [                            ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#                           ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##                          ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###                         ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [####                        ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#####                       ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [######                      ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#######                     ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [########                    ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#########                   ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##########                  ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###########                 ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [############                ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#############               ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##############              ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###############             ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [################            ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#################           ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##################          ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [###################         ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [####################        ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#####################       ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [######################      ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#######################     ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [########################    ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [#########################   ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [##########################  ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x8 [########################### ]  6/43  Installing : 1:librados2-10.2.5-4.el7.x86_64                             6/43
+Installing : daxctl-libs-62-1.el7.x86_64 [                            ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [###########                 ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [#############               ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [##############              ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [#################           ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64 [########################### ]  7/43  Installing : daxctl-libs-62-1.el7.x86_64                                 7/43
+Installing : ndctl-libs-62-1.el7.x86_64 [                             ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [###########                  ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [######################       ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [#######################      ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [########################     ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [#########################    ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64 [############################ ]  8/43  Installing : ndctl-libs-62-1.el7.x86_64                                  8/43
+Installing : libpmemblk-1.4-3.el7.x86_64 [                            ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [###########                 ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [####################        ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [#####################       ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [#########################   ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64 [########################### ]  9/43  Installing : libpmemblk-1.4-3.el7.x86_64                                 9/43
+Installing : 1:librbd1-10.2.5-4.el7.x86_ [                            ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#                           ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##                          ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###                         ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [####                        ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#####                       ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [######                      ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#######                     ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [########                    ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#########                   ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##########                  ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###########                 ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [############                ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#############               ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##############              ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###############             ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [################            ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#################           ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##################          ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [###################         ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [####################        ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#####################       ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [######################      ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#######################     ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [########################    ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [#########################   ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [##########################  ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_ [########################### ] 10/43  Installing : 1:librbd1-10.2.5-4.el7.x86_64                              10/43
+Installing : 1:perl-parent-0.225-244.el7 [                            ] 11/43  Installing : 1:perl-parent-0.225-244.el7 [########                    ] 11/43  Installing : 1:perl-parent-0.225-244.el7 [#################           ] 11/43  Installing : 1:perl-parent-0.225-244.el7 [########################### ] 11/43  Installing : 1:perl-parent-0.225-244.el7.noarch                         11/43
+Installing : perl-HTTP-Tiny-0.033-3.el7. [                            ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [##                          ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [#######                     ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [############                ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [##############              ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [###############             ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7. [########################### ] 12/43  Installing : perl-HTTP-Tiny-0.033-3.el7.noarch                          12/43
+Installing : perl-podlators-2.5.1-3.el7. [                            ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#                           ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##                          ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [########                    ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#########                   ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##########                  ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [###########                 ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [############                ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#############               ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##############              ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [###############             ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [#####################       ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [######################      ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [##########################  ] 13/43  Installing : perl-podlators-2.5.1-3.el7. [########################### ] 13/43  Installing : perl-podlators-2.5.1-3.el7.noarch                          13/43
+Installing : perl-Pod-Perldoc-3.20-4.el7 [                            ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#                           ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [###                         ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [####                        ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#####                       ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [######                      ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#######                     ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [########                    ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#########                   ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [###################         ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [####################        ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#####################       ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#######################     ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [########################    ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [#########################   ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [##########################  ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7 [########################### ] 14/43  Installing : perl-Pod-Perldoc-3.20-4.el7.noarch                         14/43
+Installing : 1:perl-Pod-Escapes-1.04-294 [                            ] 15/43  Installing : 1:perl-Pod-Escapes-1.04-294 [#####                       ] 15/43  Installing : 1:perl-Pod-Escapes-1.04-294 [########################### ] 15/43  Installing : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                   15/43
+Installing : perl-Encode-2.51-7.el7.x86_ [                            ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#                           ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##                          ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###                         ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [####                        ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#####                       ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [######                      ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#######                     ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [########                    ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#########                   ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##########                  ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###########                 ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [############                ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#############               ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##############              ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###############             ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [################            ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#################           ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##################          ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [###################         ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [####################        ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#####################       ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [######################      ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#######################     ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [########################    ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [#########################   ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [##########################  ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_ [########################### ] 16/43  Installing : perl-Encode-2.51-7.el7.x86_64                              16/43
+Installing : perl-Text-ParseWords-3.29-4 [                            ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [#                           ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [###                         ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [########                    ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [##############              ] 17/43  Installing : perl-Text-ParseWords-3.29-4 [########################### ] 17/43  Installing : perl-Text-ParseWords-3.29-4.el7.noarch                     17/43
+Installing : perl-Pod-Usage-1.63-3.el7.n [                            ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [##                          ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [###                         ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [#####                       ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [#######                     ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [###########                 ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.n [########################### ] 18/43  Installing : perl-Pod-Usage-1.63-3.el7.noarch                           18/43
+Installing : 4:perl-libs-5.16.3-294.el7_ [                            ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#                           ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [###                         ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [####                        ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#####                       ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [######                      ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#######                     ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [########                    ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#########                   ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##########                  ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [############                ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#############               ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##############              ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [###############             ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [################            ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#################           ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##################          ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [###################         ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#####################       ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [######################      ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#######################     ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [########################    ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [#########################   ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [##########################  ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_ [########################### ] 19/43  Installing : 4:perl-libs-5.16.3-294.el7_6.x86_64                        19/43
+Installing : 4:perl-macros-5.16.3-294.el [                            ] 20/43  Installing : 4:perl-macros-5.16.3-294.el [########################### ] 20/43  Installing : 4:perl-macros-5.16.3-294.el7_6.x86_64                      20/43
+Installing : 4:perl-Time-HiRes-1.9725-3. [                            ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [######                      ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [#############               ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [########################    ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [#########################   ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3. [########################### ] 21/43  Installing : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      21/43
+Installing : perl-Exporter-5.68-3.el7.no [                            ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [#                           ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [##########                  ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [##############              ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [###############             ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [########################    ] 22/43  Installing : perl-Exporter-5.68-3.el7.no [########################### ] 22/43  Installing : perl-Exporter-5.68-3.el7.noarch                            22/43
+Installing : perl-constant-1.27-2.el7.no [                            ] 23/43  Installing : perl-constant-1.27-2.el7.no [#####                       ] 23/43  Installing : perl-constant-1.27-2.el7.no [#######                     ] 23/43  Installing : perl-constant-1.27-2.el7.no [########                    ] 23/43  Installing : perl-constant-1.27-2.el7.no [##############              ] 23/43  Installing : perl-constant-1.27-2.el7.no [########################### ] 23/43  Installing : perl-constant-1.27-2.el7.noarch                            23/43
+Installing : perl-Time-Local-1.2300-2.el [                            ] 24/43  Installing : perl-Time-Local-1.2300-2.el [#####                       ] 24/43  Installing : perl-Time-Local-1.2300-2.el [################            ] 24/43  Installing : perl-Time-Local-1.2300-2.el [####################        ] 24/43  Installing : perl-Time-Local-1.2300-2.el [########################### ] 24/43  Installing : perl-Time-Local-1.2300-2.el7.noarch                        24/43
+Installing : perl-Socket-2.010-4.el7.x86 [                            ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [########                    ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [###################         ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [#####################       ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [######################      ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [#########################   ] 25/43  Installing : perl-Socket-2.010-4.el7.x86 [########################### ] 25/43  Installing : perl-Socket-2.010-4.el7.x86_64                             25/43
+Installing : perl-Carp-1.26-244.el7.noar [                            ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [#                           ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [##                          ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [#######                     ] 26/43  Installing : perl-Carp-1.26-244.el7.noar [########################### ] 26/43  Installing : perl-Carp-1.26-244.el7.noarch                              26/43
+Installing : perl-Storable-2.45-3.el7.x8 [                            ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [######                      ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [################            ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [###################         ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [########################    ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [#########################   ] 27/43  Installing : perl-Storable-2.45-3.el7.x8 [########################### ] 27/43  Installing : perl-Storable-2.45-3.el7.x86_64                            27/43
+Installing : perl-PathTools-3.40-5.el7.x [                            ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [###                         ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#####                       ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [######                      ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#########                   ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [##########                  ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#############               ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [###############             ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [################            ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [######################      ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#######################     ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [########################    ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [#########################   ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [##########################  ] 28/43  Installing : perl-PathTools-3.40-5.el7.x [########################### ] 28/43  Installing : perl-PathTools-3.40-5.el7.x86_64                           28/43
+Installing : perl-Scalar-List-Utils-1.27 [                            ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [##                          ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [###                         ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [######                      ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [#################           ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [######################      ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [#######################     ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [########################    ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [##########################  ] 29/43  Installing : perl-Scalar-List-Utils-1.27 [########################### ] 29/43  Installing : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 29/43
+Installing : 1:perl-Pod-Simple-3.28-4.el [                            ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#                           ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##                          ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [###                         ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [####                        ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#####                       ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [######                      ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#########                   ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#############               ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##############              ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [###############             ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#################           ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##################          ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [####################        ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#####################       ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#######################     ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [#########################   ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [##########################  ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el [########################### ] 30/43  Installing : 1:perl-Pod-Simple-3.28-4.el7.noarch                        30/43
+Installing : perl-File-Temp-0.23.01-3.el [                            ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [##                          ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [#####                       ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [###########                 ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [##############              ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [#########################   ] 31/43  Installing : perl-File-Temp-0.23.01-3.el [########################### ] 31/43  Installing : perl-File-Temp-0.23.01-3.el7.noarch                        31/43
+Installing : perl-File-Path-2.09-2.el7.n [                            ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [###                         ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [####                        ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [#########                   ] 32/43  Installing : perl-File-Path-2.09-2.el7.n [########################### ] 32/43  Installing : perl-File-Path-2.09-2.el7.noarch                           32/43
+Installing : perl-threads-shared-1.43-6. [                            ] 33/43  Installing : perl-threads-shared-1.43-6. [###############             ] 33/43  Installing : perl-threads-shared-1.43-6. [######################      ] 33/43  Installing : perl-threads-shared-1.43-6. [########################    ] 33/43  Installing : perl-threads-shared-1.43-6. [########################### ] 33/43  Installing : perl-threads-shared-1.43-6.el7.x86_64                      33/43
+Installing : perl-threads-1.87-4.el7.x86 [                            ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [###########                 ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [#####################       ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [#######################     ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [########################    ] 34/43  Installing : perl-threads-1.87-4.el7.x86 [########################### ] 34/43  Installing : perl-threads-1.87-4.el7.x86_64                             34/43
+Installing : perl-Filter-1.49-3.el7.x86_ [                            ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##                          ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [######                      ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#######                     ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [########                    ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [###########                 ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##############              ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [###############             ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#################           ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##################          ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [###################         ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [####################        ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#####################       ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [######################      ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#######################     ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [#########################   ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [##########################  ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_ [########################### ] 35/43  Installing : perl-Filter-1.49-3.el7.x86_64                              35/43
+Installing : perl-Getopt-Long-2.40-3.el7 [                            ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [###                         ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [#####                       ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [######                      ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [#######                     ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [##########                  ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [########################    ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7 [########################### ] 36/43  Installing : perl-Getopt-Long-2.40-3.el7.noarch                         36/43
+Installing : 4:perl-5.16.3-294.el7_6.x86 [                            ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#                           ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##                          ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###                         ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [####                        ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#####                       ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [######                      ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#######                     ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [########                    ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#########                   ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##########                  ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###########                 ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [############                ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#############               ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##############              ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###############             ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [################            ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#################           ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##################          ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [###################         ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [####################        ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#####################       ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [######################      ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#######################     ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [########################    ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [#########################   ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [##########################  ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86 [########################### ] 37/43  Installing : 4:perl-5.16.3-294.el7_6.x86_64                             37/43
+Installing : pciutils-3.5.1-3.el7.x86_64 [                            ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [########                    ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [##########                  ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [#############               ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [##############              ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [################            ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [#########################   ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [##########################  ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64 [########################### ] 38/43  Installing : pciutils-3.5.1-3.el7.x86_64                                38/43
+Installing : rdma-core-17.2-3.el7.x86_64 [                            ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#                           ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [##                          ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###                         ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#####                       ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#######                     ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [########                    ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#########                   ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [##########                  ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###########                 ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [############                ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#############               ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###############             ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [###################         ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [####################        ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [#####################       ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [######################      ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [##########################  ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64 [########################### ] 39/43  Installing : rdma-core-17.2-3.el7.x86_64                                39/43
+Installing : libibverbs-17.2-3.el7.x86_6 [                            ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###                         ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [####                        ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#####                       ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [######                      ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#######                     ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [########                    ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##########                  ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###########                 ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [############                ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#############               ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##############              ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###############             ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#################           ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##################          ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [###################         ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#####################       ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [#######################     ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [##########################  ] 40/43  Installing : libibverbs-17.2-3.el7.x86_6 [########################### ] 40/43  Installing : libibverbs-17.2-3.el7.x86_64                               40/43
+Installing : librdmacm-17.2-3.el7.x86_64 [                            ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [##############              ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [####################        ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [##########################  ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64 [########################### ] 41/43  Installing : librdmacm-17.2-3.el7.x86_64                                41/43
+Installing : libaio-0.3.109-13.el7.x86_6 [                            ] 42/43  Installing : libaio-0.3.109-13.el7.x86_6 [####                        ] 42/43  Installing : libaio-0.3.109-13.el7.x86_6 [########                    ] 42/43  Installing : libaio-0.3.109-13.el7.x86_6 [########################### ] 42/43  Installing : libaio-0.3.109-13.el7.x86_64                               42/43
+Installing : fio-3.1-2.el7.x86_64 [                                   ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#                                  ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##                                 ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###                                ] 43/43  Installing : fio-3.1-2.el7.x86_64 [####                               ] 43/43  Installing : fio-3.1-2.el7.x86_64 [######                             ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#######                            ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#########                          ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##########                         ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###########                        ] 43/43  Installing : fio-3.1-2.el7.x86_64 [############                       ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##############                     ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###############                    ] 43/43  Installing : fio-3.1-2.el7.x86_64 [################                   ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##################                 ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###################                ] 43/43  Installing : fio-3.1-2.el7.x86_64 [####################               ] 43/43  Installing : fio-3.1-2.el7.x86_64 [######################             ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#######################            ] 43/43  Installing : fio-3.1-2.el7.x86_64 [########################           ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#########################          ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##########################         ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###########################        ] 43/43  Installing : fio-3.1-2.el7.x86_64 [############################       ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#############################      ] 43/43  Installing : fio-3.1-2.el7.x86_64 [##############################     ] 43/43  Installing : fio-3.1-2.el7.x86_64 [###############################    ] 43/43  Installing : fio-3.1-2.el7.x86_64 [################################   ] 43/43  Installing : fio-3.1-2.el7.x86_64 [#################################  ] 43/43  Installing : fio-3.1-2.el7.x86_64 [################################## ] 43/43  Installing : fio-3.1-2.el7.x86_64                                       43/43
+Verifying  : 1:librbd1-10.2.5-4.el7.x86_64                               1/43
+Verifying  : perl-HTTP-Tiny-0.033-3.el7.noarch                           2/43
+Verifying  : boost-system-1.53.0-27.el7.x86_64                           3/43
+Verifying  : perl-threads-shared-1.43-6.el7.x86_64                       4/43
+Verifying  : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                       5/43
+Verifying  : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                    6/43
+Verifying  : librdmacm-17.2-3.el7.x86_64                                 7/43
+Verifying  : perl-Exporter-5.68-3.el7.noarch                             8/43
+Verifying  : perl-constant-1.27-2.el7.noarch                             9/43
+Verifying  : perl-PathTools-3.40-5.el7.x86_64                           10/43
+Verifying  : daxctl-libs-62-1.el7.x86_64                                11/43
+Verifying  : rdma-core-17.2-3.el7.x86_64                                12/43
+Verifying  : 1:perl-parent-0.225-244.el7.noarch                         13/43
+Verifying  : 4:perl-libs-5.16.3-294.el7_6.x86_64                        14/43
+Verifying  : perl-File-Temp-0.23.01-3.el7.noarch                        15/43
+Verifying  : 1:perl-Pod-Simple-3.28-4.el7.noarch                        16/43
+Verifying  : perl-Getopt-Long-2.40-3.el7.noarch                         17/43
+Verifying  : fio-3.1-2.el7.x86_64                                       18/43
+Verifying  : boost-iostreams-1.53.0-27.el7.x86_64                       19/43
+Verifying  : boost-random-1.53.0-27.el7.x86_64                          20/43
+Verifying  : perl-Time-Local-1.2300-2.el7.noarch                        21/43
+Verifying  : libaio-0.3.109-13.el7.x86_64                               22/43
+Verifying  : 4:perl-macros-5.16.3-294.el7_6.x86_64                      23/43
+Verifying  : perl-Socket-2.010-4.el7.x86_64                             24/43
+Verifying  : boost-thread-1.53.0-27.el7.x86_64                          25/43
+Verifying  : perl-Carp-1.26-244.el7.noarch                              26/43
+Verifying  : perl-Storable-2.45-3.el7.x86_64                            27/43
+Verifying  : 1:librados2-10.2.5-4.el7.x86_64                            28/43
+Verifying  : libpmem-1.4-3.el7.x86_64                                   29/43
+Verifying  : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 30/43
+Verifying  : ndctl-libs-62-1.el7.x86_64                                 31/43
+Verifying  : perl-Pod-Usage-1.63-3.el7.noarch                           32/43
+Verifying  : perl-Encode-2.51-7.el7.x86_64                              33/43
+Verifying  : perl-Pod-Perldoc-3.20-4.el7.noarch                         34/43
+Verifying  : perl-podlators-2.5.1-3.el7.noarch                          35/43
+Verifying  : perl-File-Path-2.09-2.el7.noarch                           36/43
+Verifying  : perl-threads-1.87-4.el7.x86_64                             37/43
+Verifying  : perl-Filter-1.49-3.el7.x86_64                              38/43
+Verifying  : libibverbs-17.2-3.el7.x86_64                               39/43
+Verifying  : perl-Text-ParseWords-3.29-4.el7.noarch                     40/43
+Verifying  : 4:perl-5.16.3-294.el7_6.x86_64                             41/43
+Verifying  : pciutils-3.5.1-3.el7.x86_64                                42/43
+Verifying  : libpmemblk-1.4-3.el7.x86_64                                43/43
+
+Installed:
+fio.x86_64 0:3.1-2.el7
+
+Dependency Installed:
+boost-iostreams.x86_64 0:1.53.0-27.el7
+boost-random.x86_64 0:1.53.0-27.el7
+boost-system.x86_64 0:1.53.0-27.el7
+boost-thread.x86_64 0:1.53.0-27.el7
+daxctl-libs.x86_64 0:62-1.el7
+libaio.x86_64 0:0.3.109-13.el7
+libibverbs.x86_64 0:17.2-3.el7
+libpmem.x86_64 0:1.4-3.el7
+libpmemblk.x86_64 0:1.4-3.el7
+librados2.x86_64 1:10.2.5-4.el7
+librbd1.x86_64 1:10.2.5-4.el7
+librdmacm.x86_64 0:17.2-3.el7
+ndctl-libs.x86_64 0:62-1.el7
+pciutils.x86_64 0:3.5.1-3.el7
+perl.x86_64 4:5.16.3-294.el7_6
+perl-Carp.noarch 0:1.26-244.el7
+perl-Encode.x86_64 0:2.51-7.el7
+perl-Exporter.noarch 0:5.68-3.el7
+perl-File-Path.noarch 0:2.09-2.el7
+perl-File-Temp.noarch 0:0.23.01-3.el7
+perl-Filter.x86_64 0:1.49-3.el7
+perl-Getopt-Long.noarch 0:2.40-3.el7
+perl-HTTP-Tiny.noarch 0:0.033-3.el7
+perl-PathTools.x86_64 0:3.40-5.el7
+perl-Pod-Escapes.noarch 1:1.04-294.el7_6
+perl-Pod-Perldoc.noarch 0:3.20-4.el7
+perl-Pod-Simple.noarch 1:3.28-4.el7
+perl-Pod-Usage.noarch 0:1.63-3.el7
+perl-Scalar-List-Utils.x86_64 0:1.27-248.el7
+perl-Socket.x86_64 0:2.010-4.el7
+perl-Storable.x86_64 0:2.45-3.el7
+perl-Text-ParseWords.noarch 0:3.29-4.el7
+perl-Time-HiRes.x86_64 4:1.9725-3.el7
+perl-Time-Local.noarch 0:1.2300-2.el7
+perl-constant.noarch 0:1.27-2.el7
+perl-libs.x86_64 4:5.16.3-294.el7_6
+perl-macros.x86_64 4:5.16.3-294.el7_6
+perl-parent.noarch 1:0.225-244.el7
+perl-podlators.noarch 0:2.5.1-3.el7
+perl-threads.x86_64 0:1.87-4.el7
+perl-threads-shared.x86_64 0:1.43-6.el7
+rdma-core.x86_64 0:17.2-3.el7
+
+Complete!
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.80 VM 2!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+Loadbalancer creating..
+Listener creating..
+Pool creating..
+Member1 creating..
+Member2 creating..
+Creating Floating IP..
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| admin_state_up      | True                                 |
+| created_at          | 2019-08-06T06:30:47                  |
+| description         |                                      |
+| flavor              |                                      |
+| id                  | 39cd5728-c605-4069-927d-28b43415e45c |
+| listeners           | 197a75ab-5a9c-4dd9-ab8a-959c46587f57 |
+| name                | lb1_tcp                              |
+| operating_status    | ONLINE                               |
+| pools               | b973191f-ffdc-4852-8360-809423705ba7 |
+| project_id          | 84a2c8361ede4faa963191f65f26dd1b     |
+| provider            | octavia                              |
+| provisioning_status | ACTIVE                               |
+| updated_at          | 2019-08-06T06:33:20                  |
+| vip_address         | 192.168.80.6                         |
+| vip_network_id      | d90ca719-508f-43b3-a7c7-a754e950fbe3 |
+| vip_port_id         | a2036f3a-e678-4d5c-a05d-37ac7ea3f8ed |
+| vip_qos_policy_id   | None                                 |
+| vip_subnet_id       | 71f68db6-867f-4c9a-bf8b-3211f7dee3e2 |
++---------------------+--------------------------------------+
+Testing LB working.......
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   631  100   631    0     0   105k      0 --:--:-- --:--:-- --:--:--  123k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   631  100   631    0     0   340k      0 --:--:-- --:--:-- --:--:--  616k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   631  100   631    0     0   335k      0 --:--:-- --:--:-- --:--:--  616k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   631  100   631    0     0   293k      0 --:--:-- --:--:-- --:--:--  616k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   631  100   631    0     0   357k      0 --:--:-- --:--:-- --:--:--  616k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   631  100   631    0     0   257k      0 --:--:-- --:--:-- --:--:--  308k
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.71 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+Test Failed
+member1 deleting..
+member2 deleting..
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia_vm1_tcp..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: octavia_vm2_ycp..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

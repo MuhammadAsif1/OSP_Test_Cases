@@ -1,0 +1,59 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 2:      CREATE A LOADBALANCER For TCP Traffic.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network-tcp
+Creating Router: octavia-router
+Creating Server: octavia_vm1_tcp
+Server Count: 1
+
+Unable to create server!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 692 
+
+Creating Server: octavia_vm2_ycp
+Server Count: 1
+
+Unable to create server!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 692 
+
+
+Unable to create 2 instances on same compute and same network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'accessIPv4'
+Line No: 1400 
+
+output None
+Unable to execute test case 1
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 303 
+
+member1 deleting..
+member2 deleting..
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia_vm1_tcp..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: octavia_vm2_ycp..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

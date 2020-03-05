@@ -1,0 +1,11 @@
+Creating Security Group : b60dd52c-fb27-4c4c-8c9f-cdeb51e9b339
+Adding rule for: tcp, ingress
+Adding rule for: tcp, egress
+Adding rule for: icmp, ingress
+Adding rule for: icmp, egress
+Adding rule for: udp, ingress
+Adding rule for: udp, egress
+Creating Server: tt_vm
+Server Count: 3
+
+Server Created Successfully!

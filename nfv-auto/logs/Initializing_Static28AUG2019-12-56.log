@@ -1,0 +1,9 @@
+Creating Aggregrate : nova0
+Adding host : r8-14g-dell-compute-0.oss.labs to aggregate.
+Creating Aggregrate : nova1
+Adding host : r8-14g-dell-compute-1.oss.labs to aggregate.
+Creating Aggregrate : nova2
+Adding host : r8-14g-dell-compute-2.oss.labs to aggregate.
+Adding Security Group Rules
+Creating Security Group : 5a711e3a-3b5d-4b80-8de3-c15cc4bb6592
+Creating Keypair and setting permission

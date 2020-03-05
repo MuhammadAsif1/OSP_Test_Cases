@@ -1,0 +1,567 @@
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network
+Network already exists with the same name.
+Creating Router: octavia-router
+Router already exists.
+Creating Server: octavia_vm1_tcp
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia_vm2_tcp
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia_vm1_tcp
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia_vm2_tcp
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.70.17) , Floating IP: (100.67.153.85)
+Instance2 >> Fixed IP: (192.168.70.31) , Floating IP: (100.67.153.76)
+output ['100.67.153.85', '192.168.70.17', '100.67.153.76', '192.168.70.31']
+VM IP 100.67.153.85
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:1d:3b:ce
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:1d:3b:ce
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+PING google.com (172.217.2.238) 56(84) bytes of data.
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=1 ttl=46 time=12.5 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=2 ttl=46 time=12.5 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=3 ttl=46 time=12.3 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=4 ttl=46 time=12.3 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=5 ttl=46 time=12.4 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 12.385/12.462/12.557/0.143 ms
+Checking if nginx.repo file is present..
+Trying to send /home/osp_admin/NFV_window/nfv-auto/nginx.repo to ./nginx.repo...
+Sent.
+nginx.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo  nginx.repo
+Loaded plugins: fastestmirror
+================================= repo: nginx ==================================
+[nginx]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://nginx.org/packages/centos/7/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/nginx
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage =
+enabled = True
+enablegroups = True
+exclude =
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/nginx/gpgcadir
+gpgcakey =
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/nginx/gpgdir
+gpgkey = https://nginx.org/keys/nginx_signing.key
+hdrdir = /var/cache/yum/x86_64/7/nginx/headers
+http_caching = all
+includepkgs =
+ip_resolve =
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid =
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink =
+minrate = 0
+mirrorlist =
+mirrorlist_expire = 86400
+name = nginx mainline repo
+old_base_cache_dir =
+password =
+persistdir = /var/lib/yum/repos/x86_64/7/nginx
+pkgdir = /var/cache/yum/x86_64/7/nginx/packages
+proxy = False
+proxy_dict =
+proxy_password =
+proxy_username =
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert =
+sslclientcert =
+sslclientkey =
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = nginx/x86_64
+ui_repoid_vars = releasever,
+basearch
+username =
+
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+* base: repos.dfw.quadranet.com
+* extras: repos.dfw.quadranet.com
+* updates: repos.dfw.quadranet.com
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+nginx                                                    | 2.9 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/5): base/7/x86_64/group_gz                              | 166 kB   00:00
+(2/5): extras/7/x86_64/primary_db                          | 205 kB   00:00
+(4/5): nginx/x86_64/primar 2% [                 ]  0.0 B/s | 370 kB   --:-- ETA (3/5): nginx/x86_64/primary_db                             |  46 kB   00:00
+(5/5): updates/7/x86_64/pr 44% [=======         ] 6.5 MB/s | 5.7 MB   00:01 ETA (4/5): base/7/x86_64/primary_db                            | 6.0 MB   00:01
+(5/5): updates/7/x86_64/pr 94% [=============== ] 7.4 MB/s |  12 MB   00:00 ETA (5/5): updates/7/x86_64/primary_db                         | 6.5 MB   00:01
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.0-1.el7.ngx will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package       Arch           Version                       Repository     Size
+================================================================================
+Installing:
+nginx         x86_64         1:1.16.0-1.el7.ngx            nginx         766 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 766 k
+Installed size: 2.7 M
+Downloading packages:
+nginx-1.16.0-1.el7.ngx.x86 0% [                 ]  0.0 B/s |    0 B   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 12% [==              ]  0.0 B/s |  98 kB   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 34% [=====-          ] 232 kB/s | 264 kB   00:02 ETA nginx-1.16.0-1.el7.ngx.x86 58% [=========       ] 252 kB/s | 445 kB   00:01 ETA nginx-1.16.0-1.el7.ngx.x86 83% [=============   ] 275 kB/s | 637 kB   00:00 ETA warning: /var/cache/yum/x86_64/7/nginx/packages/nginx-1.16.0-1.el7.ngx.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+Public key for nginx-1.16.0-1.el7.ngx.x86_64.rpm is not installed
+nginx-1.16.0-1.el7.ngx.x86_64.rpm                          | 766 kB   00:01
+Retrieving key from https://nginx.org/keys/nginx_signing.key
+Importing GPG key 0x7BD9BF62:
+Userid     : "nginx signing key <signing-key@nginx.com>"
+Fingerprint: 573b fd6b 3d8f bc64 1079 a6ab abf5 bd82 7bd9 bf62
+From       : https://nginx.org/keys/nginx_signing.key
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [                             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#                            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##                           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###                          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####                         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####                        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######                       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######                      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########                     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########                    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########                   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########                  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############                 ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#############                ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##############               ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###############              ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [################             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#################            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##################           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###################          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####################         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####################        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######################       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######################      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########################     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########################    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########################   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########################  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############################ ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* http://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
+----------------------------------------------------------------------
+Verifying  : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+
+Installed:
+nginx.x86_64 1:1.16.0-1.el7.ngx
+
+Complete!
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Thu 2019-07-11 10:45:35 UTC; 995ms ago
+Docs: http://nginx.org/en/docs/
+Process: 12786 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+Main PID: 12787 (nginx)
+CGroup: /system.slice/nginx.service
+├─12787 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12788 nginx: worker process
+
+Jul 11 10:45:35 octavia-vm1-tcp systemd[1]: Starting nginx - high performanc....
+Jul 11 10:45:35 octavia-vm1-tcp systemd[1]: PID file /var/run/nginx.pid not ....
+Jul 11 10:45:35 octavia-vm1-tcp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Thu 2019-07-11 10:45:35 UTC; 3s ago
+Docs: http://nginx.org/en/docs/
+Main PID: 12787 (nginx)
+CGroup: /system.slice/nginx.service
+├─12787 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12788 nginx: worker process
+
+Jul 11 10:45:35 octavia-vm1-tcp systemd[1]: Starting nginx - high performanc....
+Jul 11 10:45:35 octavia-vm1-tcp systemd[1]: PID file /var/run/nginx.pid not ....
+Jul 11 10:45:35 octavia-vm1-tcp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.85 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+VM IP 100.67.153.76
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:d1:d6:55
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:d1:d6:55
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+PING google.com (172.217.2.238) 56(84) bytes of data.
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=1 ttl=46 time=12.5 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=2 ttl=46 time=12.6 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=3 ttl=46 time=12.5 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=4 ttl=46 time=12.5 ms
+64 bytes from dfw28s01-in-f14.1e100.net (172.217.2.238): icmp_seq=5 ttl=46 time=12.5 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 12.506/12.581/12.676/0.135 ms
+Checking if nginx.repo file is present..
+Trying to send /home/osp_admin/NFV_window/nfv-auto/nginx.repo to ./nginx.repo...
+Sent.
+nginx.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo  nginx.repo
+Loaded plugins: fastestmirror
+================================= repo: nginx ==================================
+[nginx]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://nginx.org/packages/centos/7/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/nginx
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage =
+enabled = True
+enablegroups = True
+exclude =
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/nginx/gpgcadir
+gpgcakey =
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/nginx/gpgdir
+gpgkey = https://nginx.org/keys/nginx_signing.key
+hdrdir = /var/cache/yum/x86_64/7/nginx/headers
+http_caching = all
+includepkgs =
+ip_resolve =
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid =
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink =
+minrate = 0
+mirrorlist =
+mirrorlist_expire = 86400
+name = nginx mainline repo
+old_base_cache_dir =
+password =
+persistdir = /var/lib/yum/repos/x86_64/7/nginx
+pkgdir = /var/cache/yum/x86_64/7/nginx/packages
+proxy = False
+proxy_dict =
+proxy_password =
+proxy_username =
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert =
+sslclientcert =
+sslclientkey =
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = nginx/x86_64
+ui_repoid_vars = releasever,
+basearch
+username =
+
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+* base: repos.dfw.quadranet.com
+* extras: repos.dfw.quadranet.com
+* updates: repos.dfw.quadranet.com
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+nginx                                                    | 2.9 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/5): extras/7/x86_64/primary_db                          | 205 kB   00:00
+(2/5): base/7/x86_64/group_gz                              | 166 kB   00:00
+(4/5): nginx/x86_64/primar 2% [                 ]  0.0 B/s | 370 kB   --:-- ETA (3/5): nginx/x86_64/primary_db                             |  46 kB   00:00
+(5/5): updates/7/x86_64/pr 30% [====-           ] 4.4 MB/s | 4.0 MB   00:02 ETA (5/5): updates/7/x86_64/pr 60% [=========-      ] 4.9 MB/s | 7.8 MB   00:01 ETA (4/5): base/7/x86_64/primary_db                            | 6.0 MB   00:01
+(5/5): updates/7/x86_64/pr 86% [=============-  ] 5.2 MB/s |  11 MB   00:00 ETA (5/5): updates/7/x86_64/primary_db                         | 6.5 MB   00:01
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.0-1.el7.ngx will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package       Arch           Version                       Repository     Size
+================================================================================
+Installing:
+nginx         x86_64         1:1.16.0-1.el7.ngx            nginx         766 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 766 k
+Installed size: 2.7 M
+Downloading packages:
+nginx-1.16.0-1.el7.ngx.x86 12% [==              ]  0.0 B/s |  97 kB   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 34% [=====-          ] 168 kB/s | 265 kB   00:02 ETA nginx-1.16.0-1.el7.ngx.x86 57% [=========       ] 193 kB/s | 444 kB   00:01 ETA nginx-1.16.0-1.el7.ngx.x86 83% [=============   ] 218 kB/s | 637 kB   00:00 ETA warning: /var/cache/yum/x86_64/7/nginx/packages/nginx-1.16.0-1.el7.ngx.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+Public key for nginx-1.16.0-1.el7.ngx.x86_64.rpm is not installed
+nginx-1.16.0-1.el7.ngx.x86_64.rpm                          | 766 kB   00:01
+Retrieving key from https://nginx.org/keys/nginx_signing.key
+Importing GPG key 0x7BD9BF62:
+Userid     : "nginx signing key <signing-key@nginx.com>"
+Fingerprint: 573b fd6b 3d8f bc64 1079 a6ab abf5 bd82 7bd9 bf62
+From       : https://nginx.org/keys/nginx_signing.key
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [                             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#                            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##                           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###                          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####                         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####                        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######                       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######                      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########                     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########                    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########                   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########                  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############                 ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#############                ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##############               ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###############              ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [################             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#################            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##################           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###################          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####################         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####################        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######################       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######################      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########################     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########################    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########################   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########################  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############################ ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* http://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
+----------------------------------------------------------------------
+Verifying  : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+
+Installed:
+nginx.x86_64 1:1.16.0-1.el7.ngx
+
+Complete!
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Thu 2019-07-11 10:46:08 UTC; 996ms ago
+Docs: http://nginx.org/en/docs/
+Process: 12785 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+Main PID: 12786 (nginx)
+CGroup: /system.slice/nginx.service
+├─12786 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12787 nginx: worker process
+
+Jul 11 10:46:08 octavia-vm2-tcp systemd[1]: Starting nginx - high performanc....
+Jul 11 10:46:08 octavia-vm2-tcp systemd[1]: PID file /var/run/nginx.pid not ....
+Jul 11 10:46:08 octavia-vm2-tcp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Thu 2019-07-11 10:46:08 UTC; 3s ago
+Docs: http://nginx.org/en/docs/
+Main PID: 12786 (nginx)
+CGroup: /system.slice/nginx.service
+├─12786 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12787 nginx: worker process
+
+Jul 11 10:46:08 octavia-vm2-tcp systemd[1]: Starting nginx - high performanc....
+Jul 11 10:46:08 octavia-vm2-tcp systemd[1]: PID file /var/run/nginx.pid not ....
+Jul 11 10:46:08 octavia-vm2-tcp systemd[1]: Started nginx - high performance....
+Hint: Some lines were ellipsized, use -l to show in full.
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.76 VM 2!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+Loadbalancer creating..
+Listener creating..
+Pool creating..
+Member1 creating..
+Member2 creating..
+Creating Floating IP..
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| admin_state_up      | True                                 |
+| created_at          | 2019-07-11T10:46:19                  |
+| description         |                                      |
+| flavor              |                                      |
+| id                  | 1097c892-5494-438d-9bc1-2f13bca9eed6 |
+| listeners           | de0f04ad-6f2e-4a76-9099-f308e5b9304c |
+| name                | lb_tcp                               |
+| operating_status    | ONLINE                               |
+| pools               | 1c0bde8a-66fe-4a6e-83d9-045c7359f278 |
+| project_id          | 40f7606e190143bab4e1a8298104a7fa     |
+| provider            | octavia                              |
+| provisioning_status | ACTIVE                               |
+| updated_at          | 2019-07-11T10:48:49                  |
+| vip_address         | 192.168.70.24                        |
+| vip_network_id      | ca552830-75c5-4e22-90c1-979f86e37c3f |
+| vip_port_id         | c8b7e406-59d1-406c-af58-875fef998836 |
+| vip_qos_policy_id   | None                                 |
+| vip_subnet_id       | f573e09b-b7c8-44c3-bdc3-66f1693b81fd |
++---------------------+--------------------------------------+
+Testing LB working.......
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:07 --:--:--     0curl: (7) Failed connect to 100.67.153.89:80; Connection timed out
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:07 --:--:--     0curl: (7) Failed connect to 100.67.153.89:80; Connection timed out
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:07 --:--:--     0curl: (7) Failed connect to 100.67.153.89:80; Connection timed out
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:07 --:--:--     0curl: (7) Failed connect to 100.67.153.89:80; Connection timed out
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:07 --:--:--     0curl: (7) Failed connect to 100.67.153.89:80; Connection timed out
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:17 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:18 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:19 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:20 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:21 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:22 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:23 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:24 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:25 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:26 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:27 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:28 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:29 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:30 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:31 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:32 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:33 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:34 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:35 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:36 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:37 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:38 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:39 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:40 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:41 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:42 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:43 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:44 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:45 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:46 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:47 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:48 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:49 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:50 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:51 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:52 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:53 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:54 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:55 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:56 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:57 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:58 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:01:59 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:00 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:02:07 --:--:--     0curl: (7) Failed connect to 100.67.153.89:80; Connection timed out
+
+Test Failed

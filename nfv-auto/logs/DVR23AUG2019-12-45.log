@@ -1,0 +1,63 @@
+Controller ip's ['192.168.120.123', '192.168.120.131', '192.168.120.129']
+Compute ip's ['192.168.120.122', '192.168.120.130', '192.168.120.134']
+==========================================================================================================
+====         DVR TEST CASE 4:     Verify traffic between 2 Compute nodes bypasses Controller node.   =====
+==========================================================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.39.60:8774/v2.1/servers, Invalid key_name provided.
+Line No: 716 
+
+Creating Server: tt_vm2
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.39.60:8774/v2.1/servers, Invalid key_name provided.
+Line No: 716 
+
+
+Unable to create 2 instances on different compute and different network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'accessIPv4'
+Line No: 1356 
+
+None
+Unable to execute test case 4
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 253 
+
+Deleting Server: tt_vm1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully

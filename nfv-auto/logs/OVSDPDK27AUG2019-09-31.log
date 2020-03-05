@@ -1,0 +1,23 @@
+
+==========================================================================
+Executing Test Case 3 (Validates the OVS DPDK works fine with floating IP)
+==========================================================================
+Creating Server: tt_vm
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.20.12) , Floating IP: (100.82.39.79)
+Instance Created.
+Getting the gateway of floating ip...
+Gateway of floating ip: 100.82.39.65
+Failed to establish SSH connection with 100.82.39.79
+Trying to ping the gateway through instance..
+Error encountered while executing command: ping -c 5 100.82.39.65
+None
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+
+Error encountered while executing Test Case: 3!
+Error: <type 'exceptions.TypeError'>
+Cause: argument of type 'NoneType' is not iterable
+Line No: 158 
+

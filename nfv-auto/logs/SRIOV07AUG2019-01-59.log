@@ -1,0 +1,18 @@
+==========================================================================================================
+====         TEST CASE 2:     Verify the Switc Mode for OVS-Offload.                                 =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+[]
+0
+Error encountered while executing command: cat pilot/templates/neutron-sriov.yaml | grep switchdev
+Unable to execute test case 1
+
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'split'
+Line No: 320 
+

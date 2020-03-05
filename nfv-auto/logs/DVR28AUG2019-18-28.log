@@ -1,0 +1,16 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 8:     Create the router and attach an instance to it.                    =====
+====     Verify namespace qrouter is created on the Compute node where instance is scheduled.        =====
+==========================================================================================================
+Creating Network: tt_net
+Network already exists with the same name.
+Creating Router: tt_router
+Router already exists.
+Creating Server: tt_vm
+Server Count: 1
+
+Server Created Successfully!
+Instance >> Fixed IP: 192.168.10.20
+TEST SUCCESSFUL

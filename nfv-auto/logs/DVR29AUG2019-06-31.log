@@ -1,0 +1,55 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====  DVR TEST CASE 13:     Down the L3 agent on one of compute node and send traffic from this node.=====
+==========================================================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: tt_vm2
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to tt_vm1
+Creating & Assigning Floating IP..
+Assigning floating ip to tt_vm2
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.20.29) , Floating IP: (100.82.39.84)
+Instance2 >> Fixed IP: (192.168.30.8) , Floating IP: (100.82.39.81)
+['100.82.39.84', '192.168.20.29', '100.82.39.81', '192.168.30.8']
+Unable to execute test case 13
+
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 192.168.120.134
+Line No: 852 
+
+Deleting Server: tt_vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully

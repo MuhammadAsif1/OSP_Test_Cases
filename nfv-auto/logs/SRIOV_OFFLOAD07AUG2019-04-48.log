@@ -1,0 +1,16 @@
+==========================================================================================================
+====         DVR TEST CASE 4:     Verify that Offloading Status on all the compute nodes.            =====
+==========================================================================================================
+Compute ip's ['192.168.120.137', '192.168.120.130', '192.168.120.138']
+Test running for compute- 192.168.120.137
+"true"
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.130
+"true"
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.138
+"true"
+
+TEST SUCCESSFUL

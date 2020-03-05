@@ -1,0 +1,76 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network
+Creating Router: octavia-router
+Creating Server: octavia_vm1_http
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia_vm2_http
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia_vm1_http
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia_vm2_http
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.70.23) , Floating IP: (100.67.153.73)
+Instance2 >> Fixed IP: (192.168.70.12) , Floating IP: (100.67.153.84)
+output ['100.67.153.73', '192.168.70.23', '100.67.153.84', '192.168.70.12']
+VM IP 100.67.153.73
+Unable to execute test case 1
+
+Error: <class 'socket.error'>
+Cause: [Errno 110] Connection timed out
+Line No: 134 
+
+member1 deleting..
+member2 deleting..
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia_vm1_http..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: octavia_vm2_http..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 2:      DOWN 1 Member and See the Loadbalancer Output.  =====
+==========================================================================================================
+Updating 1 Member status to pause..
+Waiting to instance to pause....
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 268 
+
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 3:      ADD 1 Member and See the Loadbalancer Output.  =====
+==========================================================================================================
+Updating 1 Member status to resume..
+Waiting to instance to UP....
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 299 
+

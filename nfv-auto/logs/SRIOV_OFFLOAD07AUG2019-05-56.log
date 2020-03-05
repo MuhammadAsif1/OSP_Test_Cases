@@ -1,0 +1,42 @@
+==========================================================================================================
+====         TEST CASE 1:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+p4p1_1
+p4p1_3
+p8p1_2
+['p4p1_1', 'p4p1_3', 'p8p1_2']
+3
+1 VF is consumed when instance created....['4']
+1 VF is returned when instance deleted....['p4p1_1', 'p4p1_3', 'p8p1_2']
+Test Successful
+server creation failed / server is not created on the given compute
+Test Failed
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+[]
+0
+1 VF is consumed when instance created....['4']
+1 VF is returned when instance deleted....[]
+Test Successful
+server creation failed / server is not created on the given compute
+Test Failed
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+p4p1_3
+['p4p1_3']
+1
+1 VF is consumed when instance created....['4']
+1 VF is returned when instance deleted....['p4p1_3']
+Test Successful
+server creation failed / server is not created on the given compute
+Test Failed

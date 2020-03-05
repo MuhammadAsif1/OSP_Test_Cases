@@ -1,0 +1,116 @@
+==========================================================================================================
+====TEST CASE 7: Verify OVS Offloading for sriov instance to sriov instance in different scenarios    ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net1
+Creating Sriov Offload Enabled SubNet: sriov_subnet1
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Sriov Offload Enabled Network: sriov_net2
+Creating Sriov Offload Enabled SubNet: sriov_subnet2
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.13) , Floating IP: (100.67.154.195)
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.5) , Floating IP: (100.67.154.200)
+system@ovs-system:
+	lookups: hit:4052841 missed:10131868 lost:0
+	flows: 34
+	masks: hit:65283087 total:7 hit/pkt:4.60
+	port 0: ovs-system (internal)
+	port 1: br-tenant (internal)
+	port 2: mlx_br2 (internal)
+	port 3: mlx_br1 (internal)
+	port 4: br-bond1 (internal)
+	port 5: p4p1
+	port 6: p8p1
+	port 7: vlan130 (internal)
+	port 8: bond0
+	port 9: vlan140 (internal)
+	port 10: bond1
+	port 11: vlan170 (internal)
+	port 12: br-ex (internal)
+	port 13: br-int (internal)
+	port 14: eth1
+
+representor port eth1
+
+PING output: PING 192.168.80.5 (192.168.80.5) 56(84) bytes of data.
+64 bytes from 192.168.80.5: icmp_seq=1 ttl=63 time=1.55 ms
+64 bytes from 192.168.80.5: icmp_seq=2 ttl=63 time=0.400 ms
+64 bytes from 192.168.80.5: icmp_seq=3 ttl=63 time=0.300 ms
+64 bytes from 192.168.80.5: icmp_seq=4 ttl=63 time=0.260 ms
+64 bytes from 192.168.80.5: icmp_seq=5 ttl=63 time=0.298 ms
+64 bytes from 192.168.80.5: icmp_seq=6 ttl=63 time=0.347 ms
+64 bytes from 192.168.80.5: icmp_seq=7 ttl=63 time=0.320 ms
+64 bytes from 192.168.80.5: icmp_seq=8 ttl=63 time=0.310 ms
+64 bytes from 192.168.80.5: icmp_seq=9 ttl=63 time=0.310 ms
+64 bytes from 192.168.80.5: icmp_seq=10 ttl=63 time=0.319 ms
+
+--- 192.168.80.5 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9002ms
+rtt min/avg/max/mdev = 0.260/0.442/1.557/0.373 ms
+
+
+
+Tcpdump output: None
+
+
+Error encountered while checking ovs offload of instance2: 192.168.80.5 and instance1: 100.67.154.195
+
+Error: <type 'exceptions.NameError'>
+Cause: global name 'output_a' is not defined
+Line No: 368 
+
+Pinging 192.168.80.5 from 100.67.154.195
+PING 192.168.80.5 (192.168.80.5) 56(84) bytes of data.
+64 bytes from 192.168.80.5: icmp_seq=1 ttl=63 time=20.7 ms
+64 bytes from 192.168.80.5: icmp_seq=2 ttl=63 time=0.351 ms
+64 bytes from 192.168.80.5: icmp_seq=3 ttl=63 time=0.195 ms
+64 bytes from 192.168.80.5: icmp_seq=4 ttl=63 time=0.249 ms
+64 bytes from 192.168.80.5: icmp_seq=5 ttl=63 time=0.210 ms
+
+--- 192.168.80.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4002ms
+rtt min/avg/max/mdev = 0.195/4.342/20.705/8.181 ms
+
+---Ping Successful!
+tcpdump command result None
+Test 7 diff compute and diff network successful
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_router..
+Router Deleted successfully

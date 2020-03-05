@@ -1,0 +1,28 @@
+Creating Server: centos
+Server Count: 3
+
+Server Created Successfully!
+Creating Instance Snapshot: centos_snap
+Instance Snapshot already exists with the same name.
+Creating Server: centos
+Server Count: 3
+
+Unable to create server!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 635 
+
+Deleting Server: centos-1..
+Server Deleted successfully
+Deleting Server: centos-2..
+Server Deleted successfully
+Deleting Server: centos-3..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: centos_snap_vm-1..
+Server deletion failed!
+Deleting Server: centos_snap_vm-2..
+Server deletion failed!
+Deleting Server: centos_snap_vm-3..
+Server deletion failed!
+Deleting all unattached floating IPs.

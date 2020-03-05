@@ -1,0 +1,227 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.9) , Floating IP: (100.82.39.85)
+PING 100.82.39.85 (100.82.39.85) 56(84) bytes of data.
+64 bytes from 100.82.39.85: icmp_seq=1 ttl=62 time=0.829 ms
+64 bytes from 100.82.39.85: icmp_seq=2 ttl=62 time=0.435 ms
+64 bytes from 100.82.39.85: icmp_seq=3 ttl=62 time=0.417 ms
+64 bytes from 100.82.39.85: icmp_seq=4 ttl=62 time=0.494 ms
+64 bytes from 100.82.39.85: icmp_seq=5 ttl=62 time=0.480 ms
+
+--- 100.82.39.85 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4003ms
+rtt min/avg/max/mdev = 0.417/0.531/0.829/0.151 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port2
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.4) , Floating IP: (100.82.39.84)
+PING 100.82.39.84 (100.82.39.84) 56(84) bytes of data.
+64 bytes from 100.82.39.84: icmp_seq=1 ttl=62 time=0.840 ms
+64 bytes from 100.82.39.84: icmp_seq=2 ttl=62 time=0.240 ms
+64 bytes from 100.82.39.84: icmp_seq=3 ttl=62 time=0.309 ms
+64 bytes from 100.82.39.84: icmp_seq=4 ttl=62 time=0.498 ms
+64 bytes from 100.82.39.84: icmp_seq=5 ttl=62 time=0.366 ms
+
+--- 100.82.39.84 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.240/0.450/0.840/0.213 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port3
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.10) , Floating IP: (100.82.39.79)
+PING 100.82.39.79 (100.82.39.79) 56(84) bytes of data.
+64 bytes from 100.82.39.79: icmp_seq=1 ttl=62 time=0.869 ms
+64 bytes from 100.82.39.79: icmp_seq=2 ttl=62 time=0.349 ms
+64 bytes from 100.82.39.79: icmp_seq=3 ttl=62 time=0.356 ms
+64 bytes from 100.82.39.79: icmp_seq=4 ttl=62 time=0.569 ms
+64 bytes from 100.82.39.79: icmp_seq=5 ttl=62 time=0.502 ms
+
+--- 100.82.39.79 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.349/0.529/0.869/0.189 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance3..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port4
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.24) , Floating IP: (100.82.39.90)
+PING 100.82.39.90 (100.82.39.90) 56(84) bytes of data.
+64 bytes from 100.82.39.90: icmp_seq=1 ttl=62 time=0.935 ms
+64 bytes from 100.82.39.90: icmp_seq=2 ttl=62 time=0.551 ms
+64 bytes from 100.82.39.90: icmp_seq=3 ttl=62 time=0.450 ms
+64 bytes from 100.82.39.90: icmp_seq=4 ttl=62 time=0.495 ms
+64 bytes from 100.82.39.90: icmp_seq=5 ttl=62 time=0.419 ms
+
+--- 100.82.39.90 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.419/0.570/0.935/0.187 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance4..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port5
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.23) , Floating IP: (100.82.39.75)
+PING 100.82.39.75 (100.82.39.75) 56(84) bytes of data.
+64 bytes from 100.82.39.75: icmp_seq=1 ttl=62 time=0.959 ms
+64 bytes from 100.82.39.75: icmp_seq=2 ttl=62 time=0.420 ms
+64 bytes from 100.82.39.75: icmp_seq=3 ttl=62 time=0.361 ms
+64 bytes from 100.82.39.75: icmp_seq=4 ttl=62 time=0.413 ms
+64 bytes from 100.82.39.75: icmp_seq=5 ttl=62 time=0.333 ms
+
+--- 100.82.39.75 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.333/0.497/0.959/0.233 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance5..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port6
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.7) , Floating IP: (100.82.39.86)
+PING 100.82.39.86 (100.82.39.86) 56(84) bytes of data.
+64 bytes from 100.82.39.86: icmp_seq=1 ttl=62 time=0.838 ms
+64 bytes from 100.82.39.86: icmp_seq=2 ttl=62 time=0.240 ms
+64 bytes from 100.82.39.86: icmp_seq=3 ttl=62 time=0.298 ms
+64 bytes from 100.82.39.86: icmp_seq=4 ttl=62 time=0.470 ms
+64 bytes from 100.82.39.86: icmp_seq=5 ttl=62 time=0.234 ms
+
+--- 100.82.39.86 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.234/0.416/0.838/0.227 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance6..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port7
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.14) , Floating IP: (100.82.39.84)
+PING 100.82.39.84 (100.82.39.84) 56(84) bytes of data.
+64 bytes from 100.82.39.84: icmp_seq=1 ttl=62 time=0.768 ms
+64 bytes from 100.82.39.84: icmp_seq=2 ttl=62 time=0.361 ms
+64 bytes from 100.82.39.84: icmp_seq=3 ttl=62 time=0.337 ms
+64 bytes from 100.82.39.84: icmp_seq=4 ttl=62 time=0.327 ms
+64 bytes from 100.82.39.84: icmp_seq=5 ttl=62 time=0.403 ms
+
+--- 100.82.39.84 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.327/0.439/0.768/0.167 ms
+Test 1 SUCCESSFUL
+Deleting Server: s_instance7..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

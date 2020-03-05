@@ -1,0 +1,4 @@
+Creating Network: st_network
+openstack.network.v2.network.Network(provider:physical_network=physint, ipv6_address_scope=None, revision_number=3, port_security_enabled=True, mtu=1500, id=134abffe-30d7-44f7-835f-b7685e19cc83, router:external=False, availability_zone_hints=[], availability_zones=[], ipv4_address_scope=None, shared=False, provider:segmentation_id=240, status=ACTIVE, subnets=[], description=, tags=[], updated_at=2019-08-18T10:21:34Z, is_default=False, name=st_network, project_id=b355cd14ccaa42b29531a7249151640e, qos_policy_id=None, admin_state_up=True, created_at=2019-08-18T10:21:33Z, provider:network_type=vlan)
+provider:segmentation_id=240
+240

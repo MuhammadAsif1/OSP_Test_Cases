@@ -1,0 +1,14 @@
+Creating Parent Network
+Creating Sub Network
+Attaching Network to Router
+Creating port: parent_port_new
+Creating port: sub_port_new
+Creating trunk: trunk_port_new
+Creating server: trunk_server
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.10.17) , Floating IP: (100.67.153.79)
+['192.168.10.17', '100.67.153.79']
+Deleting Server: trunk_server..
+Server Deleted successfully
+Deleting all unattached floating IPs.

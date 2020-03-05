@@ -1,0 +1,41 @@
+
+===================================================================
+Executing Test Case 16 (Verify OVS DPDK instance cannot communicate
+ with non OVS DPDK instance created on same tenant network)
+===================================================================
+Creating Server: dpdk_server
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: server2
+Server Count: 1
+
+Server Created Successfully!
+Namespace id : qdhcp-84307565-7baf-41c5-a941-21966ca8173e
+Checking if ssh-key.pem file is present..
+Trying to send /home/osp_admin/ssh-key.pem to /home/heat-admin/ssh-key.pem...
+Sent.
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-84307565-7baf-41c5-a941-21966ca8173e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/ssh-key.pem centos@192.168.20.7 "ping -c 5 192.168.20.20"
+ssh: connect to host 192.168.20.7 port 22: No route to host
+
+Retying...0
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-84307565-7baf-41c5-a941-21966ca8173e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/ssh-key.pem centos@192.168.20.7 "ping -c 5 192.168.20.20"
+ssh: connect to host 192.168.20.7 port 22: No route to host
+
+Retying...1
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-84307565-7baf-41c5-a941-21966ca8173e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/ssh-key.pem centos@192.168.20.7 "ping -c 5 192.168.20.20"
+ssh: connect to host 192.168.20.7 port 22: No route to host
+
+Retying...2
+
+Test Case 16 Passed, as the communication is unsuccessful.
+
+Deleting Server: dpdk_server..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: server2..
+Server Deleted successfully
+Deleting all unattached floating IPs.

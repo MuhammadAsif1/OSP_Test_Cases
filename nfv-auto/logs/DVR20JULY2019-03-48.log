@@ -1,0 +1,72 @@
+Controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+Compute ip's ['192.168.120.22', '192.168.120.25', '192.168.120.31']
+==========================================================================================================
+====         DVR TEST CASE 5:     Verify the snat traffic transverse through the controller node.    =====
+==========================================================================================================
+Creating Network: tt_net
+Creating Router: tt_router
+Creating Server: tt_vm
+Server Count: 1
+
+Server Created Successfully!
+Instance >> Fixed IP: 192.168.10.6
+[u'924dc09d-d51d-48b6-b5d4-87aa544a28a5', u'241c2515-c292-4cee-900e-53793b210e1d', u'b8a9af93-605d-4a89-9055-f04ccdf79802', '192.168.10.6']
+924dc09d-d51d-48b6-b5d4-87aa544a28a5
+qdhcp-924dc09d-d51d-48b6-b5d4-87aa544a28a5
+241c2515-c292-4cee-900e-53793b210e1d
+List of controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+snat namespace not found in controller 192.168.120.35
+snat namespace not found in controller 192.168.120.21
+Checking if dvr-key.pem file is present..
+Trying to send /home/osp_admin/dvr-key.pem to /home/heat-admin/dvr-key.pem...
+Sent.
+sg-e2e48848-84
+['sg-e2e48848-84']
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-924dc09d-d51d-48b6-b5d4-87aa544a28a5 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/dvr-key.pem centos@192.168.10.6 "ping -c 5 8.8.8.8"
+Warning: Permanently added '192.168.10.6' (ECDSA) to the list of known hosts.
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=44 time=12.0 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=44 time=11.7 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=44 time=11.6 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=44 time=11.1 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=44 time=18.3 ms
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4013ms
+rtt min/avg/max/mdev = 11.152/12.997/18.343/2.689 ms
+Connection to 192.168.10.6 closed.
+
+None
+True
+08:49:55.292369 IP 192.168.10.6 > dns.google: ICMP echo request, id 4416, seq 1, length 64
+08:49:55.303081 ARP, Request who-has 192.168.10.6 tell r153-controller-2, length 28
+08:49:55.303631 ARP, Reply 192.168.10.6 is-at fa:16:3e:42:6c:06 (oui Unknown), length 46
+08:49:55.303636 IP dns.google > 192.168.10.6: ICMP echo reply, id 4416, seq 1, length 64
+08:49:56.293925 IP 192.168.10.6 > dns.google: ICMP echo request, id 4416, seq 2, length 64
+08:49:56.303990 IP dns.google > 192.168.10.6: ICMP echo reply, id 4416, seq 2, length 64
+08:49:57.303931 IP 192.168.10.6 > dns.google: ICMP echo request, id 4416, seq 3, length 64
+08:49:57.314069 IP dns.google > 192.168.10.6: ICMP echo reply, id 4416, seq 3, length 64
+08:49:57.750903 IP6 fe80::f816:3eff:fe42:6c06 > ff02::2: ICMP6, router solicitation, length 16
+08:49:58.304820 IP 192.168.10.6 > dns.google: ICMP echo request, id 4416, seq 4, length 64
+08:49:58.314891 IP dns.google > 192.168.10.6: ICMP echo reply, id 4416, seq 4, length 64
+08:49:59.305691 IP 192.168.10.6 > dns.google: ICMP echo request, id 4416, seq 5, length 64
+08:49:59.315747 IP dns.google > 192.168.10.6: ICMP echo reply, id 4416, seq 5, length 64
+
+
+TEST FAILED for interface sg-e2e48848-84
+TEST FAILED
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

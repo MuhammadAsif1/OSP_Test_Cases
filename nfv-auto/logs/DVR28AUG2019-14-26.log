@@ -1,0 +1,67 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 12:     Verify traffic from outside the network to instance               =====
+====                     should go through the Floating IP namespace on the compute node.            =====
+==========================================================================================================
+Creating Network: tt_net
+Creating Router: tt_router
+Creating Server: tt_vm
+Server Count: 1
+
+Server Created Successfully!
+Creating & Assigning Floating IP..
+08d76896-3ccd-4e02-8334-fb3a240350cc
+qdhcp-08d76896-3ccd-4e02-8334-fb3a240350cc
+9be67d2c-61c4-43f8-94bf-18a323fbe1aa
+fip-b9bf918b-51b6-4106-8fff-189d57495160
+100.82.39.93
+100.82.39.93
+Checking if ssh-key.pem file is present..
+Trying to send /home/osp_admin/ssh-key.pem to /home/heat-admin/ssh-key.pem...
+Sent.
+fg-af318a1b-d9
+['fg-af318a1b-d9']
+PING 100.82.39.93 (100.82.39.93) 56(84) bytes of data.
+64 bytes from 100.82.39.93: icmp_seq=1 ttl=61 time=0.356 ms
+64 bytes from 100.82.39.93: icmp_seq=2 ttl=61 time=0.400 ms
+64 bytes from 100.82.39.93: icmp_seq=3 ttl=61 time=0.578 ms
+64 bytes from 100.82.39.93: icmp_seq=4 ttl=61 time=0.488 ms
+64 bytes from 100.82.39.93: icmp_seq=5 ttl=61 time=0.257 ms
+
+--- 100.82.39.93 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.257/0.415/0.578/0.113 ms
+None
+True
+14:28:26.595306 IP 100.82.39.10 > 100.82.39.93: ICMP echo request, id 8423, seq 2, length 64
+14:28:26.595439 IP 100.82.39.93 > 100.82.39.10: ICMP echo reply, id 8423, seq 2, length 64
+14:28:27.595158 IP 100.82.39.10 > 100.82.39.93: ICMP echo request, id 8423, seq 3, length 64
+14:28:27.595423 IP 100.82.39.93 > 100.82.39.10: ICMP echo reply, id 8423, seq 3, length 64
+14:28:28.595049 IP 100.82.39.10 > 100.82.39.93: ICMP echo request, id 8423, seq 4, length 64
+14:28:28.595240 IP 100.82.39.93 > 100.82.39.10: ICMP echo reply, id 8423, seq 4, length 64
+14:28:29.594951 IP 100.82.39.10 > 100.82.39.93: ICMP echo request, id 8423, seq 5, length 64
+14:28:29.595028 IP 100.82.39.93 > 100.82.39.10: ICMP echo reply, id 8423, seq 5, length 64
+14:28:31.058077 IP gateway > 224.0.0.5: OSPFv2, Hello, length 44
+14:28:34.613560 ARP, Request who-has gateway tell r8-14g-dell-compute-0, length 28
+14:28:34.614395 ARP, Reply gateway is-at ec:f4:bb:fc:09:48 (oui Unknown), length 46
+14:28:41.067863 IP gateway > 224.0.0.5: OSPFv2, Hello, length 44
+14:28:51.082273 IP gateway > 224.0.0.5: OSPFv2, Hello, length 44
+
+
+TEST SUCCESSFUL for interface fg-af318a1b-d9
+TEST SUCCESSFUL
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

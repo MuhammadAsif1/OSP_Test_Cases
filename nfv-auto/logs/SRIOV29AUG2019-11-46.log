@@ -1,0 +1,84 @@
+==========================================================================================================
+====  TEST CASE 9:     Ping an sriov instance to legacy instance in different scenarios             ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_legacy_net1
+Creating Sriov Enabled SubNet: sriov_legacy_subnet1
+Creating Sriov Enabled Port: s_port
+Creating Network: sriov_legacy_net2
+Creating Router: sriov_legacy_router
+Network already exists with the same name.
+Creating Router: sriov_legacy_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.7) , Floating IP: (100.82.39.87)
+Creating Network: sriov_legacy_net2
+Network already exists with the same name.
+Creating Router: sriov_legacy_router
+Router already exists.
+Creating Server: l_instance
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to l_instance
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.6) , Floating IP: (100.82.39.88)
+==============================================
+Pinging from Sriov Instance to Legacy Instance
+==============================================
+Pinging 192.168.80.6 from 100.82.39.87
+PING 192.168.80.6 (192.168.80.6) 56(84) bytes of data.
+64 bytes from 192.168.80.6: icmp_seq=1 ttl=63 time=5.08 ms
+64 bytes from 192.168.80.6: icmp_seq=2 ttl=63 time=0.358 ms
+64 bytes from 192.168.80.6: icmp_seq=3 ttl=63 time=0.223 ms
+64 bytes from 192.168.80.6: icmp_seq=4 ttl=63 time=5.85 ms
+64 bytes from 192.168.80.6: icmp_seq=5 ttl=63 time=8.26 ms
+
+--- 192.168.80.6 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4003ms
+rtt min/avg/max/mdev = 0.223/3.958/8.268/3.173 ms
+
+---Ping Successful!
+==============================================
+Pinging from Legacy Instance to Sriov Instance
+==============================================
+Pinging 192.168.70.7 from 100.82.39.88
+PING 192.168.70.7 (192.168.70.7) 56(84) bytes of data.
+64 bytes from 192.168.70.7: icmp_seq=1 ttl=63 time=0.280 ms
+64 bytes from 192.168.70.7: icmp_seq=2 ttl=63 time=2.31 ms
+64 bytes from 192.168.70.7: icmp_seq=3 ttl=63 time=0.172 ms
+64 bytes from 192.168.70.7: icmp_seq=4 ttl=63 time=0.168 ms
+64 bytes from 192.168.70.7: icmp_seq=5 ttl=63 time=0.286 ms
+
+--- 192.168.70.7 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4027ms
+rtt min/avg/max/mdev = 0.168/0.644/2.318/0.838 ms
+
+---Ping Successful!
+Test 9 diff compute and diff network successful
+Deleting Server: s_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: l_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_legacy_net1 and sriov_legacy_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_legacy_router..
+Router Deleted successfully

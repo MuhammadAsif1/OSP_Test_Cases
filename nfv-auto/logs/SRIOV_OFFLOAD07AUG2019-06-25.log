@@ -1,0 +1,21 @@
+==========================================================================================================
+====         TEST CASE 1:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+vfcount in ini ['4']
+vfport on stamp ['p8p1', 'p4p1']
+Error encountered while executing command: sudo ip link show p8p1
+Unable to execute test case 1
+
+Error: <type 'exceptions.TypeError'>
+Cause: argument of type 'NoneType' is not iterable
+Line No: 291 
+

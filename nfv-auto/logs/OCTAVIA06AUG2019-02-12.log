@@ -1,0 +1,44 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 2:      CREATE A LOADBALANCER For TCP Traffic.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network-tcp
+Creating Router: octavia-router
+Router already exists.
+Creating Server: octavia_vm1_tcp
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia_vm2_ycp
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia_vm1_tcp
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia_vm2_ycp
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.80.17) , Floating IP: (100.67.153.75)
+Instance2 >> Fixed IP: (192.168.80.15) , Floating IP: (100.67.153.84)
+output ['100.67.153.75', '192.168.80.17', '100.67.153.84', '192.168.80.15']
+VM IP 100.67.153.75
+Unable to execute test case 1
+
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 100.67.153.75
+Line No: 305 
+
+member1 deleting..
+member2 deleting..
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia_vm1_tcp..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: octavia_vm2_ycp..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

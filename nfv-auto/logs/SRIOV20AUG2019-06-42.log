@@ -1,0 +1,62 @@
+==========================================================================================================
+====  TEST CASE 11:     Ping an sriov instance to sriov instance in different scenarios             ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net1
+Creating Sriov Enabled SubNet: sriov_subnet1
+Creating Sriov Enabled Port: s_port1
+Creating Sriov Enabled Network: sriov_net2
+Creating Sriov Enabled SubNet: sriov_subnet2
+Creating Sriov Enabled Port: s_port2
+Creating Router: sriov_router
+Network already exists with the same name.
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.11) , Floating IP: (100.82.39.70)
+Network already exists with the same name.
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.3) , Floating IP: (100.82.39.75)
+Pinging 192.168.80.3 from 100.82.39.70
+PING 192.168.80.3 (192.168.80.3) 56(84) bytes of data.
+64 bytes from 192.168.80.3: icmp_seq=1 ttl=63 time=0.566 ms
+64 bytes from 192.168.80.3: icmp_seq=2 ttl=63 time=0.174 ms
+64 bytes from 192.168.80.3: icmp_seq=3 ttl=63 time=0.171 ms
+64 bytes from 192.168.80.3: icmp_seq=4 ttl=63 time=0.192 ms
+64 bytes from 192.168.80.3: icmp_seq=5 ttl=63 time=0.138 ms
+
+--- 192.168.80.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.138/0.248/0.566/0.160 ms
+
+---Ping Successful!
+Test 11 diff compute and diff network successful
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_router..
+Router Deleted successfully

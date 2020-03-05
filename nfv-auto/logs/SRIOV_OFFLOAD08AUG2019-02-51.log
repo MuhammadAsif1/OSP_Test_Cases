@@ -1,0 +1,99 @@
+==========================================================================================================
+====TEST CASE 7: Verify OVS Offloading for sriov instance to sriov instance in different scenarios    ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net1
+Creating Sriov Offload Enabled SubNet: sriov_subnet1
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Sriov Offload Enabled Network: sriov_net2
+Creating Sriov Offload Enabled SubNet: sriov_subnet2
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.21) , Floating IP: (100.67.154.198)
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.6) , Floating IP: (100.67.154.207)
+system@ovs-system:
+	lookups: hit:3544436 missed:9728530 lost:0
+	flows: 44
+	masks: hit:60546752 total:6 hit/pkt:4.56
+	port 0: ovs-system (internal)
+	port 1: br-tenant (internal)
+	port 2: mlx_br2 (internal)
+	port 3: mlx_br1 (internal)
+	port 4: br-bond1 (internal)
+	port 5: p4p1
+	port 6: p8p1
+	port 7: vlan130 (internal)
+	port 8: bond0
+	port 9: vlan140 (internal)
+	port 10: bond1
+	port 11: vlan170 (internal)
+	port 12: br-ex (internal)
+	port 13: br-int (internal)
+	port 14: eth1
+
+representor port  eth1
+
+Error encountered while checking ovs offload of instance2: 192.168.80.6 and instance1: 100.67.154.198
+
+Error: <type 'exceptions.AttributeError'>
+Cause: 'SSHClient' object has no attribute 'execute_command_return_output'
+Line No: 337 
+
+Pinging 192.168.80.6 from 100.67.154.198
+PING 192.168.80.6 (192.168.80.6) 56(84) bytes of data.
+64 bytes from 192.168.80.6: icmp_seq=1 ttl=63 time=10.0 ms
+64 bytes from 192.168.80.6: icmp_seq=2 ttl=63 time=0.131 ms
+64 bytes from 192.168.80.6: icmp_seq=3 ttl=63 time=0.273 ms
+64 bytes from 192.168.80.6: icmp_seq=4 ttl=63 time=0.251 ms
+64 bytes from 192.168.80.6: icmp_seq=5 ttl=63 time=0.178 ms
+
+--- 192.168.80.6 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.131/2.167/10.002/3.917 ms
+
+---Ping Successful!
+Unable to execute test case 7
+
+Error: <type 'exceptions.TypeError'>
+Cause: not all arguments converted during string formatting
+Line No: 692 
+
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_router..
+Router Deleted successfully

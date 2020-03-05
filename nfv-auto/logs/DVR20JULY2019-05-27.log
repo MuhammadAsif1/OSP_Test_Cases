@@ -1,0 +1,9 @@
+Controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+Compute ip's ['192.168.120.22', '192.168.120.25', '192.168.120.31']
+Checking if dvr-key.pem file is present..
+Already present.
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-75499bf9-6c48-4020-b39b-70041377240f ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/dvr-key.pem centos@192.168.70.6 "ping -c 5 8.8.8.8"
+Warning: Permanently added '192.168.70.6' (ECDSA) to the list of known hosts.
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+

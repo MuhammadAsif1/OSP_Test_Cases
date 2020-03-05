@@ -1,0 +1,58 @@
+==========================================================================================================
+====TEST CASE 7: Verify OVS Offloading for sriov instance to sriov instance in different scenarios    ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net1
+Creating Sriov Offload Enabled SubNet: sriov_subnet1
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Sriov Offload Enabled Network: sriov_net2
+
+Unable to create sriov network / subnet / port.
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 479 
+
+Creating Router: sriov_router
+
+Unable to create router with two networks!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 646 
+
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.3) , Floating IP: (100.67.154.198)
+Creating Sriov Offload Enabled Network: sriov_net2
+
+Unable to create sriov network / subnet / port.
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 486 
+
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 834 
+
+Unable to execute test case 7
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 669 
+
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2

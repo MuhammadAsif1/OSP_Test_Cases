@@ -1,0 +1,19 @@
+Controller ip's ['192.168.120.123', '192.168.120.131', '192.168.120.129']
+Compute ip's ['192.168.120.122', '192.168.120.130', '192.168.120.134']
+==========================================================================================================
+====         DVR TEST CASE 14:   Delete instance the compute node see router namespace still exits.  =====
+==========================================================================================================
+Creating Network: tt_net
+
+Unable to create 1 instances on same compute and same network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'Connection' object has no attribute 'get_network'
+Line No: 1130 
+
+Unable to execute test case 14
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 937 
+
+Deleting Server: tt_vm..

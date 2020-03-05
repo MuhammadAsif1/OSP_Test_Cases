@@ -1,0 +1,9 @@
+
+Unable to create server with port id!
+Error: <type 'exceptions.NameError'>
+Cause: global name 'cidr' is not defined
+Line No: 899 
+
+Deleting Server: trunk_server..
+Server deletion failed!
+Deleting all unattached floating IPs.

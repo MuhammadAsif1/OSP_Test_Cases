@@ -1,0 +1,8 @@
+Creating Server: centos
+Creating Server: centos-1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Multiple matches found for centos-1
+Line No: 660 
+

@@ -1,0 +1,54 @@
+Controller ip's ['192.168.120.138', '192.168.120.134', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.155', '192.168.120.129']
+==========================================================================================================
+====         DVR TEST CASE 14:   Delete instance the compute node see router namespace still exits.  =====
+==========================================================================================================
+Creating Network: tt_net
+Creating Router: tt_router
+Creating Server: tt_vm
+Server Count: 1
+
+Server Created Successfully!
+Instance >> Fixed IP: 192.168.10.11
+Qrouter namespace is present in Compute Node Before Deletion
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+TEST SUCCESSFUL
+==========================================================================================================
+====         DVR TEST CASE 2:     Verify that DVR is deployed on all the compute nodes.              =====
+==========================================================================================================
+Compute ip's ['192.168.120.139', '192.168.120.155', '192.168.120.129']
+Test running for compute- 192.168.120.139
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.155
+Unable to execute test case 2
+
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 192.168.120.155
+Line No: 124 
+
+==========================================================================================================
+====         DVR TEST CASE 1:      Verify that DVR is deployed on all the controller nodes.          =====
+==========================================================================================================
+Controller ip's ['192.168.120.138', '192.168.120.134', '192.168.120.131']
+Unable to execute test case 1
+
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 192.168.120.138
+Line No: 96 
+

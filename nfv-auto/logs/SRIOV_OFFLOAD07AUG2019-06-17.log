@@ -1,0 +1,18 @@
+==========================================================================================================
+====         TEST CASE 2:     Verify the Switc Mode for OVS-Offload.                                 =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+['4']:['p8p1', 'p4p1']:switchdev
+  NeutronSriovNumVFs: 'p8p1:4:switchdev,p4p1:4:switchdev'
+VF count is set Successfully
+Switchdev is set Successfully
+Switch Mode is set Successfully for port p8p1:4:switchdev
+VF count is set Successfully
+Switchdev is set Successfully
+Switch Mode is set Successfully for port p4p1:4:switchdev
+Test Successful

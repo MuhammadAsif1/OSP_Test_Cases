@@ -1,0 +1,20 @@
+
+{
+  "cntl0" : "192.168.120.129",
+  "cntl1" : "192.168.120.125",
+  "cntl2" : "192.168.120.130",
+  "cmpt0" : "192.168.120.141",
+  "cmpt1" : "192.168.120.122",
+  "cmpt2" : "192.168.120.131",
+  "strg0" : "192.168.120.136",
+  "strg1" : "192.168.120.126",
+  "strg2" : "192.168.120.140",
+  "username_of_nodes" : "heat-admin",
+  "sah_node_ip" : "100.82.39.9",
+  "director_node_ip" : "100.82.39.10",
+  "sah_node_username" : "root",
+  "sah_node_password" : "Dell0SS!",
+  "csp_profile_ini_file_path" : "/root/r8_js13.2.csp.ini",
+  "properties_file_path" : "/root/r8_js13.2.csp.properties"
+}
+

@@ -1,0 +1,185 @@
+==========================================================================================================
+====         CEPH ENVIRONMENT SETUP:      CREATE VM'S FOR COMPUTE NODE 0.                            =====
+==========================================================================================================
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_nova_1
+Assigning floating ip to ceph_vm_1_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.43) , Floating IP: (100.82.36.228)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'5981bfd7-ac4e-4431-89be-899be7fb6e99', '192.168.70.43', '100.82.36.228']
+VM IP 100.82.36.228
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_2_nova_1
+Assigning floating ip to ceph_vm_2_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.15) , Floating IP: (100.82.36.222)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'220ef152-c661-4ec4-b0ba-732906474a01', '192.168.70.15', '100.82.36.222']
+VM IP 100.82.36.222
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_3_nova_1
+Assigning floating ip to ceph_vm_3_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.44) , Floating IP: (100.82.36.235)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'0fbc1544-5dea-4fc3-8fb7-f9f1fd7c1b93', '192.168.70.44', '100.82.36.235']
+VM IP 100.82.36.235
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_4_nova_1
+Assigning floating ip to ceph_vm_4_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.24) , Floating IP: (100.82.36.204)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'2c5c60fc-21a0-492e-bff0-0d557f4bfaa1', '192.168.70.24', '100.82.36.204']
+VM IP 100.82.36.204
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_5_nova_1
+Assigning floating ip to ceph_vm_5_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.13) , Floating IP: (100.82.36.217)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'96ff02b8-7c7b-47d9-b782-a1c260c95fdd', '192.168.70.13', '100.82.36.217']
+VM IP 100.82.36.217
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_6_nova_1
+Assigning floating ip to ceph_vm_6_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.27) , Floating IP: (100.82.36.213)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'ccc660c5-ba71-4dc3-878f-a8762a2a1c06', '192.168.70.27', '100.82.36.213']
+VM IP 100.82.36.213
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_7_nova_1
+Assigning floating ip to ceph_vm_7_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.26) , Floating IP: (100.82.36.219)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'0a108f6c-ffb7-4a7a-a5e6-147042c750d9', '192.168.70.26', '100.82.36.219']
+VM IP 100.82.36.219
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_8_nova_1
+Assigning floating ip to ceph_vm_8_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.10) , Floating IP: (100.82.36.215)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'a09541cb-1d52-43e5-9b77-63a2936680a7', '192.168.70.10', '100.82.36.215']
+VM IP 100.82.36.215
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219', '100.82.36.215']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_9_nova_1
+Assigning floating ip to ceph_vm_9_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.37) , Floating IP: (100.82.36.226)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'8906d7f6-3f86-41c8-878a-66f15e5def74', '192.168.70.37', '100.82.36.226']
+VM IP 100.82.36.226
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219', '100.82.36.215', '100.82.36.226']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_10_nova_1
+Assigning floating ip to ceph_vm_10_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.32) , Floating IP: (100.82.36.230)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'447ee0f1-76bf-40b6-a585-09111531015c', '192.168.70.32', '100.82.36.230']
+VM IP 100.82.36.230
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219', '100.82.36.215', '100.82.36.226', '100.82.36.230']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_11_nova_1
+Assigning floating ip to ceph_vm_11_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.46) , Floating IP: (100.82.36.210)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'9e900c38-6194-47c2-9aae-995e6b8ada72', '192.168.70.46', '100.82.36.210']
+VM IP 100.82.36.210
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219', '100.82.36.215', '100.82.36.226', '100.82.36.230', '100.82.36.210']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_12_nova_1
+Assigning floating ip to ceph_vm_12_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.19) , Floating IP: (100.82.36.220)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'26452398-0c80-49ec-8d65-e8459f501419', '192.168.70.19', '100.82.36.220']
+VM IP 100.82.36.220
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219', '100.82.36.215', '100.82.36.226', '100.82.36.230', '100.82.36.210', '100.82.36.220']
+[]
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_13_nova_1
+Assigning floating ip to ceph_vm_13_nova_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.35) , Floating IP: (100.82.36.236)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'1701b209-d2b8-4e19-baad-442f483bde8c', '192.168.70.35', '100.82.36.236']
+VM IP 100.82.36.236
+VM CREATED SUCCESSFULLY
+[]
+['100.82.36.228', '100.82.36.222', '100.82.36.235', '100.82.36.204', '100.82.36.217', '100.82.36.213', '100.82.36.219', '100.82.36.215', '100.82.36.226', '100.82.36.230', '100.82.36.210', '100.82.36.220', '100.82.36.236']
+[]

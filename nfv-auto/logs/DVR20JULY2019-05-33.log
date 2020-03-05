@@ -1,0 +1,53 @@
+Controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+Compute ip's ['192.168.120.22', '192.168.120.25', '192.168.120.31']
+==========================================================================================================
+====         DVR TEST CASE 6:         Verify traffic with floatingIPs                                =====
+====                          for external traffic bypass Controller node.                           =====
+==========================================================================================================
+Creating Network: tt_net
+Creating Router: tt_router
+Creating Server: tt_vm
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to tt_vm
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.10.19) , Floating IP: (100.67.153.70)
+[u'd8d8e61d-38bd-43eb-b27e-18b8dc4dbe3f', u'948f4845-879a-488d-a5d3-206cb7088668', u'b8a86441-c4dc-4020-97c6-1edee9338fda', '192.168.10.19', '100.67.153.70']
+948f4845-879a-488d-a5d3-206cb7088668
+192.168.120.35
+Checking if dvr-key.pem file is present..
+Already present.
+qr-6c70bb9a-60
+['qr-6c70bb9a-60']
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=43 time=9.39 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=43 time=9.11 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=43 time=9.12 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=43 time=9.13 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=43 time=9.08 ms
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 9.087/9.172/9.395/0.112 ms
+
+1
+None
+
+
+TEST SUCCESSFUL for interface qr-6c70bb9a-60
+TEST SUCCESSFUL
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

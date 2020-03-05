@@ -1,0 +1,33 @@
+
+=====================================================================================
+Executing Test Case 4 (Validate Hugepages are enabled and working fine with OVS DPDK)
+=====================================================================================
+Creating Network: st_network
+Creating Router: st_router
+Creating Server: tt_vm
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.10.9) , Floating IP: (100.82.39.90)
+PING 100.82.39.90 (100.82.39.90) 56(84) bytes of data.
+64 bytes from 100.82.39.90: icmp_seq=1 ttl=62 time=0.588 ms
+64 bytes from 100.82.39.90: icmp_seq=2 ttl=62 time=0.431 ms
+64 bytes from 100.82.39.90: icmp_seq=3 ttl=62 time=0.432 ms
+64 bytes from 100.82.39.90: icmp_seq=4 ttl=62 time=0.438 ms
+64 bytes from 100.82.39.90: icmp_seq=5 ttl=62 time=0.344 ms
+
+--- 100.82.39.90 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.344/0.446/0.588/0.082 ms
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

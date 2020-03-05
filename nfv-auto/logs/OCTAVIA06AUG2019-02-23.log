@@ -1,0 +1,53 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 2:      CREATE A LOADBALANCER For TCP Traffic.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network-tcp
+Network already exists with the same name.
+Creating Router: octavia-router
+Router already exists.
+Creating Server: octavia_vm1_tcp
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia_vm2_ycp
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia_vm1_tcp
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia_vm2_ycp
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.80.8) , Floating IP: (100.67.153.92)
+Instance2 >> Fixed IP: (192.168.80.18) , Floating IP: (100.67.153.81)
+output ['100.67.153.92', '192.168.80.8', '100.67.153.81', '192.168.80.18']
+Loadbalancer creating..
+Listener creating..
+Pool creating..
+Member1 creating..
+Member2 creating..
+Creating Floating IP..
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| connection_limit          | -1                                   |
+| created_at                | 2019-08-06T07:26:25                  |
+| default_pool_id           | 6e9352a5-d05c-4690-9f93-37991aac77f4 |
+| default_tls_container_ref | None                                 |
+| description               |                                      |
+| id                        | 25138bc7-91e8-4b97-9df6-a6d410f6e926 |
+| insert_headers            | None                                 |
+| l7policies                |                                      |
+| loadbalancers             | 08d3b937-2d50-4be9-9bbc-76b5d5806ca4 |
+| name                      | listener1_tcp                        |
+| operating_status          | ONLINE                               |
+| project_id                | 84a2c8361ede4faa963191f65f26dd1b     |
+| protocol                  | TCP                                  |
+| protocol_port             | 23456                                |
+| provisioning_status       | ACTIVE                               |
+| sni_container_refs        | []                                   |
+| updated_at                | 2019-08-06T07:26:51                  |
++---------------------------+--------------------------------------+
+Test Successful

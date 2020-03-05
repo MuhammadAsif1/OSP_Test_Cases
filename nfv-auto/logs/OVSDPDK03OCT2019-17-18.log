@@ -1,0 +1,15 @@
+
+=======================================================================================================
+Executing Test Case 9 (Verify 8 vcpus will be allocated for host os ie 2 sibling pair from each socket)
+=======================================================================================================
+Trying to execute command: sudo taskset -cp 1
+On Compute Node 0 IP:192.168.120.141
+pid 1's current affinity list: 0-3,24-27,48-79
+
+On Compute Node 1 IP:192.168.120.122
+pid 1's current affinity list: 0-3,24-27,48-79
+
+On Compute Node 2 IP:192.168.120.131
+pid 1's current affinity list: 0-3,24-27,48-79
+
+Need to add the test case pass fail criteria!!!

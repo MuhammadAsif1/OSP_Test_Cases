@@ -1,0 +1,11 @@
+Deleting Server: centos-1..
+Server Deleted successfully
+Deleting Server: centos-2..
+Server Deleted successfully
+Deleting Server: centos-3..
+Server Deleted successfully
+Deleting Server: centos-4..
+Server Deleted successfully
+Deleting Server: centos-5..
+Server Deleted successfully
+Deleting all unattached floating IPs.

@@ -1,0 +1,164 @@
+==========================================================================================================
+====         CEPH ENVIRONMENT SETUP:      CREATE VM'S FOR COMPUTE NODE 0.                            =====
+==========================================================================================================
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1
+Assigning floating ip to ceph_vm_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.9) , Floating IP: (100.82.36.205)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'14ac722d-d65f-4998-8f8b-5a0c17b9e9b9', '192.168.70.9', '100.82.36.205']
+VM IP 100.82.36.205
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2
+Assigning floating ip to ceph_vm_1_2
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.13) , Floating IP: (100.82.36.201)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'2127219b-3ec2-45a1-af2e-58e5560bb450', '192.168.70.13', '100.82.36.201']
+VM IP 100.82.36.201
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3
+Assigning floating ip to ceph_vm_1_2_3
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.16) , Floating IP: (100.82.36.202)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'75914720-4cf9-4aa4-8337-8b58597f51a2', '192.168.70.16', '100.82.36.202']
+VM IP 100.82.36.202
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4
+Assigning floating ip to ceph_vm_1_2_3_4
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.10) , Floating IP: (100.82.36.216)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'142a7052-0236-43f9-8ab6-20d140b39d90', '192.168.70.10', '100.82.36.216']
+VM IP 100.82.36.216
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5
+Assigning floating ip to ceph_vm_1_2_3_4_5
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.7) , Floating IP: (100.82.36.232)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'47dd93a3-2ad4-406a-bfd0-1082f9adb075', '192.168.70.7', '100.82.36.232']
+VM IP 100.82.36.232
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6
+Assigning floating ip to ceph_vm_1_2_3_4_5_6
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.33) , Floating IP: (100.82.36.215)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'8ac163a9-ac60-46e9-b13c-bb9796ebe7ca', '192.168.70.33', '100.82.36.215']
+VM IP 100.82.36.215
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7
+Assigning floating ip to ceph_vm_1_2_3_4_5_6_7
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.5) , Floating IP: (100.82.36.227)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'de94e250-05bc-48b5-aa44-4d404c618d40', '192.168.70.5', '100.82.36.227']
+VM IP 100.82.36.227
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7_8
+Assigning floating ip to ceph_vm_1_2_3_4_5_6_7_8
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.24) , Floating IP: (100.82.36.218)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'9c94d3c8-92f2-4fa6-8969-aaa07bb158b1', '192.168.70.24', '100.82.36.218']
+VM IP 100.82.36.218
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7_8_9
+Assigning floating ip to ceph_vm_1_2_3_4_5_6_7_8_9
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.25) , Floating IP: (100.82.36.204)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'0db607f2-8f20-4578-8d8d-3a9680128fb0', '192.168.70.25', '100.82.36.204']
+VM IP 100.82.36.204
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7_8_9_10
+Assigning floating ip to ceph_vm_1_2_3_4_5_6_7_8_9_10
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.27) , Floating IP: (100.82.36.221)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'65c72a14-0d02-4492-bcc8-c2ff7d5c0f72', '192.168.70.27', '100.82.36.221']
+VM IP 100.82.36.221
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7_8_9_10_11
+Assigning floating ip to ceph_vm_1_2_3_4_5_6_7_8_9_10_11
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.18) , Floating IP: (100.82.36.209)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'230520c8-5d09-4a82-b84b-2bbb1946bd03', '192.168.70.18', '100.82.36.209']
+VM IP 100.82.36.209
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7_8_9_10_11_12
+Assigning floating ip to ceph_vm_1_2_3_4_5_6_7_8_9_10_11_12
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.14) , Floating IP: (100.82.36.224)
+output [u'b4347685-ae6e-4cad-9f0c-e27e1c0d35db', u'29dae31c-027c-4bdb-bf99-39e7f5e2bf8a', u'da08dd5e-278a-473e-a37f-03233eed6f87', '192.168.70.14', '100.82.36.224']
+VM IP 100.82.36.224
+VM CREATED SUCCESSFULLY
+Creating Network: storage-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1_2_3_4_5_6_7_8_9_10_11_12_13
+
+Unable to create server!
+Error: <class 'openstack.exceptions.HttpException'>
+Cause: HttpException: 403: Client Error for url: http://100.82.36.190:8774/v2.1/servers, Quota exceeded for ram: Requested 4096, but already used 49152 of 51200 ram
+Line No: 646 
+
+
+Unable to create 1 instances on same compute and same network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 1026 
+
+output None
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 139 
+
+Deleting Server: ceph_vm_1_2_3_4_5_6_7_8_9_10_11_12_13..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

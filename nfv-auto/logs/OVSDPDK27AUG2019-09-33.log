@@ -1,0 +1,71 @@
+
+==========================================================================
+Executing Test Case 3 (Validates the OVS DPDK works fine with floating IP)
+==========================================================================
+Creating Server: tt_vm
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.20.6) , Floating IP: (100.82.39.79)
+Instance Created.
+Getting the gateway of floating ip...
+Gateway of floating ip: 100.82.39.65
+Trying to ping the gateway through instance..
+PING 100.82.39.65 (100.82.39.65) 56(84) bytes of data.
+64 bytes from 100.82.39.65: icmp_seq=1 ttl=254 time=0.603 ms
+64 bytes from 100.82.39.65: icmp_seq=2 ttl=254 time=7.11 ms
+64 bytes from 100.82.39.65: icmp_seq=3 ttl=254 time=5.71 ms
+64 bytes from 100.82.39.65: icmp_seq=4 ttl=254 time=2.95 ms
+64 bytes from 100.82.39.65: icmp_seq=5 ttl=254 time=0.476 ms
+
+--- 100.82.39.65 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4013ms
+rtt min/avg/max/mdev = 0.476/3.371/7.114/2.673 ms
+
+
+Test Case 3 Passed, Ping successful.
+
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+
+=====================================================================================
+Executing Test Case 4 (Validate Hugepages are enabled and working fine with OVS DPDK)
+=====================================================================================
+
+Error encountered while executing Test Case: 4 !
+Error: <type 'exceptions.NameError'>
+Cause: global name 'cmpt_dict' is not defined
+Line No: 183 
+
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+
+==============================================================================================
+Executing Test Case 5 (Validate Numa is enabled and CPU pinning is working fine with OVS DPDK)
+==============================================================================================
+Creating Server: tt_vm
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.20.23) , Floating IP: (100.82.39.95)
+Instance Created.
+Instance Created.
+Error encountered while executing Test Case: 5 !
+
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 192.168.120.122
+Line No: 212 
+
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+
+=======================================================================================================
+Executing Test Case 9 (Verify 8 vcpus will be allocated for host os ie 2 sibling pair from each socket)
+=======================================================================================================
+Trying to execute command: sudo taskset -cp 1
+On Compute Node 0 IP:192.168.120.122
+
+Error encountered while executing Test Case: 9 !
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 192.168.120.122
+Line No: 278 
+

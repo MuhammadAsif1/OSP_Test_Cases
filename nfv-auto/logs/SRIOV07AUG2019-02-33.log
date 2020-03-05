@@ -1,0 +1,19 @@
+==========================================================================================================
+====         TEST CASE 2:     Verify the Switc Mode for OVS-Offload.                                 =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1', 'p4p1']
+p4p1
+p8p1
+['p4p1', 'p8p1']
+2
+['4']:['p4p1', 'p8p1']:switchdev
+VF count is set Successfully
+Switchdev is set Failed!!!
+VF count is set Failed!!!
+Switchdev is set Failed!!!
+Test Failed

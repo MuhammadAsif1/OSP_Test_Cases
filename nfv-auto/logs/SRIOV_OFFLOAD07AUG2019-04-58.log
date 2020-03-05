@@ -1,0 +1,13 @@
+==========================================================================================================
+====         TEST CASE 3:     Verify that Mode of PCI DEVICE.            =====
+==========================================================================================================
+Compute ip's ['192.168.120.137', '192.168.120.130', '192.168.120.138']
+Test running for compute- 192.168.120.137
+sudo: lscpi: command not found
+
+Unable to execute test case 2
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 373 
+

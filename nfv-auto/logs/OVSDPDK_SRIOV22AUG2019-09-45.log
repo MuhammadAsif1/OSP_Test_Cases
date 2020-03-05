@@ -1,0 +1,98 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Network already exists with the same name.
+Creating Sriov Enabled Port: sriov_net1_port_2
+Creating Router: sriov_router_1
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.17) , Floating IP: (100.82.39.81)
+PING 100.82.39.81 (100.82.39.81) 56(84) bytes of data.
+64 bytes from 100.82.39.81: icmp_seq=1 ttl=62 time=0.870 ms
+64 bytes from 100.82.39.81: icmp_seq=2 ttl=62 time=0.425 ms
+64 bytes from 100.82.39.81: icmp_seq=3 ttl=62 time=0.304 ms
+64 bytes from 100.82.39.81: icmp_seq=4 ttl=62 time=0.336 ms
+64 bytes from 100.82.39.81: icmp_seq=5 ttl=62 time=0.324 ms
+
+--- 100.82.39.81 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.304/0.451/0.870/0.214 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: sriov_net1_port_3
+Creating Router: sriov_router_1
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.13) , Floating IP: (100.82.39.74)
+PING 100.82.39.74 (100.82.39.74) 56(84) bytes of data.
+64 bytes from 100.82.39.74: icmp_seq=1 ttl=62 time=0.692 ms
+64 bytes from 100.82.39.74: icmp_seq=2 ttl=62 time=0.257 ms
+64 bytes from 100.82.39.74: icmp_seq=3 ttl=62 time=0.294 ms
+64 bytes from 100.82.39.74: icmp_seq=4 ttl=62 time=0.449 ms
+64 bytes from 100.82.39.74: icmp_seq=5 ttl=62 time=0.272 ms
+
+--- 100.82.39.74 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.257/0.392/0.692/0.166 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: sriov_net1_port_4
+Creating Router: sriov_router_1
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.15) , Floating IP: (100.82.39.71)
+PING 100.82.39.71 (100.82.39.71) 56(84) bytes of data.
+64 bytes from 100.82.39.71: icmp_seq=1 ttl=62 time=0.782 ms
+64 bytes from 100.82.39.71: icmp_seq=2 ttl=62 time=0.354 ms
+64 bytes from 100.82.39.71: icmp_seq=3 ttl=62 time=0.319 ms
+64 bytes from 100.82.39.71: icmp_seq=4 ttl=62 time=0.277 ms
+64 bytes from 100.82.39.71: icmp_seq=5 ttl=62 time=0.435 ms
+
+--- 100.82.39.71 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.277/0.433/0.782/0.182 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: sriov_net1_port_5
+Creating Router: sriov_router_1
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.27) , Floating IP: (100.82.39.79)
+PING 100.82.39.79 (100.82.39.79) 56(84) bytes of data.
+64 bytes from 100.82.39.79: icmp_seq=1 ttl=62 time=0.623 ms
+64 bytes from 100.82.39.79: icmp_seq=2 ttl=62 time=0.452 ms
+64 bytes from 100.82.39.79: icmp_seq=3 ttl=62 time=0.464 ms
+64 bytes from 100.82.39.79: icmp_seq=4 ttl=62 time=0.429 ms
+64 bytes from 100.82.39.79: icmp_seq=5 ttl=62 time=0.323 ms
+
+--- 100.82.39.79 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.323/0.458/0.623/0.097 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: sriov_net1_port_6
+Creating Router: sriov_router_1
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.25) , Floating IP: (100.82.39.96)
+PING 100.82.39.96 (100.82.39.96) 56(84) bytes of data.
+64 bytes from 100.82.39.96: icmp_seq=1 ttl=62 time=0.693 ms
+64 bytes from 100.82.39.96: icmp_seq=2 ttl=62 time=0.228 ms
+64 bytes from 100.82.39.96: icmp_seq=3 ttl=62 time=0.387 ms
+64 bytes from 100.82.39.96: icmp_seq=4 ttl=62 time=0.261 ms
+64 bytes from 100.82.39.96: icmp_seq=5 ttl=62 time=0.261 ms
+
+--- 100.82.39.96 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.228/0.366/0.693/0.172 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!

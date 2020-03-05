@@ -1,0 +1,22 @@
+==========================================================================================================
+====         TEST CASE 2:     Verify the Switc Mode for OVS-Offload.                                 =====
+==========================================================================================================
+sriov_vf_count=4
+['4']
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+[]
+0
+['4']:[]:switchdev
+Error encountered while executing command: sudo cat pilot/templates/neutron-sriov.yaml | grep switchdev
+Error encountered while executing command: sudo cat pilot/templates/neutron-sriov.yaml
+Error encountered while executing command: sudo cat /home/osp_admin/pilot/templates/neutron-sriov.yaml
+Error encountered while executing command: cat /home/osp_admin/pilot/templates/neutron-sriov.yaml
+Unable to execute test case 2
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 322 
+

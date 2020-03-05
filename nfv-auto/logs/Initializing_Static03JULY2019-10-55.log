@@ -1,0 +1,7 @@
+Creating Server: test_vm
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.36.190:8774/v2.1/servers, min_count must be <= max_count
+Line No: 648 
+

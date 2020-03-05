@@ -1,0 +1,71 @@
+==========================================================================================================
+====         DVR TEST CASE 5:     Check the ports are assigned correctly to OVS-DPDK.                =====
+==========================================================================================================
+['- driver: mlx5_core\r', '  mac_address: 98:03:9b:7f:9d:e9\r', '  name: p1p2\r', '  pci_address: 0000:3b:00.1\r', '- driver: mlx5_core\r', '  mac_address: 98:03:9b:7f:9c:f9\r', '  name: p2p2\r', '  pci_address: 0000:5e:00.1\r', '']
+['p1p2', 'p2p2']
+ComputeOvsDpdkInterface1=p1p2
+ComputeOvsDpdkInterface2=p2p2
+['p1p2', 'p2p2']
+p1p2
+p2p2
+Interface Matched Test Successful
+['- driver: mlx5_core\r', '  mac_address: 98:03:9b:7f:9c:49\r', '  name: p1p2\r', '  pci_address: 0000:3b:00.1\r', '- driver: mlx5_core\r', '  mac_address: 98:03:9b:7f:9d:d9\r', '  name: p2p2\r', '  pci_address: 0000:5e:00.1\r', '']
+['p1p2', 'p2p2']
+ComputeOvsDpdkInterface1=p1p2
+ComputeOvsDpdkInterface2=p2p2
+['p1p2', 'p2p2']
+p1p2
+p2p2
+Interface Matched Test Successful
+['- driver: mlx5_core\r', '  mac_address: 98:03:9b:7f:9e:d9\r', '  name: p1p2\r', '  pci_address: 0000:3b:00.1\r', '- driver: mlx5_core\r', '  mac_address: 98:03:9b:7f:9d:01\r', '  name: p2p2\r', '  pci_address: 0000:5e:00.1\r', '']
+['p1p2', 'p2p2']
+ComputeOvsDpdkInterface1=p1p2
+ComputeOvsDpdkInterface2=p2p2
+['p1p2', 'p2p2']
+p1p2
+p2p2
+Interface Matched Test Successful
+==========================================================================================================
+====        TEST CASE 6:    Check the Port assigned to OVS-DPDK are active after the deployment.      ====
+==========================================================================================================
+---- ovs_dpdk_bond10 ----
+bond_mode: balance-tcp
+bond may use recirculation: yes, Recirc-ID : 1
+bond-hash-basis: 0
+updelay: 0 ms
+downdelay: 0 ms
+next rebalance: 1762 ms
+lacp_status: negotiated
+lacp_fallback_ab: false
+active slave mac: 98:03:9b:7f:9c:f9(dpdk1)
+
+slave dpdk0: enabled
+	may_enable: true
+
+slave dpdk1: enabled
+	active slave
+	may_enable: true
+
+
+TEST SUCCESSFUL
+==========================================================================================================
+====  TEST CASE 7:    Check the physical cores present are distributed according to the specfication. ====
+==========================================================================================================
+TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS=" iommu=pt intel_iommu=on default_hugepagesz=1GB hugepagesz=1G hugepages=164 isolcpus=2-31,35-39,42-71,75-79 "
+
+pmd thread numa_id 0 core_id 32:
+	isolated : false
+	port: dpdk0           	queue-id:  0	pmd usage:  0 %
+pmd thread numa_id 1 core_id 33:
+	isolated : false
+pmd thread numa_id 0 core_id 34:
+	isolated : false
+	port: dpdk1           	queue-id:  0	pmd usage:  0 %
+pmd thread numa_id 0 core_id 72:
+	isolated : false
+pmd thread numa_id 1 core_id 73:
+	isolated : false
+pmd thread numa_id 0 core_id 74:
+	isolated : false
+
+TEST Failed

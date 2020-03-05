@@ -1,0 +1,8 @@
+Creating Server: test_vm
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Multiple matches found for test_vm
+Line No: 650 
+
+Creating Server: test_vm

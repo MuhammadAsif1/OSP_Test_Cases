@@ -1,0 +1,111 @@
+==========================================================================================================
+====         DVR TEST CASE 4:     Verify traffic between 2 Compute nodes bypasses Controller node.   =====
+==========================================================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: test_network1
+Creating Network: test_network2
+Creating Router: test_router
+Creating Server: test_vm1
+Server Count: 1
+
+Unable to create server!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 635 
+
+Creating Server: test_vm2
+Server Count: 1
+
+Unable to create server!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 635 
+
+
+Unable to create 2 instances on different compute and different network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'accessIPv4'
+Line No: 1266 
+
+None
+Unable to execute test case 4
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 253 
+
+Deleting Server: test_vm1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: test_vm2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network: test_network1 and test_network2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: test_router..
+Router Deleted successfully
+Controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+Compute ip's ['192.168.120.22', '192.168.120.25', '192.168.120.31']
+==========================================================================================================
+====         DVR TEST CASE 3:     Verify that L3 agent must be distributed on all the compute nodes. =====
+==========================================================================================================
+r153-controller-0.r153.nfv.lab found
+r153-controller-1.r153.nfv.lab found
+r153-controller-2.r153.nfv.lab found
+r153-dell-compute-0.r153.nfv.lab found
+r153-dell-compute-1.r153.nfv.lab found
+r153-dell-compute-2.r153.nfv.lab found
+TEST SUCCESSFUL
+==========================================================================================================
+====         DVR TEST CASE 2:     Verify that DVR is deployed on all the compute nodes.              =====
+==========================================================================================================
+Compute ip's ['192.168.120.22', '192.168.120.25', '192.168.120.31']
+Test running for compute- 192.168.120.22
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.25
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.31
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+==========================================================================================================
+====         DVR TEST CASE 1:      Verify that DVR is deployed on all the controller nodes.          =====
+==========================================================================================================
+Controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+Test running for controller- 192.168.120.35
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL
+Test running for controller- 192.168.120.21
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL
+Test running for controller- 192.168.120.24
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL

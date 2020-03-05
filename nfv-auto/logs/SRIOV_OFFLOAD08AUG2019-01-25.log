@@ -1,0 +1,62 @@
+==========================================================================================================
+====TEST CASE 7: Verify OVS Offloading for sriov instance to sriov instance in different scenarios    ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net1
+Creating Sriov Offload Enabled SubNet: sriov_subnet1
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Sriov Offload Enabled Network: sriov_net2
+Creating Sriov Offload Enabled SubNet: sriov_subnet2
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.8) , Floating IP: (100.67.154.195)
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.20) , Floating IP: (100.67.154.197)
+Failed to establish SSH connection with 100.67.154.195
+Pinging 192.168.80.20 from 100.67.154.195
+Error encountered while executing command: ping -c 5 192.168.80.20
+None
+Unable to execute test case 11
+
+Error: <type 'exceptions.TypeError'>
+Cause: argument of type 'NoneType' is not iterable
+Line No: 671 
+
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_router..
+Router Deleted successfully

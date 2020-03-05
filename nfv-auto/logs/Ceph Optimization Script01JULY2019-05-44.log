@@ -1,0 +1,41 @@
+==========================================================================================================
+====         CEPH ENVIRONMENT SETUP:      CREATE VM'S FOR COMPUTE NODE 0.                            =====
+==========================================================================================================
+Creating Network: ceph-net
+Network already exists with the same name.
+Creating Router: storage-router
+Router already exists.
+Creating Server: ceph_vm_1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.36.190:8774/v2.1/servers, Invalid key_name provided.
+Line No: 646 
+
+
+Unable to create 1 instances on same compute and same network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 1026 
+
+output None
+Attaching Volume: %s to Instance: %s
+Unable to execute test case 1
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 136 
+
+Deleting Server: ceph_vm_1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deletion failed
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..

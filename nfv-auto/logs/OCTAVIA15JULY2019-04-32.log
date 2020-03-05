@@ -1,0 +1,35 @@
+f_ip value 
+==========================================================================================================
+====OCTAVIA TEST CASE 3:     CREATE A LISTENER For TCP Traffic ON LOADBALANCER USED IN TEST CASE 1.  =====
+==========================================================================================================
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| connection_limit          | -1                                   |
+| created_at                | 2019-07-15T07:49:30                  |
+| default_pool_id           | 30b372e2-4c98-40a9-a254-8d17cfe5fd91 |
+| default_tls_container_ref | None                                 |
+| description               |                                      |
+| id                        | c091c7cb-3a99-406f-a2fd-702d90b41e5d |
+| insert_headers            | None                                 |
+| l7policies                |                                      |
+| loadbalancers             | e73dab09-34f0-4610-a68b-f35e45877ebf |
+| name                      | listener2                            |
+| operating_status          | ONLINE                               |
+| project_id                | 40f7606e190143bab4e1a8298104a7fa     |
+| protocol                  | TCP                                  |
+| protocol_port             | 23456                                |
+| provisioning_status       | ACTIVE                               |
+| sni_container_refs        | []                                   |
+| updated_at                | 2019-07-15T09:21:45                  |
++---------------------------+--------------------------------------+
+Test Successful
+Unable to execute test case 1
+
+Error: <type 'exceptions.NameError'>
+Cause: global name 'ip_list' is not defined
+Line No: 485 
+
+Pool deleting..
+Listener deleting..

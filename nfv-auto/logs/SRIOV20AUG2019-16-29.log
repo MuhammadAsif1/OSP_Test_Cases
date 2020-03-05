@@ -1,0 +1,22 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.4) , Floating IP: (100.82.39.89)
+PING 100.82.39.89 (100.82.39.89) 56(84) bytes of data.
+64 bytes from 100.82.39.89: icmp_seq=1 ttl=62 time=0.627 ms
+64 bytes from 100.82.39.89: icmp_seq=2 ttl=62 time=0.461 ms
+64 bytes from 100.82.39.89: icmp_seq=3 ttl=62 time=0.408 ms
+64 bytes from 100.82.39.89: icmp_seq=4 ttl=62 time=0.406 ms
+64 bytes from 100.82.39.89: icmp_seq=5 ttl=62 time=0.259 ms
+
+--- 100.82.39.89 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.259/0.432/0.627/0.119 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!

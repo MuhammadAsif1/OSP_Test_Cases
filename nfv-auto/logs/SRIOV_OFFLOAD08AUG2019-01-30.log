@@ -1,0 +1,66 @@
+==========================================================================================================
+====TEST CASE 7: Verify OVS Offloading for sriov instance to sriov instance in different scenarios    ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net1
+Creating Sriov Offload Enabled SubNet: sriov_subnet1
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Sriov Offload Enabled Network: sriov_net2
+Creating Sriov Offload Enabled SubNet: sriov_subnet2
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.3) , Floating IP: (100.67.154.195)
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.5) , Floating IP: (100.67.154.199)
+Pinging 192.168.80.5 from 100.67.154.195
+PING 192.168.80.5 (192.168.80.5) 56(84) bytes of data.
+64 bytes from 192.168.80.5: icmp_seq=1 ttl=63 time=9.51 ms
+64 bytes from 192.168.80.5: icmp_seq=2 ttl=63 time=0.391 ms
+64 bytes from 192.168.80.5: icmp_seq=3 ttl=63 time=0.259 ms
+64 bytes from 192.168.80.5: icmp_seq=4 ttl=63 time=0.333 ms
+64 bytes from 192.168.80.5: icmp_seq=5 ttl=63 time=0.114 ms
+
+--- 192.168.80.5 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.114/2.123/9.519/3.699 ms
+
+---Ping Successful!
+Test 7 diff compute and diff network successful
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_router..
+Router Deleted successfully

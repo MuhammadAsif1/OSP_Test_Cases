@@ -1,0 +1,117 @@
+==========================================================================================================
+==== TEST CASE 8: Verify OVS Offloading for sriov instance to sriov instance in different scenarios   ====
+====  .same compute same network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_legacy_net
+Creating Sriov Offload Enabled SubNet: sriov_legacy_subnet
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.26) , Floating IP: (100.67.154.197)
+Network already exists with the same name.
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.9) , Floating IP: (100.67.154.198)
+system@ovs-system:
+	lookups: hit:5069958 missed:10582206 lost:0
+	flows: 78
+	masks: hit:76233418 total:7 hit/pkt:4.87
+	port 0: ovs-system (internal)
+	port 1: br-tenant (internal)
+	port 2: mlx_br2 (internal)
+	port 3: mlx_br1 (internal)
+	port 4: br-bond1 (internal)
+	port 5: p4p1
+	port 6: p8p1
+	port 7: vlan130 (internal)
+	port 8: bond0
+	port 9: vlan140 (internal)
+	port 10: bond1
+	port 11: vlan170 (internal)
+	port 12: br-ex (internal)
+	port 13: br-int (internal)
+	port 14: eth3
+	port 15: eth2
+
+representor port eth2
+
+Tcpdump output: None
+
+
+PING output: PING 192.168.70.9 (192.168.70.9) 56(84) bytes of data.
+64 bytes from 192.168.70.9: icmp_seq=1 ttl=64 time=2.42 ms
+64 bytes from 192.168.70.9: icmp_seq=2 ttl=64 time=0.195 ms
+64 bytes from 192.168.70.9: icmp_seq=3 ttl=64 time=0.053 ms
+64 bytes from 192.168.70.9: icmp_seq=4 ttl=64 time=0.102 ms
+64 bytes from 192.168.70.9: icmp_seq=5 ttl=64 time=0.127 ms
+64 bytes from 192.168.70.9: icmp_seq=6 ttl=64 time=0.164 ms
+64 bytes from 192.168.70.9: icmp_seq=7 ttl=64 time=0.048 ms
+64 bytes from 192.168.70.9: icmp_seq=8 ttl=64 time=0.179 ms
+64 bytes from 192.168.70.9: icmp_seq=9 ttl=64 time=0.107 ms
+64 bytes from 192.168.70.9: icmp_seq=10 ttl=64 time=0.099 ms
+64 bytes from 192.168.70.9: icmp_seq=11 ttl=64 time=0.036 ms
+64 bytes from 192.168.70.9: icmp_seq=12 ttl=64 time=0.180 ms
+64 bytes from 192.168.70.9: icmp_seq=13 ttl=64 time=0.129 ms
+64 bytes from 192.168.70.9: icmp_seq=14 ttl=64 time=0.126 ms
+64 bytes from 192.168.70.9: icmp_seq=15 ttl=64 time=0.040 ms
+64 bytes from 192.168.70.9: icmp_seq=16 ttl=64 time=0.117 ms
+64 bytes from 192.168.70.9: icmp_seq=17 ttl=64 time=0.120 ms
+64 bytes from 192.168.70.9: icmp_seq=18 ttl=64 time=0.172 ms
+64 bytes from 192.168.70.9: icmp_seq=19 ttl=64 time=0.164 ms
+64 bytes from 192.168.70.9: icmp_seq=20 ttl=64 time=0.097 ms
+64 bytes from 192.168.70.9: icmp_seq=21 ttl=64 time=0.070 ms
+64 bytes from 192.168.70.9: icmp_seq=22 ttl=64 time=0.198 ms
+64 bytes from 192.168.70.9: icmp_seq=23 ttl=64 time=0.041 ms
+64 bytes from 192.168.70.9: icmp_seq=24 ttl=64 time=0.181 ms
+64 bytes from 192.168.70.9: icmp_seq=25 ttl=64 time=0.199 ms
+64 bytes from 192.168.70.9: icmp_seq=26 ttl=64 time=0.167 ms
+64 bytes from 192.168.70.9: icmp_seq=27 ttl=64 time=0.120 ms
+64 bytes from 192.168.70.9: icmp_seq=28 ttl=64 time=0.039 ms
+64 bytes from 192.168.70.9: icmp_seq=29 ttl=64 time=0.163 ms
+64 bytes from 192.168.70.9: icmp_seq=30 ttl=64 time=0.109 ms
+
+--- 192.168.70.9 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29001ms
+rtt min/avg/max/mdev = 0.036/0.198/2.426/0.417 ms
+
+
+Pinging 192.168.70.9 from 100.67.154.197
+PING 192.168.70.9 (192.168.70.9) 56(84) bytes of data.
+64 bytes from 192.168.70.9: icmp_seq=1 ttl=64 time=0.132 ms
+64 bytes from 192.168.70.9: icmp_seq=2 ttl=64 time=0.154 ms
+64 bytes from 192.168.70.9: icmp_seq=3 ttl=64 time=0.237 ms
+64 bytes from 192.168.70.9: icmp_seq=4 ttl=64 time=0.113 ms
+64 bytes from 192.168.70.9: icmp_seq=5 ttl=64 time=0.099 ms
+
+--- 192.168.70.9 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.099/0.147/0.237/0.048 ms
+
+---Ping Successful!
+tcpdump command result None
+Test 8 diff compute and diff network successful
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

@@ -1,0 +1,102 @@
+==========================================================================================================
+====         TEST CASE 3:     Creating Same Compute and network sriov Instances.                =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Sriov Enabled Network: senario1_sriov_net1
+Creating Sriov Enabled SubNet: senario1_sriov_subnet1
+Creating Sriov Enabled Port: senario1_sriov_port1
+Creating Router: senario1_sriov_router
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 807 
+
+Network already exists with the same name.
+Creating Sriov Enabled Port: senario1_sriov_port2
+Creating Router: senario1_sriov_router
+Router already exists.
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 807 
+
+Unable to execute test case 19(35)
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 278 
+
+Deleting Server: senario1_vm_1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: senario1_vm_2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+==========================================================================================================
+====         TEST CASE 4:     Creating Different Compute and Same Network sriov Instances.           =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Sriov Enabled Network: senario2_sriov_net1
+Creating Sriov Enabled SubNet: senario2_sriov_subnet1
+Creating Sriov Enabled Port: senario2_sriov_port1
+Creating Router: senario2_sriov_router
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 807 
+
+Network already exists with the same name.
+Creating Sriov Enabled Port: senario2_sriov_port2
+Creating Router: senario2_sriov_router
+Router already exists.
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 807 
+
+Unable to execute test case 4
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 328 
+
+Deleting Server: senario2_vm_1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: senario2_vm_2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

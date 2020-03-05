@@ -1,0 +1,35 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV OFFLOAD Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net
+Creating Sriov Offload Enabled SubNet: sriov_subnet
+Creating Sriov Offload Enabled Port: s_port
+Setting Switchdev Capabilities to Port: s_port
+Creating Router: sriov_router
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Error in creating the server
+Line No: 858 
+
+Unable to execute test case 1
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 260 
+
+Deleting Server: s_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

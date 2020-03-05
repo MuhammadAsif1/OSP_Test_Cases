@@ -1,0 +1,83 @@
+
+======================================================================
+Executing Test Case 17 (Verify OVS DPDK instances created on different
+ tenant networks but connected to same router can ping each other
+======================================================================
+
+Error encountered while executing Test Case: 17!
+Error: <type 'exceptions.KeyError'>
+Cause: 'sanity_flavor'
+Line No: 468 
+
+Deleting Server: tt_vm1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+
+======================================================================
+Executing Test Case 17 (Verify OVS DPDK instances created on different
+ tenant networks but connected to same router can ping each other
+======================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: tt_vm2
+Server Count: 1
+
+Server Created Successfully!
+Instance1 >> Fixed IP: (192.168.20.11)
+Instance2 >> Fixed IP: (192.168.30.14)
+Namespace id : qdhcp-40b9c421-c231-4f5f-8d84-4dc147a1d35c
+Checking if ssh-key.pem file is present..
+Already present.
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-40b9c421-c231-4f5f-8d84-4dc147a1d35c ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/ssh-key.pem centos@192.168.20.11 "ping -c 5 192.168.30.14"
+Warning: Permanently added '192.168.20.11' (ECDSA) to the list of known hosts.
+PING 192.168.30.14 (192.168.30.14) 56(84) bytes of data.
+64 bytes from 192.168.30.14: icmp_seq=1 ttl=63 time=0.729 ms
+64 bytes from 192.168.30.14: icmp_seq=2 ttl=63 time=0.261 ms
+64 bytes from 192.168.30.14: icmp_seq=3 ttl=63 time=0.244 ms
+64 bytes from 192.168.30.14: icmp_seq=4 ttl=63 time=0.142 ms
+64 bytes from 192.168.30.14: icmp_seq=5 ttl=63 time=0.187 ms
+
+--- 192.168.30.14 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4016ms
+rtt min/avg/max/mdev = 0.142/0.312/0.729/0.213 ms
+Connection to 192.168.20.11 closed.
+
+
+Test Case 17 Passed, Ping successful.
+
+Deleting Server: tt_vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully

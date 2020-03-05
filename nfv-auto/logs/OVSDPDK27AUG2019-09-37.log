@@ -1,0 +1,12 @@
+
+================================================================
+Executing Test Case 23 (Validate vcpus pinned to host OS, to pmd
+ physical, to pmd virtual and for instances.
+================================================================
+Checking on Compute Node0..
+
+Error encountered while executing Test Case: 17!
+Error: <class 'paramiko.ssh_exception.NoValidConnectionsError'>
+Cause: [Errno None] Unable to connect to port 22 on 192.168.120.122
+Line No: 510 
+

@@ -1,0 +1,7 @@
+Unable to execute test case 3
+
+Error: <type 'exceptions.AttributeError'>
+Cause: 'Connection' object has no attribute 'get_network'
+Line No: 192 
+
+Deleting Server: tt_vm..

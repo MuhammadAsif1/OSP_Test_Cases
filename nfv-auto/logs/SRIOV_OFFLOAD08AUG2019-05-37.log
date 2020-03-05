@@ -1,0 +1,104 @@
+==========================================================================================================
+==== TEST CASE 8: Verify OVS Offloading for sriov instance to sriov instance in different scenarios   ====
+====  .same compute same network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_legacy_net
+Creating Sriov Offload Enabled SubNet: sriov_legacy_subnet
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.20) , Floating IP: (100.67.154.205)
+Network already exists with the same name.
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.8) , Floating IP: (100.67.154.207)
+system@ovs-system:
+	lookups: hit:4903746 missed:10529785 lost:0
+	flows: 58
+	masks: hit:74785160 total:9 hit/pkt:4.85
+	port 0: ovs-system (internal)
+	port 1: br-tenant (internal)
+	port 2: mlx_br2 (internal)
+	port 3: mlx_br1 (internal)
+	port 4: br-bond1 (internal)
+	port 5: p4p1
+	port 6: p8p1
+	port 7: vlan130 (internal)
+	port 8: bond0
+	port 9: vlan140 (internal)
+	port 10: bond1
+	port 11: vlan170 (internal)
+	port 12: br-ex (internal)
+	port 13: br-int (internal)
+	port 14: eth2
+	port 15: eth3
+
+representor port eth3
+
+Tcpdump output: None
+
+
+PING output: PING 192.168.70.8 (192.168.70.8) 56(84) bytes of data.
+64 bytes from 192.168.70.8: icmp_seq=1 ttl=64 time=4.97 ms
+64 bytes from 192.168.70.8: icmp_seq=2 ttl=64 time=0.171 ms
+64 bytes from 192.168.70.8: icmp_seq=3 ttl=64 time=0.130 ms
+64 bytes from 192.168.70.8: icmp_seq=4 ttl=64 time=0.154 ms
+64 bytes from 192.168.70.8: icmp_seq=5 ttl=64 time=0.100 ms
+64 bytes from 192.168.70.8: icmp_seq=6 ttl=64 time=0.158 ms
+64 bytes from 192.168.70.8: icmp_seq=7 ttl=64 time=0.136 ms
+64 bytes from 192.168.70.8: icmp_seq=8 ttl=64 time=0.149 ms
+64 bytes from 192.168.70.8: icmp_seq=9 ttl=64 time=0.142 ms
+64 bytes from 192.168.70.8: icmp_seq=10 ttl=64 time=0.161 ms
+64 bytes from 192.168.70.8: icmp_seq=11 ttl=64 time=0.165 ms
+64 bytes from 192.168.70.8: icmp_seq=12 ttl=64 time=0.192 ms
+64 bytes from 192.168.70.8: icmp_seq=13 ttl=64 time=0.081 ms
+64 bytes from 192.168.70.8: icmp_seq=14 ttl=64 time=0.126 ms
+64 bytes from 192.168.70.8: icmp_seq=15 ttl=64 time=0.137 ms
+64 bytes from 192.168.70.8: icmp_seq=16 ttl=64 time=0.150 ms
+64 bytes from 192.168.70.8: icmp_seq=17 ttl=64 time=0.165 ms
+64 bytes from 192.168.70.8: icmp_seq=18 ttl=64 time=0.123 ms
+64 bytes from 192.168.70.8: icmp_seq=19 ttl=64 time=0.158 ms
+64 bytes from 192.168.70.8: icmp_seq=20 ttl=64 time=0.130 ms
+64 bytes from 192.168.70.8: icmp_seq=21 ttl=64 time=0.184 ms
+64 bytes from 192.168.70.8: icmp_seq=22 ttl=64 time=0.167 ms
+64 bytes from 192.168.70.8: icmp_seq=23 ttl=64 time=0.123 ms
+64 bytes from 192.168.70.8: icmp_seq=24 ttl=64 time=0.211 ms
+64 bytes from 192.168.70.8: icmp_seq=25 ttl=64 time=0.185 ms
+64 bytes from 192.168.70.8: icmp_seq=26 ttl=64 time=0.182 ms
+64 bytes from 192.168.70.8: icmp_seq=27 ttl=64 time=0.169 ms
+64 bytes from 192.168.70.8: icmp_seq=28 ttl=64 time=0.173 ms
+64 bytes from 192.168.70.8: icmp_seq=29 ttl=64 time=0.174 ms
+64 bytes from 192.168.70.8: icmp_seq=30 ttl=64 time=0.204 ms
+
+--- 192.168.70.8 ping statistics ---
+30 packets transmitted, 30 received, 0% packet loss, time 29000ms
+rtt min/avg/max/mdev = 0.081/0.315/4.975/0.865 ms
+
+
+Pinging 192.168.70.8 from 100.67.154.205
+PING 192.168.70.8 (192.168.70.8) 56(84) bytes of data.
+64 bytes from 192.168.70.8: icmp_seq=1 ttl=64 time=0.116 ms
+64 bytes from 192.168.70.8: icmp_seq=2 ttl=64 time=0.147 ms
+64 bytes from 192.168.70.8: icmp_seq=3 ttl=64 time=0.167 ms
+64 bytes from 192.168.70.8: icmp_seq=4 ttl=64 time=0.156 ms
+64 bytes from 192.168.70.8: icmp_seq=5 ttl=64 time=0.161 ms
+
+--- 192.168.70.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.116/0.149/0.167/0.021 ms
+
+---Ping Successful!
+tcpdump command result None
+Test 8 diff compute and diff network successful
+Unable to execute test case 7
+
+Error: <type 'exceptions.NameError'>
+Cause: global name 'network_name' is not defined
+Line No: 826 
+

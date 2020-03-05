@@ -1,0 +1,16 @@
+==========================================================================================================
+==== TEST CASE 8: Verify OVS Offloading for sriov instance to sriov instance in different scenarios   ====
+====  .same compute same network ====
+==========================================================================================================
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..

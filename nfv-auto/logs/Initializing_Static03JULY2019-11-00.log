@@ -1,0 +1,7 @@
+Creating Server: test_vm
+
+Unable to create server!
+Error: <type 'exceptions.UnboundLocalError'>
+Cause: local variable 'server_munch' referenced before assignment
+Line No: 654 
+

@@ -1,0 +1,154 @@
+Creating port: parent_port
+Creating port: sub_port
+Creating trunk: trunk_port
+Creating server: trunk_server
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.10.11) , Floating IP: (100.67.153.78)
+['192.168.10.11', '100.67.153.78']
+Trying to send /home/osp_admin/NFV_window/nfv-auto/ifcfg-eth0. to /home/centos/ifcfg-eth0....
+Trying to send /home/osp_admin/NFV_window/nfv-auto/router-eth0. to /home/centos/router-eth0....
+default via gateway dev eth0. proto static metric number
+DEVICE="eth0."
+BOOTPROTO=none
+IPADDR=
+DEFROUTE=no
+ONBOOT=yes
+USERCTL=yes
+NETMASK=255.255.255.0
+PEERDNS=no
+VLAN=yes
+total 240
+-rw-r--r--. 1 root root   159 Aug 18 14:06 ifcfg-eth0
+-rw-r--r--. 1 root root   171 Aug 18 14:06 ifcfg-eth0.220
+-rw-r--r--. 1 root root   254 Aug 24  2018 ifcfg-lo
+lrwxrwxrwx. 1 root root    24 Aug  8 12:39 ifdown -> ../../../usr/sbin/ifdown
+-rwxr-xr-x. 1 root root   654 Aug 24  2018 ifdown-bnep
+-rwxr-xr-x. 1 root root  6532 Aug 24  2018 ifdown-eth
+-rwxr-xr-x. 1 root root   781 Aug 24  2018 ifdown-ippp
+-rwxr-xr-x. 1 root root  4540 Aug 24  2018 ifdown-ipv6
+lrwxrwxrwx. 1 root root    11 Aug  8 12:39 ifdown-isdn -> ifdown-ippp
+-rwxr-xr-x. 1 root root  2130 Aug 24  2018 ifdown-post
+-rwxr-xr-x. 1 root root  1068 Aug 24  2018 ifdown-ppp
+-rwxr-xr-x. 1 root root   870 Aug 24  2018 ifdown-routes
+-rwxr-xr-x. 1 root root  1456 Aug 24  2018 ifdown-sit
+-rwxr-xr-x. 1 root root  1621 Mar 17  2017 ifdown-Team
+-rwxr-xr-x. 1 root root  1556 Mar 17  2017 ifdown-TeamPort
+-rwxr-xr-x. 1 root root  1462 Aug 24  2018 ifdown-tunnel
+lrwxrwxrwx. 1 root root    22 Aug  8 12:39 ifup -> ../../../usr/sbin/ifup
+-rwxr-xr-x. 1 root root 12415 Aug 24  2018 ifup-aliases
+-rwxr-xr-x. 1 root root   910 Aug 24  2018 ifup-bnep
+-rwxr-xr-x. 1 root root 13475 Aug 24  2018 ifup-eth
+-rwxr-xr-x. 1 root root 12075 Aug 24  2018 ifup-ippp
+-rwxr-xr-x. 1 root root 11893 Aug 24  2018 ifup-ipv6
+lrwxrwxrwx. 1 root root     9 Aug  8 12:39 ifup-isdn -> ifup-ippp
+-rwxr-xr-x. 1 root root   650 Aug 24  2018 ifup-plip
+-rwxr-xr-x. 1 root root  1064 Aug 24  2018 ifup-plusb
+-rwxr-xr-x. 1 root root  4997 Aug 24  2018 ifup-post
+-rwxr-xr-x. 1 root root  4154 Aug 24  2018 ifup-ppp
+-rwxr-xr-x. 1 root root  2001 Aug 24  2018 ifup-routes
+-rwxr-xr-x. 1 root root  3303 Aug 24  2018 ifup-sit
+-rwxr-xr-x. 1 root root  1755 Mar 17  2017 ifup-Team
+-rwxr-xr-x. 1 root root  1876 Mar 17  2017 ifup-TeamPort
+-rwxr-xr-x. 1 root root  2711 Aug 24  2018 ifup-tunnel
+-rwxr-xr-x. 1 root root  1836 Aug 24  2018 ifup-wireless
+-rwxr-xr-x. 1 root root  5419 Aug 24  2018 init.ipv6-global
+-rw-r--r--. 1 root root 20671 Aug 24  2018 network-functions
+-rw-r--r--. 1 root root 31027 Aug 24  2018 network-functions-ipv6
+-rw-r--r--. 1 root root    57 Aug 18 14:06 route-eth0.220
+default via 192.168.90.1 dev eth0.220 proto static metric 201
+DEVICE="eth0.220"
+BOOTPROTO=none
+IPADDR="192.168.90.7"
+DEFROUTE=no
+ONBOOT=yes
+USERCTL=yes
+NETMASK=255.255.255.0
+PEERDNS=no
+VLAN=yes
+total 240
+-rw-r--r--. 1 root root   159 Aug 18 14:06 ifcfg-eth0
+-rw-r--r--. 1 root root   188 Aug 18 14:06 ifcfg-eth0.220
+-rw-r--r--. 1 root root   254 Aug 24  2018 ifcfg-lo
+lrwxrwxrwx. 1 root root    24 Aug  8 12:39 ifdown -> ../../../usr/sbin/ifdown
+-rwxr-xr-x. 1 root root   654 Aug 24  2018 ifdown-bnep
+-rwxr-xr-x. 1 root root  6532 Aug 24  2018 ifdown-eth
+-rwxr-xr-x. 1 root root   781 Aug 24  2018 ifdown-ippp
+-rwxr-xr-x. 1 root root  4540 Aug 24  2018 ifdown-ipv6
+lrwxrwxrwx. 1 root root    11 Aug  8 12:39 ifdown-isdn -> ifdown-ippp
+-rwxr-xr-x. 1 root root  2130 Aug 24  2018 ifdown-post
+-rwxr-xr-x. 1 root root  1068 Aug 24  2018 ifdown-ppp
+-rwxr-xr-x. 1 root root   870 Aug 24  2018 ifdown-routes
+-rwxr-xr-x. 1 root root  1456 Aug 24  2018 ifdown-sit
+-rwxr-xr-x. 1 root root  1621 Mar 17  2017 ifdown-Team
+-rwxr-xr-x. 1 root root  1556 Mar 17  2017 ifdown-TeamPort
+-rwxr-xr-x. 1 root root  1462 Aug 24  2018 ifdown-tunnel
+lrwxrwxrwx. 1 root root    22 Aug  8 12:39 ifup -> ../../../usr/sbin/ifup
+-rwxr-xr-x. 1 root root 12415 Aug 24  2018 ifup-aliases
+-rwxr-xr-x. 1 root root   910 Aug 24  2018 ifup-bnep
+-rwxr-xr-x. 1 root root 13475 Aug 24  2018 ifup-eth
+-rwxr-xr-x. 1 root root 12075 Aug 24  2018 ifup-ippp
+-rwxr-xr-x. 1 root root 11893 Aug 24  2018 ifup-ipv6
+lrwxrwxrwx. 1 root root     9 Aug  8 12:39 ifup-isdn -> ifup-ippp
+-rwxr-xr-x. 1 root root   650 Aug 24  2018 ifup-plip
+-rwxr-xr-x. 1 root root  1064 Aug 24  2018 ifup-plusb
+-rwxr-xr-x. 1 root root  4997 Aug 24  2018 ifup-post
+-rwxr-xr-x. 1 root root  4154 Aug 24  2018 ifup-ppp
+-rwxr-xr-x. 1 root root  2001 Aug 24  2018 ifup-routes
+-rwxr-xr-x. 1 root root  3303 Aug 24  2018 ifup-sit
+-rwxr-xr-x. 1 root root  1755 Mar 17  2017 ifup-Team
+-rwxr-xr-x. 1 root root  1876 Mar 17  2017 ifup-TeamPort
+-rwxr-xr-x. 1 root root  2711 Aug 24  2018 ifup-tunnel
+-rwxr-xr-x. 1 root root  1836 Aug 24  2018 ifup-wireless
+-rwxr-xr-x. 1 root root  5419 Aug 24  2018 init.ipv6-global
+-rw-r--r--. 1 root root 20671 Aug 24  2018 network-functions
+-rw-r--r--. 1 root root 31027 Aug 24  2018 network-functions-ipv6
+-rw-r--r--. 1 root root    62 Aug 18 14:06 route-eth0.220
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 192.168.10.11  netmask 255.255.255.0  broadcast 192.168.10.255
+inet6 fe80::f816:3eff:fec6:172a  prefixlen 64  scopeid 0x20<link>
+ether fa:16:3e:c6:17:2a  txqueuelen 1000  (Ethernet)
+RX packets 488  bytes 53338 (52.0 KiB)
+RX errors 0  dropped 0  overruns 0  frame 0
+TX packets 531  bytes 58223 (56.8 KiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+inet 127.0.0.1  netmask 255.0.0.0
+inet6 ::1  prefixlen 128  scopeid 0x10<host>
+loop  txqueuelen 1000  (Local Loopback)
+RX packets 6  bytes 416 (416.0 B)
+RX errors 0  dropped 0  overruns 0  frame 0
+TX packets 6  bytes 416 (416.0 B)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 192.168.10.11  netmask 255.255.255.0  broadcast 192.168.10.255
+inet6 fe80::f816:3eff:fec6:172a  prefixlen 64  scopeid 0x20<link>
+ether fa:16:3e:c6:17:2a  txqueuelen 1000  (Ethernet)
+RX packets 503  bytes 55122 (53.8 KiB)
+RX errors 0  dropped 0  overruns 0  frame 0
+TX packets 559  bytes 61867 (60.4 KiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0.220: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 192.168.90.7  netmask 255.255.255.0  broadcast 192.168.90.255
+inet6 fe80::f816:3eff:fec6:172a  prefixlen 64  scopeid 0x20<link>
+ether fa:16:3e:c6:17:2a  txqueuelen 1000  (Ethernet)
+RX packets 2  bytes 144 (144.0 B)
+RX errors 0  dropped 0  overruns 0  frame 0
+TX packets 13  bytes 882 (882.0 B)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+inet 127.0.0.1  netmask 255.0.0.0
+inet6 ::1  prefixlen 128  scopeid 0x10<host>
+loop  txqueuelen 1000  (Local Loopback)
+RX packets 6  bytes 416 (416.0 B)
+RX errors 0  dropped 0  overruns 0  frame 0
+TX packets 6  bytes 416 (416.0 B)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+Deleting Server: trunk_server..
+Server Deleted successfully
+Deleting all unattached floating IPs.

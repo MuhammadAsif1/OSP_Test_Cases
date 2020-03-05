@@ -1,0 +1,6 @@
+Creating Aggregrate : nova0
+Adding host : r146-dell-compute-0.r146.nfv.lab to aggregate.
+Creating Aggregrate : nova1
+Adding host : r146-dell-compute-1.r146.nfv.lab to aggregate.
+Creating Aggregrate : nova2
+Adding host : r146-dell-compute-2.r146.nfv.lab to aggregate.

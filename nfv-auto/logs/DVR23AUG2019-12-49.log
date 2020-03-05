@@ -1,0 +1,91 @@
+Controller ip's ['192.168.120.123', '192.168.120.131', '192.168.120.129']
+Compute ip's ['192.168.120.122', '192.168.120.130', '192.168.120.134']
+==========================================================================================================
+====         DVR TEST CASE 4:     Verify traffic between 2 Compute nodes bypasses Controller node.   =====
+==========================================================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: tt_vm2
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to tt_vm1
+Creating & Assigning Floating IP..
+Assigning floating ip to tt_vm2
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.20.8) , Floating IP: (100.82.39.73)
+Instance2 >> Fixed IP: (192.168.30.12) , Floating IP: (100.82.39.78)
+['100.82.39.73', '192.168.20.8', '100.82.39.78', '192.168.30.12']
+bb99f12a-99e3-43e4-950a-540d00011421
+qrouter-bb99f12a-99e3-43e4-950a-540d00011421
+qr-d513eb4c-62
+qr-ac313d92-b7
+['qr-d513eb4c-62', 'qr-ac313d92-b7']
+PING 192.168.30.12 (192.168.30.12) 56(84) bytes of data.
+64 bytes from 192.168.30.12: icmp_seq=1 ttl=63 time=0.724 ms
+64 bytes from 192.168.30.12: icmp_seq=2 ttl=63 time=0.237 ms
+64 bytes from 192.168.30.12: icmp_seq=3 ttl=63 time=0.385 ms
+64 bytes from 192.168.30.12: icmp_seq=4 ttl=63 time=0.203 ms
+64 bytes from 192.168.30.12: icmp_seq=5 ttl=63 time=0.270 ms
+
+--- 192.168.30.12 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.203/0.363/0.724/0.191 ms
+
+1
+None
+
+
+
+
+TEST SUCCESSFUL for interface qr-d513eb4c-62
+PING 192.168.30.12 (192.168.30.12) 56(84) bytes of data.
+64 bytes from 192.168.30.12: icmp_seq=1 ttl=63 time=0.568 ms
+64 bytes from 192.168.30.12: icmp_seq=2 ttl=63 time=0.252 ms
+64 bytes from 192.168.30.12: icmp_seq=3 ttl=63 time=0.237 ms
+64 bytes from 192.168.30.12: icmp_seq=4 ttl=63 time=0.240 ms
+64 bytes from 192.168.30.12: icmp_seq=5 ttl=63 time=0.247 ms
+
+--- 192.168.30.12 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.237/0.308/0.568/0.131 ms
+
+1
+None
+
+
+
+
+TEST SUCCESSFUL for interface qr-ac313d92-b7
+TEST SUCCESSFUL
+Deleting Server: tt_vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully

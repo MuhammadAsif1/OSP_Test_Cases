@@ -1,0 +1,13 @@
+==========================================================================================================
+====         TEST CASE 3:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+Unable to execute test case 1
+
+Error: <type 'exceptions.IOError'>
+Cause: [Errno 2] No such file
+Line No: 367 
+
+Deleting Server: s_instance..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..

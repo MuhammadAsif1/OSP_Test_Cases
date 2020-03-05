@@ -1,0 +1,11 @@
+
+==============================================================================================
+Executing Test Case 5 (Validate Numa is enabled and CPU pinning is working fine with OVS DPDK)
+==============================================================================================
+Error encountered while executing Test Case: 5 !
+
+Error: <type 'exceptions.NameError'>
+Cause: global name 'conn' is not defined
+Line No: 210 
+
+Deleting Server: tt_vm..

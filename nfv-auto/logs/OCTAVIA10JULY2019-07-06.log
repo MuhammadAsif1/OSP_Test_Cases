@@ -1,0 +1,38 @@
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network
+Creating Router: octavia-router
+Creating Server: octavia-vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia-vm2
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia-vm1
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia-vm2
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.70.5) , Floating IP: (100.67.153.78)
+Instance2 >> Fixed IP: (192.168.70.18) , Floating IP: (100.67.153.89)
+output ['100.67.153.78', '192.168.70.5', '100.67.153.89', '192.168.70.18']
+VM IP 100.67.153.78
+Failed to establish SSH connection with 100.67.153.78
+Error encountered while executing command: cat /etc/sysconfig/network-scripts/ifcfg-eth0
+Error encountered while executing command: sudo sed -i '/USERCTL=no/ a DNS1=8.8.8.8' /etc/sysconfig/network-scripts/ifcfg-eth0
+Error encountered while executing command: cat /etc/sysconfig/network-scripts/ifcfg-eth0
+Error encountered while executing command: sudo systemctl restart network
+Error encountered while executing command: ping -c 5 google.com
+Error encountered while executing command: ls
+Checking if nginx.repo file is present..
+Error encountered while executing command: ls
+Unable to execute test case 1
+
+Error: <type 'exceptions.TypeError'>
+Cause: argument of type 'NoneType' is not iterable
+Line No: 138 
+
+member1 deleting..

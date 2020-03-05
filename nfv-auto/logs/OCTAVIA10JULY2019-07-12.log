@@ -1,0 +1,547 @@
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network
+Creating Router: octavia-router
+Creating Server: octavia-vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: octavia-vm2
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to octavia-vm1
+Creating & Assigning Floating IP..
+Assigning floating ip to octavia-vm2
+Creating & Assigning Floating IP..
+Instance1 >> Fixed IP: (192.168.70.5) , Floating IP: (100.67.153.70)
+Instance2 >> Fixed IP: (192.168.70.30) , Floating IP: (100.67.153.87)
+output ['100.67.153.70', '192.168.70.5', '100.67.153.87', '192.168.70.30']
+VM IP 100.67.153.70
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:80:77:04
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:80:77:04
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+PING google.com (172.217.12.78) 56(84) bytes of data.
+64 bytes from dfw28s05-in-f14.1e100.net (172.217.12.78): icmp_seq=1 ttl=46 time=11.7 ms
+64 bytes from dfw28s05-in-f14.1e100.net (172.217.12.78): icmp_seq=2 ttl=46 time=11.7 ms
+64 bytes from dfw28s05-in-f14.1e100.net (172.217.12.78): icmp_seq=3 ttl=46 time=11.7 ms
+64 bytes from dfw28s05-in-f14.1e100.net (172.217.12.78): icmp_seq=4 ttl=46 time=11.7 ms
+64 bytes from dfw28s05-in-f14.1e100.net (172.217.12.78): icmp_seq=5 ttl=46 time=11.6 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 11.692/11.752/11.780/0.031 ms
+Checking if nginx.repo file is present..
+Trying to send /home/osp_admin/NFV_window/nfv-auto/nginx.repo to ./nginx.repo...
+Sent.
+nginx.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo  nginx.repo
+Loaded plugins: fastestmirror
+================================= repo: nginx ==================================
+[nginx]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://nginx.org/packages/centos/7/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/nginx
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage =
+enabled = True
+enablegroups = True
+exclude =
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/nginx/gpgcadir
+gpgcakey =
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/nginx/gpgdir
+gpgkey = https://nginx.org/keys/nginx_signing.key
+hdrdir = /var/cache/yum/x86_64/7/nginx/headers
+http_caching = all
+includepkgs =
+ip_resolve =
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid =
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink =
+minrate = 0
+mirrorlist =
+mirrorlist_expire = 86400
+name = nginx mainline repo
+old_base_cache_dir =
+password =
+persistdir = /var/lib/yum/repos/x86_64/7/nginx
+pkgdir = /var/cache/yum/x86_64/7/nginx/packages
+proxy = False
+proxy_dict =
+proxy_password =
+proxy_username =
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert =
+sslclientcert =
+sslclientkey =
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = nginx/x86_64
+ui_repoid_vars = releasever,
+basearch
+username =
+
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+* base: centos.mirror.lstn.net
+* extras: centos.mirror.lstn.net
+* updates: centos.mirror.lstn.net
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+nginx                                                    | 2.9 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/5): base/7/x86_64/group_gz                              | 166 kB   00:00
+(3/5): extras/7/x86_64/pri 1% [                 ]  0.0 B/s | 166 kB   --:-- ETA (2/5): extras/7/x86_64/primary_db                          | 205 kB   00:00
+(3/5): nginx/x86_64/primary_db                             |  46 kB   00:00
+(4/5): base/7/x86_64/primary_db                            | 6.0 MB   00:00
+(5/5): updates/7/x86_64/pr 91% [==============- ]  14 MB/s |  12 MB   00:00 ETA (5/5): updates/7/x86_64/primary_db                         | 6.5 MB   00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.0-1.el7.ngx will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package       Arch           Version                       Repository     Size
+================================================================================
+Installing:
+nginx         x86_64         1:1.16.0-1.el7.ngx            nginx         766 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 766 k
+Installed size: 2.7 M
+Downloading packages:
+nginx-1.16.0-1.el7.ngx.x86 13% [==              ]  0.0 B/s | 101 kB   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 26% [====            ]  97 kB/s | 199 kB   00:05 ETA nginx-1.16.0-1.el7.ngx.x86 26% [====            ]  91 kB/s | 204 kB   00:06 ETA nginx-1.16.0-1.el7.ngx.x86 29% [====-           ]  89 kB/s | 222 kB   00:06 ETA nginx-1.16.0-1.el7.ngx.x86 45% [=======         ] 108 kB/s | 351 kB   00:03 ETA nginx-1.16.0-1.el7.ngx.x86 46% [=======         ] 102 kB/s | 358 kB   00:03 ETA nginx-1.16.0-1.el7.ngx.x86 48% [=======-        ]  97 kB/s | 370 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 49% [=======-        ]  92 kB/s | 378 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 50% [========        ]  88 kB/s | 388 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 51% [========        ]  83 kB/s | 396 kB   00:04 ETA nginx-1.16.0-1.el7.ngx.x86 69% [===========     ] 105 kB/s | 533 kB   00:02 ETA nginx-1.16.0-1.el7.ngx.x86 75% [============    ] 107 kB/s | 578 kB   00:01 ETA warning: /var/cache/yum/x86_64/7/nginx/packages/nginx-1.16.0-1.el7.ngx.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+Public key for nginx-1.16.0-1.el7.ngx.x86_64.rpm is not installed
+nginx-1.16.0-1.el7.ngx.x86_64.rpm                          | 766 kB   00:04
+Retrieving key from https://nginx.org/keys/nginx_signing.key
+Importing GPG key 0x7BD9BF62:
+Userid     : "nginx signing key <signing-key@nginx.com>"
+Fingerprint: 573b fd6b 3d8f bc64 1079 a6ab abf5 bd82 7bd9 bf62
+From       : https://nginx.org/keys/nginx_signing.key
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [                             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#                            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##                           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###                          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####                         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####                        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######                       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######                      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########                     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########                    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########                   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########                  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############                 ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#############                ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##############               ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###############              ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [################             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#################            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##################           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###################          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####################         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####################        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######################       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######################      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########################     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########################    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########################   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########################  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############################ ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* http://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
+----------------------------------------------------------------------
+Verifying  : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+
+Installed:
+nginx.x86_64 1:1.16.0-1.el7.ngx
+
+Complete!
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Wed 2019-07-10 12:15:00 UTC; 996ms ago
+Docs: http://nginx.org/en/docs/
+Process: 12776 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+Main PID: 12777 (nginx)
+CGroup: /system.slice/nginx.service
+├─12777 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12778 nginx: worker process
+
+Jul 10 12:15:00 octavia-vm1 systemd[1]: Starting nginx - high performance we....
+Jul 10 12:15:00 octavia-vm1 systemd[1]: PID file /var/run/nginx.pid not read....
+Jul 10 12:15:00 octavia-vm1 systemd[1]: Started nginx - high performance web....
+Hint: Some lines were ellipsized, use -l to show in full.
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Wed 2019-07-10 12:15:00 UTC; 3s ago
+Docs: http://nginx.org/en/docs/
+Main PID: 12777 (nginx)
+CGroup: /system.slice/nginx.service
+├─12777 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12778 nginx: worker process
+
+Jul 10 12:15:00 octavia-vm1 systemd[1]: Starting nginx - high performance we....
+Jul 10 12:15:00 octavia-vm1 systemd[1]: PID file /var/run/nginx.pid not read....
+Jul 10 12:15:00 octavia-vm1 systemd[1]: Started nginx - high performance web....
+Hint: Some lines were ellipsized, use -l to show in full.
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.70 VM 1!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+VM IP 100.67.153.87
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:c3:33:07
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+# Created by cloud-init on instance boot automatically, do not edit.
+#
+BOOTPROTO=dhcp
+DEVICE=eth0
+HWADDR=fa:16:3e:c3:33:07
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+DNS1=8.8.8.8
+PING google.com (172.217.9.14) 56(84) bytes of data.
+64 bytes from dfw28s02-in-f14.1e100.net (172.217.9.14): icmp_seq=1 ttl=46 time=10.6 ms
+64 bytes from dfw28s02-in-f14.1e100.net (172.217.9.14): icmp_seq=2 ttl=46 time=10.6 ms
+64 bytes from dfw28s02-in-f14.1e100.net (172.217.9.14): icmp_seq=3 ttl=46 time=10.5 ms
+64 bytes from dfw28s02-in-f14.1e100.net (172.217.9.14): icmp_seq=4 ttl=46 time=10.3 ms
+64 bytes from dfw28s02-in-f14.1e100.net (172.217.9.14): icmp_seq=5 ttl=46 time=10.6 ms
+
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 10.358/10.581/10.680/0.174 ms
+Checking if nginx.repo file is present..
+Trying to send /home/osp_admin/NFV_window/nfv-auto/nginx.repo to ./nginx.repo...
+Sent.
+nginx.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo	  CentOS-fasttrack.repo  CentOS-Sources.repo  nginx.repo
+Loaded plugins: fastestmirror
+================================= repo: nginx ==================================
+[nginx]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://nginx.org/packages/centos/7/x86_64/
+cache = 0
+cachedir = /var/cache/yum/x86_64/7/nginx
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage =
+enabled = True
+enablegroups = True
+exclude =
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/nginx/gpgcadir
+gpgcakey =
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/nginx/gpgdir
+gpgkey = https://nginx.org/keys/nginx_signing.key
+hdrdir = /var/cache/yum/x86_64/7/nginx/headers
+http_caching = all
+includepkgs =
+ip_resolve =
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid =
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink =
+minrate = 0
+mirrorlist =
+mirrorlist_expire = 86400
+name = nginx mainline repo
+old_base_cache_dir =
+password =
+persistdir = /var/lib/yum/repos/x86_64/7/nginx
+pkgdir = /var/cache/yum/x86_64/7/nginx/packages
+proxy = False
+proxy_dict =
+proxy_password =
+proxy_username =
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert =
+sslclientcert =
+sslclientkey =
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = nginx/x86_64
+ui_repoid_vars = releasever,
+basearch
+username =
+
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+* base: mirror.dal.nexril.net
+* extras: mirror.dal.nexril.net
+* updates: mirror.dal.nexril.net
+base                                                     | 3.6 kB     00:00
+extras                                                   | 3.4 kB     00:00
+nginx                                                    | 2.9 kB     00:00
+updates                                                  | 3.4 kB     00:00
+(1/5): extras/7/x86_64/primary_db                          | 205 kB   00:00
+(2/5): base/7/x86_64/group_gz                              | 166 kB   00:00
+(4/5): nginx/x86_64/primar 2% [                 ]  0.0 B/s | 370 kB   --:-- ETA (3/5): nginx/x86_64/primary_db                             |  46 kB   00:00
+(5/5): updates/7/x86_64/pr 59% [=========       ] 9.0 MB/s | 7.7 MB   00:00 ETA (4/5): updates/7/x86_64/primary_db                         | 6.5 MB   00:00
+(5/5): base/7/x86_64/primary_db                            | 6.0 MB   00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.0-1.el7.ngx will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+Package       Arch           Version                       Repository     Size
+================================================================================
+Installing:
+nginx         x86_64         1:1.16.0-1.el7.ngx            nginx         766 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 766 k
+Installed size: 2.7 M
+Downloading packages:
+nginx-1.16.0-1.el7.ngx.x86 13% [==              ]  0.0 B/s | 100 kB   --:-- ETA nginx-1.16.0-1.el7.ngx.x86 25% [====            ]  96 kB/s | 197 kB   00:05 ETA nginx-1.16.0-1.el7.ngx.x86 26% [====            ]  90 kB/s | 202 kB   00:06 ETA nginx-1.16.0-1.el7.ngx.x86 47% [=======-        ] 116 kB/s | 361 kB   00:03 ETA nginx-1.16.0-1.el7.ngx.x86 55% [========-       ] 121 kB/s | 424 kB   00:02 ETA nginx-1.16.0-1.el7.ngx.x86 77% [============    ] 146 kB/s | 593 kB   00:01 ETA nginx-1.16.0-1.el7.ngx.x8 100% [================] 170 kB/s | 766 kB   00:00 ETA warning: /var/cache/yum/x86_64/7/nginx/packages/nginx-1.16.0-1.el7.ngx.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+Public key for nginx-1.16.0-1.el7.ngx.x86_64.rpm is not installed
+nginx-1.16.0-1.el7.ngx.x86_64.rpm                          | 766 kB   00:02
+Retrieving key from https://nginx.org/keys/nginx_signing.key
+Importing GPG key 0x7BD9BF62:
+Userid     : "nginx signing key <signing-key@nginx.com>"
+Fingerprint: 573b fd6b 3d8f bc64 1079 a6ab abf5 bd82 7bd9 bf62
+From       : https://nginx.org/keys/nginx_signing.key
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [                             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#                            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##                           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###                          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####                         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####                        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######                       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######                      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########                     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########                    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########                   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########                  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############                 ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#############                ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##############               ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###############              ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [################             ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#################            ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##################           ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###################          ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [####################         ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#####################        ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [######################       ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#######################      ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [########################     ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [#########################    ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [##########################   ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [###########################  ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86 [############################ ] 1/1  Installing : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* http://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* http://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* http://nginx.com/products/
+
+----------------------------------------------------------------------
+Verifying  : 1:nginx-1.16.0-1.el7.ngx.x86_64                              1/1
+
+Installed:
+nginx.x86_64 1:1.16.0-1.el7.ngx
+
+Complete!
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Wed 2019-07-10 12:15:36 UTC; 995ms ago
+Docs: http://nginx.org/en/docs/
+Process: 12781 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+Main PID: 12782 (nginx)
+CGroup: /system.slice/nginx.service
+├─12782 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12783 nginx: worker process
+
+Jul 10 12:15:35 octavia-vm2 systemd[1]: Starting nginx - high performance we....
+Jul 10 12:15:36 octavia-vm2 systemd[1]: PID file /var/run/nginx.pid not read....
+Jul 10 12:15:36 octavia-vm2 systemd[1]: Started nginx - high performance web....
+Hint: Some lines were ellipsized, use -l to show in full.
+Created symlink from /etc/systemd/system/multi-user.target.wants/nginx.service to /usr/lib/systemd/system/nginx.service.
+[1;32m●[0m nginx.service - nginx - high performance web server
+Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+Active: [1;32mactive (running)[0m since Wed 2019-07-10 12:15:36 UTC; 3s ago
+Docs: http://nginx.org/en/docs/
+Main PID: 12782 (nginx)
+CGroup: /system.slice/nginx.service
+├─12782 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx....
+└─12783 nginx: worker process
+
+Jul 10 12:15:35 octavia-vm2 systemd[1]: Starting nginx - high performance we....
+Jul 10 12:15:36 octavia-vm2 systemd[1]: PID file /var/run/nginx.pid not read....
+Jul 10 12:15:36 octavia-vm2 systemd[1]: Started nginx - high performance web....
+Hint: Some lines were ellipsized, use -l to show in full.
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+body {
+width: 35em;
+margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to nginx 100.67.153.87 VM 2!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+Loadbalancer creating..
+Listener creating..
+Pool creating..
+Member1 creating..
+Member2 creating..
+Creating Floating IP..
+The request you have made requires authentication. (HTTP 401) (Request-ID: req-dfc42738-be7d-4e44-9d4c-6b85a6833ae4)
+Unable to execute test case 1
+
+Error: <type 'exceptions.IndexError'>
+Cause: list index out of range
+Line No: 185 
+
+member1 deleting..
+member2 deleting..
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia-vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: octavia-vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

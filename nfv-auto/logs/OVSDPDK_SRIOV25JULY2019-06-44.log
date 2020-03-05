@@ -1,0 +1,57 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net_1
+Creating Sriov Enabled SubNet: sriov_subnet_1
+Creating Sriov Enabled Port: sriov_net1_port_1
+Creating Router: sriov_router_1
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 777 
+
+Unable to execute test case 1(1)
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 180 
+
+Deleting Server: sriov-vm1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+==========================================================================================================
+====        TEST CASE 6:    Check the Port assigned to OVS-DPDK are active after the deployment.      ====
+==========================================================================================================
+---- ovs_dpdk_bond10 ----
+bond_mode: balance-tcp
+bond may use recirculation: yes, Recirc-ID : 1
+bond-hash-basis: 0
+updelay: 0 ms
+downdelay: 0 ms
+next rebalance: 5079 ms
+lacp_status: negotiated
+lacp_fallback_ab: false
+active slave mac: 3c:fd:fe:bf:af:60(dpdk0)
+
+slave dpdk0: enabled
+	active slave
+	may_enable: true
+
+slave dpdk1: enabled
+	may_enable: true
+
+
+TEST SUCCESSFUL

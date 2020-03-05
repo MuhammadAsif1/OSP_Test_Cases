@@ -1,0 +1,69 @@
+==========================================================================================================
+====         TEST CASE 2:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+ComputeSriovInterface1=p1p2
+ComputeSriovInterface2=p4p2
+['p1p2', 'p4p2']
+['p1p2_', 'p4p2_']
+p1p2_0
+p1p2_1
+p1p2_2
+p1p2_3
+p4p2_0
+p4p2_1
+p4p2_2
+p4p2_3
+['p1p2_0', 'p1p2_1', 'p1p2_2', 'p1p2_3', 'p4p2_0', 'p4p2_1', 'p4p2_2', 'p4p2_3']
+8
+Creating Sriov Enabled Network: sriov_net_1
+Creating Sriov Enabled SubNet: sriov_subnet_1
+Creating Sriov Enabled Port: sriov_net1_port_1
+Creating Router: sriov_router_1
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.4) , Floating IP: (100.67.153.71)
+ComputeSriovInterface1=p1p2
+ComputeSriovInterface2=p4p2
+['p1p2', 'p4p2']
+['p1p2_', 'p4p2_']
+p1p2_1
+p1p2_2
+p1p2_3
+p4p2_0
+p4p2_1
+p4p2_2
+p4p2_3
+['p1p2_1', 'p1p2_2', 'p1p2_3', 'p4p2_0', 'p4p2_1', 'p4p2_2', 'p4p2_3']
+7
+Deleting Server: sriov-vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+ComputeSriovInterface1=p1p2
+ComputeSriovInterface2=p4p2
+['p1p2', 'p4p2']
+['p1p2_', 'p4p2_']
+p1p2_0
+p1p2_1
+p1p2_2
+p1p2_3
+p4p2_0
+p4p2_1
+p4p2_2
+p4p2_3
+['p1p2_0', 'p1p2_1', 'p1p2_2', 'p1p2_3', 'p4p2_0', 'p4p2_1', 'p4p2_2', 'p4p2_3']
+8
+Total number of VF's 8
+1 VF is consumed when instance created....7
+1 VF is returned when instance deleted....8
+Test Successful

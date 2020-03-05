@@ -1,0 +1,21 @@
+
+==========================================================================
+Executing Test Case 3 (Validates the OVS DPDK works fine with floating IP)
+==========================================================================
+Creating Server: tt_vm
+
+Unable to create server with floating IP!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 750 
+
+Instance Created.
+Deleting Server: tt_vm..
+Server deletion failed!
+Deleting all unattached floating IPs.
+
+Error encountered while executing Test Case: 3!
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 146 
+

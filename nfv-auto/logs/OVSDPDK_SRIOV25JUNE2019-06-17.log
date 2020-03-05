@@ -1,0 +1,23 @@
+==========================================================================================================
+====        TEST CASE 6:    Check the Port assigned to OVS-DPDK are active after the deployment.      ====
+==========================================================================================================
+---- ovs_dpdk_bond10 ----
+bond_mode: balance-tcp
+bond may use recirculation: yes, Recirc-ID : 1
+bond-hash-basis: 0
+updelay: 0 ms
+downdelay: 0 ms
+next rebalance: 8764 ms
+lacp_status: negotiated
+lacp_fallback_ab: false
+active slave mac: 3c:fd:fe:25:f2:00(dpdk1)
+
+slave dpdk0: enabled
+	may_enable: true
+
+slave dpdk1: enabled
+	active slave
+	may_enable: true
+
+
+TEST SUCCESSFUL

@@ -1,0 +1,12 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 3:     Verify that L3 agent must be distributed on all the compute nodes. =====
+==========================================================================================================
+r8-14g-controller-0.oss.labs found
+r8-14g-controller-1.oss.labs found
+r8-14g-controller-2.oss.labs found
+r8-14g-dell-compute-0.oss.labs found
+r8-14g-dell-compute-1.oss.labs found
+r8-14g-dell-compute-2.oss.labs found
+TEST SUCCESSFUL

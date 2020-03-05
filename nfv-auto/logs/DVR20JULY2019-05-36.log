@@ -1,0 +1,83 @@
+Controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+Compute ip's ['192.168.120.22', '192.168.120.25', '192.168.120.31']
+==========================================================================================================
+====         DVR TEST CASE 5:     Verify the snat traffic transverse through the controller node.    =====
+==========================================================================================================
+Creating Network: tt_net
+Creating Router: tt_router
+Creating Server: tt_vm
+Server Count: 1
+
+Server Created Successfully!
+Instance >> Fixed IP: 192.168.10.6
+[u'0c944fe3-35cb-41f3-a33e-f8f2deb55e1a', u'630f225c-fa02-4ed8-8482-a9224d573dba', u'9015279d-c546-4b92-8311-edb731f113a2', '192.168.10.6']
+0c944fe3-35cb-41f3-a33e-f8f2deb55e1a
+qdhcp-0c944fe3-35cb-41f3-a33e-f8f2deb55e1a
+630f225c-fa02-4ed8-8482-a9224d573dba
+List of controller ip's ['192.168.120.35', '192.168.120.21', '192.168.120.24']
+snat namespace not found in controller 192.168.120.35
+Checking if dvr-key.pem file is present..
+Already present.
+sg-dc7fd732-b5
+['sg-dc7fd732-b5']
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-0c944fe3-35cb-41f3-a33e-f8f2deb55e1a ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/dvr-key.pem centos@192.168.10.6 "ping -c 5 8.8.8.8"
+ssh: connect to host 192.168.10.6 port 22: Connection refused
+
+Retying...0
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-0c944fe3-35cb-41f3-a33e-f8f2deb55e1a ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/dvr-key.pem centos@192.168.10.6 "ping -c 5 8.8.8.8"
+ssh: connect to host 192.168.10.6 port 22: Connection refused
+
+Retying...1
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-0c944fe3-35cb-41f3-a33e-f8f2deb55e1a ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/dvr-key.pem centos@192.168.10.6 "ping -c 5 8.8.8.8"
+Warning: Permanently added '192.168.10.6' (ECDSA) to the list of known hosts.
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=44 time=21.7 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=44 time=12.2 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=44 time=12.9 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=44 time=11.0 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=44 time=12.6 ms
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 11.004/14.123/21.737/3.869 ms
+Connection to 192.168.10.6 closed.
+
+None
+True
+10:37:39.179401 ARP, Request who-has 192.168.10.3 tell 192.168.10.6, length 46
+10:37:39.180729 ARP, Request who-has 192.168.10.4 tell 192.168.10.6, length 46
+10:37:41.746370 IP6 fe80::f816:3eff:fe5a:10b2 > ff02::2: ICMP6, router solicitation, length 16
+10:37:45.753641 IP6 fe80::f816:3eff:fe5a:10b2 > ff02::2: ICMP6, router solicitation, length 16
+10:37:46.476037 IP 192.168.10.6 > dns.google: ICMP echo request, id 5481, seq 1, length 64
+10:37:46.485057 ARP, Request who-has 192.168.10.6 tell r153-controller-1, length 28
+10:37:46.488565 ARP, Reply 192.168.10.6 is-at fa:16:3e:5a:10:b2 (oui Unknown), length 46
+10:37:46.488578 IP dns.google > 192.168.10.6: ICMP echo reply, id 5481, seq 1, length 64
+10:37:47.471619 IP 192.168.10.6 > dns.google: ICMP echo request, id 5481, seq 2, length 64
+10:37:47.480460 IP dns.google > 192.168.10.6: ICMP echo reply, id 5481, seq 2, length 64
+10:37:48.474633 IP 192.168.10.6 > dns.google: ICMP echo request, id 5481, seq 3, length 64
+10:37:48.483423 IP dns.google > 192.168.10.6: ICMP echo reply, id 5481, seq 3, length 64
+10:37:49.472038 IP 192.168.10.6 > dns.google: ICMP echo request, id 5481, seq 4, length 64
+10:37:49.480901 IP dns.google > 192.168.10.6: ICMP echo reply, id 5481, seq 4, length 64
+10:37:50.475909 IP 192.168.10.6 > dns.google: ICMP echo request, id 5481, seq 5, length 64
+10:37:50.484758 IP dns.google > 192.168.10.6: ICMP echo reply, id 5481, seq 5, length 64
+
+
+TEST FAILED for interface sg-dc7fd732-b5
+TEST FAILED
+Deleting Server: tt_vm..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

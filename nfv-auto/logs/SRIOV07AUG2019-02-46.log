@@ -1,0 +1,44 @@
+==========================================================================================================
+====         TEST CASE 1:     Verify the VFs creations on compute node.                          =====
+==========================================================================================================
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+[]
+0
+Network already exists with the same name.
+Creating Sriov Offload Enabled SubNet: sriov_subnet
+Creating Sriov Offload Enabled Port: s_port
+Setting Switchdev Capabilities to Port: s_port
+Creating Router: sriov_router
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 832 
+
+ComputeSriovInterface1=p8p1
+ComputeSriovInterface2=p4p1
+['p8p1', 'p4p1']
+['p8p1_', 'p4p1_']
+[]
+0
+Deleting Server: s_instance..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Unable to execute test case 1
+
+Error: <class 'openstack.exceptions.ResourceNotFound'>
+Cause: Error detaching interface from router 81adb5fc-dfcd-45b7-b325-a7a753efa858: Client Error for url: http://100.67.154.160:9696/v2.0/routers/81adb5fc-dfcd-45b7-b325-a7a753efa858/remove_router_interface.json, Router 81adb5fc-dfcd-45b7-b325-a7a753efa858 has no interface on subnet 8ba507c8-a963-44a7-84c2-c3fbed8c8bb0
+Line No: 288 
+
+Deleting Server: s_instance..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

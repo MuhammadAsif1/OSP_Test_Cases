@@ -1,0 +1,80 @@
+==========================================================================================================
+====  TEST CASE 12:     Ping an sriov instance to ovs-dpdk instance in different scenarios             ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_dpdk_net1
+Creating Sriov Enabled SubNet: sriov_dpdk_subnet1
+Creating Sriov Enabled Port: s_port
+Creating Network: sriov_dpdk_net2
+Creating Router: sriov_dpdk_router
+Network already exists with the same name.
+Creating Router: sriov_dpdk_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.10) , Floating IP: (100.82.39.87)
+Creating Network: sriov_dpdk_net2
+Network already exists with the same name.
+Creating Router: sriov_dpdk_router
+Router already exists.
+Creating Server: d_instance
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to d_instance
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.7) , Floating IP: (100.82.39.80)
+==================================================
+==Ping from SR-IOV instance to OVS-DPDK Instance==
+==================================================
+PING 192.168.80.7 (192.168.80.7) 56(84) bytes of data.
+64 bytes from 192.168.80.7: icmp_seq=1 ttl=63 time=0.589 ms
+64 bytes from 192.168.80.7: icmp_seq=2 ttl=63 time=0.213 ms
+64 bytes from 192.168.80.7: icmp_seq=3 ttl=63 time=0.202 ms
+64 bytes from 192.168.80.7: icmp_seq=4 ttl=63 time=0.087 ms
+64 bytes from 192.168.80.7: icmp_seq=5 ttl=63 time=0.160 ms
+
+--- 192.168.80.7 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.087/0.250/0.589/0.175 ms
+
+==================================================
+==Ping from OVS-DPDK instance to SR-IOV Instance==
+==================================================
+PING 192.168.70.10 (192.168.70.10) 56(84) bytes of data.
+64 bytes from 192.168.70.10: icmp_seq=1 ttl=63 time=0.219 ms
+64 bytes from 192.168.70.10: icmp_seq=2 ttl=63 time=0.202 ms
+64 bytes from 192.168.70.10: icmp_seq=3 ttl=63 time=0.226 ms
+64 bytes from 192.168.70.10: icmp_seq=4 ttl=63 time=0.109 ms
+64 bytes from 192.168.70.10: icmp_seq=5 ttl=63 time=0.239 ms
+
+--- 192.168.70.10 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.109/0.199/0.239/0.046 ms
+
+Test 12 diff compute and diff network successful
+Deleting Server: s_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: d_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_dpdk_net1 and sriov_dpdk_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_dpdk_router..
+Router Deleted successfully

@@ -1,0 +1,166 @@
+==========================================================================================================
+====TEST CASE 7: Verify OVS Offloading for sriov instance to sriov instance in different scenarios    ====
+====  .diff compute diff network ====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net1
+Creating Sriov Offload Enabled SubNet: sriov_subnet1
+Creating Sriov Offload Enabled Port: s_port1
+Setting Switchdev Capabilities to Port: s_port1
+Creating Sriov Offload Enabled Network: sriov_net2
+Creating Sriov Offload Enabled SubNet: sriov_subnet2
+Creating Sriov Offload Enabled Port: s_port2
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port1
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.7) , Floating IP: (100.67.154.195)
+Network already exists with the same name.
+Setting Switchdev Capabilities to Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.80.8) , Floating IP: (100.67.154.197)
+system@ovs-system:
+	lookups: hit:3639435 missed:9790217 lost:0
+	flows: 86
+	masks: hit:61316965 total:6 hit/pkt:4.57
+	port 0: ovs-system (internal)
+	port 1: br-tenant (internal)
+	port 2: mlx_br2 (internal)
+	port 3: mlx_br1 (internal)
+	port 4: br-bond1 (internal)
+	port 5: p4p1
+	port 6: p8p1
+	port 7: vlan130 (internal)
+	port 8: bond0
+	port 9: vlan140 (internal)
+	port 10: bond1
+	port 11: vlan170 (internal)
+	port 12: br-ex (internal)
+	port 13: br-int (internal)
+	port 14: eth1
+
+representor port  eth1
+
+PING output: PING 192.168.80.8 (192.168.80.8) 56(84) bytes of data.
+64 bytes from 192.168.80.8: icmp_seq=1 ttl=63 time=9.86 ms
+64 bytes from 192.168.80.8: icmp_seq=2 ttl=63 time=0.303 ms
+64 bytes from 192.168.80.8: icmp_seq=3 ttl=63 time=0.284 ms
+64 bytes from 192.168.80.8: icmp_seq=4 ttl=63 time=0.283 ms
+64 bytes from 192.168.80.8: icmp_seq=5 ttl=63 time=0.207 ms
+64 bytes from 192.168.80.8: icmp_seq=6 ttl=63 time=0.250 ms
+64 bytes from 192.168.80.8: icmp_seq=7 ttl=63 time=0.181 ms
+64 bytes from 192.168.80.8: icmp_seq=8 ttl=63 time=0.295 ms
+64 bytes from 192.168.80.8: icmp_seq=9 ttl=63 time=0.203 ms
+64 bytes from 192.168.80.8: icmp_seq=10 ttl=63 time=0.207 ms
+64 bytes from 192.168.80.8: icmp_seq=11 ttl=63 time=0.262 ms
+64 bytes from 192.168.80.8: icmp_seq=12 ttl=63 time=0.294 ms
+64 bytes from 192.168.80.8: icmp_seq=13 ttl=63 time=0.261 ms
+64 bytes from 192.168.80.8: icmp_seq=14 ttl=63 time=0.133 ms
+64 bytes from 192.168.80.8: icmp_seq=15 ttl=63 time=0.247 ms
+64 bytes from 192.168.80.8: icmp_seq=16 ttl=63 time=0.299 ms
+64 bytes from 192.168.80.8: icmp_seq=17 ttl=63 time=0.239 ms
+64 bytes from 192.168.80.8: icmp_seq=18 ttl=63 time=0.276 ms
+64 bytes from 192.168.80.8: icmp_seq=19 ttl=63 time=0.269 ms
+64 bytes from 192.168.80.8: icmp_seq=20 ttl=63 time=0.196 ms
+
+--- 192.168.80.8 ping statistics ---
+20 packets transmitted, 20 received, 0% packet loss, time 19001ms
+rtt min/avg/max/mdev = 0.133/0.727/9.863/2.096 ms
+
+
+
+Tcpdump output: tcpdump: eth1: No such device exists
+(SIOCGIFHWADDR: No such device)
+
+
+
+Tcpdump output: tcpdump: eth1: No such device exists
+(SIOCGIFHWADDR: No such device)
+
+
+
+PING output: PING 192.168.80.8 (192.168.80.8) 56(84) bytes of data.
+64 bytes from 192.168.80.8: icmp_seq=1 ttl=63 time=10.1 ms
+64 bytes from 192.168.80.8: icmp_seq=2 ttl=63 time=0.345 ms
+64 bytes from 192.168.80.8: icmp_seq=3 ttl=63 time=0.339 ms
+64 bytes from 192.168.80.8: icmp_seq=4 ttl=63 time=0.271 ms
+64 bytes from 192.168.80.8: icmp_seq=5 ttl=63 time=0.234 ms
+64 bytes from 192.168.80.8: icmp_seq=6 ttl=63 time=0.159 ms
+64 bytes from 192.168.80.8: icmp_seq=7 ttl=63 time=0.299 ms
+64 bytes from 192.168.80.8: icmp_seq=8 ttl=63 time=0.286 ms
+64 bytes from 192.168.80.8: icmp_seq=9 ttl=63 time=0.240 ms
+64 bytes from 192.168.80.8: icmp_seq=10 ttl=63 time=0.239 ms
+64 bytes from 192.168.80.8: icmp_seq=11 ttl=63 time=0.251 ms
+64 bytes from 192.168.80.8: icmp_seq=12 ttl=63 time=0.290 ms
+64 bytes from 192.168.80.8: icmp_seq=13 ttl=63 time=0.258 ms
+64 bytes from 192.168.80.8: icmp_seq=14 ttl=63 time=0.170 ms
+64 bytes from 192.168.80.8: icmp_seq=15 ttl=63 time=0.333 ms
+64 bytes from 192.168.80.8: icmp_seq=16 ttl=63 time=0.308 ms
+64 bytes from 192.168.80.8: icmp_seq=17 ttl=63 time=0.261 ms
+64 bytes from 192.168.80.8: icmp_seq=18 ttl=63 time=0.262 ms
+64 bytes from 192.168.80.8: icmp_seq=19 ttl=63 time=0.295 ms
+64 bytes from 192.168.80.8: icmp_seq=20 ttl=63 time=0.226 ms
+
+--- 192.168.80.8 ping statistics ---
+20 packets transmitted, 20 received, 0% packet loss, time 19001ms
+rtt min/avg/max/mdev = 0.159/0.760/10.136/2.151 ms
+
+
+
+Tcpdump output: tcpdump: eth1: No such device exists
+(SIOCGIFHWADDR: No such device)
+
+
+
+Tcpdump output: tcpdump: eth1: No such device exists
+(SIOCGIFHWADDR: No such device)
+
+
+Pinging 192.168.80.8 from 100.67.154.195
+PING 192.168.80.8 (192.168.80.8) 56(84) bytes of data.
+64 bytes from 192.168.80.8: icmp_seq=1 ttl=63 time=11.1 ms
+64 bytes from 192.168.80.8: icmp_seq=2 ttl=63 time=0.324 ms
+64 bytes from 192.168.80.8: icmp_seq=3 ttl=63 time=0.265 ms
+64 bytes from 192.168.80.8: icmp_seq=4 ttl=63 time=0.092 ms
+64 bytes from 192.168.80.8: icmp_seq=5 ttl=63 time=0.315 ms
+
+--- 192.168.80.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.092/2.426/11.136/4.355 ms
+
+---Ping Successful!
+tcpdump command result tcpdump: eth1: No such device exists
+(SIOCGIFHWADDR: No such device)
+
+Test 7 diff compute and diff network successful
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: sriov_net1 and sriov_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: sriov_router..
+Router Deleted successfully

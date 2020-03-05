@@ -1,0 +1,31 @@
+==========================================================================================================
+====         CEPH ENVIRONMENT SETUP:      CREATE VM'S FOR COMPUTE NODE 0.                            =====
+==========================================================================================================
+Creating Network: storage-net
+Creating Router: storage-router
+Creating Server: ceph_vm_1
+Assigning floating ip to ceph_vm_1
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.70.15) , Floating IP: (100.82.36.204)
+output [u'0c56d219-e816-419e-b6fe-bd3bd55b82cd', u'4b8c6c86-912f-49d5-9b5a-c71e364d4f61', u'0eaa1aee-8d05-473e-bccd-505355339fcb', '192.168.70.15', '100.82.36.204']
+VM IP 100.82.36.204
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 144 
+
+Deleting Server: ceph_vm_1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

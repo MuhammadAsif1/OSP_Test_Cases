@@ -1,0 +1,70 @@
+==========================================================================================================
+====         TEST CASE 4:     Creating Same Compute and network sriov Instances.                =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.13) , Floating IP: (100.82.39.76)
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port2
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.12) , Floating IP: (100.82.39.79)
+=================================================
+Pinging from Sriov Instance 1 to Sriov Instance 2
+=================================================
+Pinging 192.168.100.12 from 100.82.39.76
+PING 192.168.100.12 (192.168.100.12) 56(84) bytes of data.
+64 bytes from 192.168.100.12: icmp_seq=1 ttl=64 time=0.095 ms
+64 bytes from 192.168.100.12: icmp_seq=2 ttl=64 time=0.051 ms
+64 bytes from 192.168.100.12: icmp_seq=3 ttl=64 time=0.056 ms
+64 bytes from 192.168.100.12: icmp_seq=4 ttl=64 time=0.111 ms
+64 bytes from 192.168.100.12: icmp_seq=5 ttl=64 time=0.106 ms
+
+--- 192.168.100.12 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.051/0.083/0.111/0.027 ms
+
+---Ping Successful!
+=================================================
+Pinging from Sriov Instance 2 to Sriov Instance 1
+=================================================
+Pinging 192.168.100.13 from 100.82.39.79
+PING 192.168.100.13 (192.168.100.13) 56(84) bytes of data.
+64 bytes from 192.168.100.13: icmp_seq=1 ttl=64 time=0.045 ms
+64 bytes from 192.168.100.13: icmp_seq=2 ttl=64 time=0.100 ms
+64 bytes from 192.168.100.13: icmp_seq=3 ttl=64 time=0.082 ms
+64 bytes from 192.168.100.13: icmp_seq=4 ttl=64 time=0.034 ms
+64 bytes from 192.168.100.13: icmp_seq=5 ttl=64 time=0.077 ms
+
+--- 192.168.100.13 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.034/0.067/0.100/0.026 ms
+
+---Ping Successful!
+Test 4 SUCCESSFUL
+Deleting Server: s_instance1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: s_instance2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

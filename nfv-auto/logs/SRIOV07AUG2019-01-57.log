@@ -1,0 +1,35 @@
+==========================================================================================================
+====         TEST CASE 2:     SSH SRIOV Enabled Instance.                                            =====
+==========================================================================================================
+Creating Sriov Offload Enabled Network: sriov_net
+Creating Sriov Offload Enabled SubNet: sriov_subnet
+Creating Sriov Offload Enabled Port: s_port
+Setting Switchdev Capabilities to Port: s_port
+Creating Router: sriov_router
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 832 
+
+Unable to execute test case 2
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 447 
+
+Deleting Server: s_instance..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

@@ -1,0 +1,98 @@
+==========================================================================================================
+====         TEST CASE 3:     Creating Same Compute and network sriov Instances.                =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Sriov Enabled Network: senario1_sriov_net1
+Creating Sriov Enabled SubNet: senario1_sriov_subnet1
+Creating Sriov Enabled Port: senario1_sriov_port1
+Creating Router: senario1_sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.200.31) , Floating IP: (100.67.153.80)
+Network already exists with the same name.
+Creating Sriov Enabled Port: senario1_sriov_port2
+Creating Router: senario1_sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.200.20) , Floating IP: (100.67.153.70)
+PING 192.168.200.20 (192.168.200.20) 56(84) bytes of data.
+64 bytes from 192.168.200.20: icmp_seq=1 ttl=64 time=0.094 ms
+64 bytes from 192.168.200.20: icmp_seq=2 ttl=64 time=0.039 ms
+64 bytes from 192.168.200.20: icmp_seq=3 ttl=64 time=0.044 ms
+64 bytes from 192.168.200.20: icmp_seq=4 ttl=64 time=0.036 ms
+64 bytes from 192.168.200.20: icmp_seq=5 ttl=64 time=0.047 ms
+
+--- 192.168.200.20 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.036/0.052/0.094/0.021 ms
+
+Test SUCCESSFUL
+Deleting Server: senario1_vm_1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: senario1_vm_2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully
+==========================================================================================================
+====         TEST CASE 4:     Creating Different Compute and Same Network sriov Instances.           =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Sriov Enabled Network: senario2_sriov_net1
+Creating Sriov Enabled SubNet: senario2_sriov_subnet1
+Creating Sriov Enabled Port: senario2_sriov_port1
+Creating Router: senario2_sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.210.8) , Floating IP: (100.67.153.74)
+Network already exists with the same name.
+Creating Sriov Enabled Port: senario2_sriov_port2
+Creating Router: senario2_sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.210.29) , Floating IP: (100.67.153.72)
+PING 192.168.210.29 (192.168.210.29) 56(84) bytes of data.
+64 bytes from 192.168.210.29: icmp_seq=1 ttl=64 time=0.080 ms
+64 bytes from 192.168.210.29: icmp_seq=2 ttl=64 time=0.041 ms
+64 bytes from 192.168.210.29: icmp_seq=3 ttl=64 time=0.039 ms
+64 bytes from 192.168.210.29: icmp_seq=4 ttl=64 time=0.039 ms
+64 bytes from 192.168.210.29: icmp_seq=5 ttl=64 time=0.039 ms
+
+--- 192.168.210.29 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.039/0.047/0.080/0.017 ms
+
+Test SUCCESSFUL
+Deleting Server: senario2_vm_1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: senario2_vm_2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

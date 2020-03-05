@@ -1,0 +1,13 @@
+{
+        
+        "image_name": "centos",
+        "numa_flavor": "m1.numa",
+        "net_name": "net_1",
+        "sub_name": "internal_1",
+        "cidr": "192.168.103.0/24",
+        "gateway": "192.168.103.1",
+        "pub_key": "ssh-key",
+        "pr_pem_key": "ssh-key.pem",
+        "sec_group_name": "my_security_group"
+        
+}

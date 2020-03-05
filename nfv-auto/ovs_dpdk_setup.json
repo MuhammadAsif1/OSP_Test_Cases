@@ -1,0 +1,13 @@
+{
+  "tc-4" : {
+    "flavor_name" : "ovsdpdk_flavor",
+    "ram" : "4096",
+    "vcpus" : "4" ,
+    "disk" : "40"
+  },
+  "tc-5" : {
+    "server_name": "fozan"
+
+  }
+
+}

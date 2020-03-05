@@ -1,0 +1,24 @@
+==========================================================================================================
+====         TEST CASE 3:     Verify that Mode of PCI DEVICE.            =====
+==========================================================================================================
+Compute ip's ['192.168.120.137', '192.168.120.130', '192.168.120.138']
+Test running for compute- 192.168.120.137
+af:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+af:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+af:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.0 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.1 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+d8:00.2 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.3 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.4 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+d8:00.5 Ethernet controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex Virtual Function]
+
+Unable to execute test case 2
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 374 
+

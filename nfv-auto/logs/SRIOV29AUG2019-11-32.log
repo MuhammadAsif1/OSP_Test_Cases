@@ -1,0 +1,75 @@
+==========================================================================================================
+====  TEST CASE 6:     Ping an sriov instance to legacy instance in different scenarios             ====
+====  .same compute same network ====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_legacy_net
+Creating Sriov Enabled SubNet: sriov_legacy_subnet
+Creating Sriov Enabled Port: s_port
+Creating Router: sriov_legacy_router
+Network already exists with the same name.
+Creating Router: sriov_legacy_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.9) , Floating IP: (100.82.39.70)
+Creating Network: sriov_legacy_net
+Network already exists with the same name.
+Creating Router: sriov_legacy_router
+Router already exists.
+Creating Server: l_instance
+Server Count: 1
+
+Server Created Successfully!
+Assigning floating ip to l_instance
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.7) , Floating IP: (100.82.39.80)
+==============================================
+Pinging from Sriov Instance to Legacy Instance
+==============================================
+Pinging 192.168.100.7 from 100.82.39.70
+PING 192.168.100.7 (192.168.100.7) 56(84) bytes of data.
+64 bytes from 192.168.100.7: icmp_seq=1 ttl=64 time=7.83 ms
+64 bytes from 192.168.100.7: icmp_seq=2 ttl=64 time=0.178 ms
+64 bytes from 192.168.100.7: icmp_seq=3 ttl=64 time=14.3 ms
+64 bytes from 192.168.100.7: icmp_seq=4 ttl=64 time=0.177 ms
+64 bytes from 192.168.100.7: icmp_seq=5 ttl=64 time=6.36 ms
+
+--- 192.168.100.7 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4002ms
+rtt min/avg/max/mdev = 0.177/5.787/14.384/5.317 ms
+
+---Ping Successful!
+==============================================
+Pinging from Legacy Instance to Sriov Instance
+==============================================
+Pinging 192.168.100.9 from 100.82.39.80
+PING 192.168.100.9 (192.168.100.9) 56(84) bytes of data.
+64 bytes from 192.168.100.9: icmp_seq=1 ttl=64 time=0.284 ms
+64 bytes from 192.168.100.9: icmp_seq=2 ttl=64 time=1.32 ms
+64 bytes from 192.168.100.9: icmp_seq=3 ttl=64 time=0.551 ms
+64 bytes from 192.168.100.9: icmp_seq=4 ttl=64 time=1.92 ms
+64 bytes from 192.168.100.9: icmp_seq=5 ttl=64 time=0.741 ms
+
+--- 192.168.100.9 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4045ms
+rtt min/avg/max/mdev = 0.284/0.965/1.921/0.588 ms
+
+---Ping Successful!
+Test 6 same compute and same network successful
+Deleting Server: s_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: l_instance..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

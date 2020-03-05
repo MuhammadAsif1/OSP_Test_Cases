@@ -1,0 +1,51 @@
+==========================================================================================================
+====         DVR TEST CASE 5:     Check the ports are assigned correctly to OVS-DPDK.                =====
+==========================================================================================================
+['- driver: vfio-pci\r', '  mac_address: 3c:fd:fe:bf:af:60\r', '  name: p1p1\r', '  pci_address: 0000:3b:00.0\r', '- driver: vfio-pci\r', '  mac_address: 3c:fd:fe:cd:6f:00\r', '  name: p4p1\r', '  pci_address: 0000:af:00.0\r', '']
+['p1p1', 'p4p1']
+ComputeOvsDpdkInterface1=p1p1
+ComputeOvsDpdkInterface2=p4p1
+['p1p1', 'p4p1']
+p1p1
+p4p1
+Interface Matched Test Successful
+==========================================================================================================
+====        TEST CASE 6:    Check the Port assigned to OVS-DPDK are active after the deployment.      ====
+==========================================================================================================
+---- ovs_dpdk_bond10 ----
+bond_mode: balance-tcp
+bond may use recirculation: yes, Recirc-ID : 1
+bond-hash-basis: 0
+updelay: 0 ms
+downdelay: 0 ms
+next rebalance: 7954 ms
+lacp_status: negotiated
+lacp_fallback_ab: false
+active slave mac: 3c:fd:fe:bf:af:60(dpdk0)
+
+slave dpdk0: enabled
+	active slave
+	may_enable: true
+
+slave dpdk1: enabled
+	may_enable: true
+
+
+TEST SUCCESSFUL
+==========================================================================================================
+====  TEST CASE 7:    Check the physical cores present are distributed according to the specfication. ====
+==========================================================================================================
+TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS=" iommu=pt intel_iommu=on default_hugepagesz=1GB hugepagesz=1G hugepages=176 isolcpus=2-31,34-39,42-71,74-79 "
+
+pmd thread numa_id 0 core_id 32:
+	isolated : false
+	port: dpdk0           	queue-id:  0	pmd usage:  0 %
+pmd thread numa_id 1 core_id 33:
+	isolated : false
+pmd thread numa_id 0 core_id 72:
+	isolated : false
+pmd thread numa_id 1 core_id 73:
+	isolated : false
+	port: dpdk1           	queue-id:  0	pmd usage:  0 %
+
+TEST Failed

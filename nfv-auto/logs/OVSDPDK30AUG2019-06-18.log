@@ -1,0 +1,65 @@
+
+======================================================================
+Executing Test Case 17 (Verify OVS DPDK instances created on different
+ tenant networks but connected to same router can ping each other
+======================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Server Created Successfully!
+Creating Server: tt_vm2
+Server Count: 1
+
+Server Created Successfully!
+Instance1 >> Fixed IP: (192.168.20.17)
+Instance2 >> Fixed IP: (192.168.30.9)
+Namespace id : qdhcp-a4ffbfe7-7397-407c-a7c2-f308f7ec46b8
+Checking if ssh-key.pem file is present..
+Already present.
+Trying to ping through namespace:
+Command: timeout 10 sudo ip netns exec qdhcp-a4ffbfe7-7397-407c-a7c2-f308f7ec46b8 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KbdInteractiveDevices=no -tti /home/heat-admin/ssh-key.pem centos@192.168.20.17 "ping -c 5 192.168.30.9"
+Warning: Permanently added '192.168.20.17' (ECDSA) to the list of known hosts.
+PING 192.168.30.9 (192.168.30.9) 56(84) bytes of data.
+64 bytes from 192.168.30.9: icmp_seq=1 ttl=63 time=0.652 ms
+64 bytes from 192.168.30.9: icmp_seq=2 ttl=63 time=0.254 ms
+64 bytes from 192.168.30.9: icmp_seq=3 ttl=63 time=0.111 ms
+64 bytes from 192.168.30.9: icmp_seq=4 ttl=63 time=0.157 ms
+64 bytes from 192.168.30.9: icmp_seq=5 ttl=63 time=0.201 ms
+
+--- 192.168.30.9 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4026ms
+rtt min/avg/max/mdev = 0.111/0.275/0.652/0.194 ms
+Connection to 192.168.20.17 closed.
+
+
+Test Case 17 Passed, Ping successful.
+
+Deleting Server: tt_vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully

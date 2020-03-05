@@ -1,0 +1,139 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port11
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.19) , Floating IP: (100.82.39.99)
+PING 100.82.39.99 (100.82.39.99) 56(84) bytes of data.
+64 bytes from 100.82.39.99: icmp_seq=1 ttl=62 time=0.749 ms
+64 bytes from 100.82.39.99: icmp_seq=2 ttl=62 time=0.250 ms
+64 bytes from 100.82.39.99: icmp_seq=3 ttl=62 time=0.276 ms
+64 bytes from 100.82.39.99: icmp_seq=4 ttl=62 time=0.204 ms
+64 bytes from 100.82.39.99: icmp_seq=5 ttl=62 time=0.241 ms
+
+--- 100.82.39.99 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.204/0.344/0.749/0.203 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port12
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.24) , Floating IP: (100.82.39.77)
+PING 100.82.39.77 (100.82.39.77) 56(84) bytes of data.
+64 bytes from 100.82.39.77: icmp_seq=1 ttl=62 time=0.671 ms
+64 bytes from 100.82.39.77: icmp_seq=2 ttl=62 time=0.401 ms
+64 bytes from 100.82.39.77: icmp_seq=3 ttl=62 time=0.325 ms
+64 bytes from 100.82.39.77: icmp_seq=4 ttl=62 time=0.369 ms
+64 bytes from 100.82.39.77: icmp_seq=5 ttl=62 time=0.292 ms
+
+--- 100.82.39.77 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.292/0.411/0.671/0.136 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port13
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.13) , Floating IP: (100.82.39.93)
+PING 100.82.39.93 (100.82.39.93) 56(84) bytes of data.
+64 bytes from 100.82.39.93: icmp_seq=1 ttl=62 time=0.828 ms
+64 bytes from 100.82.39.93: icmp_seq=2 ttl=62 time=0.404 ms
+64 bytes from 100.82.39.93: icmp_seq=3 ttl=62 time=0.466 ms
+64 bytes from 100.82.39.93: icmp_seq=4 ttl=62 time=0.458 ms
+64 bytes from 100.82.39.93: icmp_seq=5 ttl=62 time=0.478 ms
+
+--- 100.82.39.93 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.404/0.526/0.828/0.155 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port14
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.23) , Floating IP: (100.82.39.95)
+PING 100.82.39.95 (100.82.39.95) 56(84) bytes of data.
+64 bytes from 100.82.39.95: icmp_seq=1 ttl=62 time=1.08 ms
+64 bytes from 100.82.39.95: icmp_seq=2 ttl=62 time=0.402 ms
+64 bytes from 100.82.39.95: icmp_seq=3 ttl=62 time=0.527 ms
+64 bytes from 100.82.39.95: icmp_seq=4 ttl=62 time=0.443 ms
+64 bytes from 100.82.39.95: icmp_seq=5 ttl=62 time=0.413 ms
+
+--- 100.82.39.95 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.402/0.574/1.087/0.260 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port15
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.15) , Floating IP: (100.82.39.91)
+PING 100.82.39.91 (100.82.39.91) 56(84) bytes of data.
+64 bytes from 100.82.39.91: icmp_seq=1 ttl=62 time=0.859 ms
+64 bytes from 100.82.39.91: icmp_seq=2 ttl=62 time=0.521 ms
+64 bytes from 100.82.39.91: icmp_seq=3 ttl=62 time=0.427 ms
+64 bytes from 100.82.39.91: icmp_seq=4 ttl=62 time=0.446 ms
+64 bytes from 100.82.39.91: icmp_seq=5 ttl=62 time=0.357 ms
+
+--- 100.82.39.91 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4001ms
+rtt min/avg/max/mdev = 0.357/0.522/0.859/0.176 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port16
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.35) , Floating IP: (100.82.39.90)
+PING 100.82.39.90 (100.82.39.90) 56(84) bytes of data.
+64 bytes from 100.82.39.90: icmp_seq=1 ttl=62 time=0.823 ms
+64 bytes from 100.82.39.90: icmp_seq=2 ttl=62 time=0.400 ms
+64 bytes from 100.82.39.90: icmp_seq=3 ttl=62 time=0.414 ms
+64 bytes from 100.82.39.90: icmp_seq=4 ttl=62 time=0.369 ms
+64 bytes from 100.82.39.90: icmp_seq=5 ttl=62 time=0.428 ms
+
+--- 100.82.39.90 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.369/0.486/0.823/0.171 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled Port: s_port17
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Error in creating the server
+Line No: 862 
+
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 263 
+
+Deleting Server: s_instance17..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

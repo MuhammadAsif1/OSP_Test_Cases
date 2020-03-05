@@ -1,0 +1,14 @@
+Creating Server: test_vm
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.36.190:8774/v2.1/servers, Invalid input for field/attribute max_count. Value: 0. 0 is less than the minimum of 1
+Line No: 648 
+
+Creating Server: test_vm
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.36.190:8774/v2.1/servers, Invalid input for field/attribute max_count. Value: 0. 0 is less than the minimum of 1
+Line No: 648 
+

@@ -1,0 +1,50 @@
+Controller ip's ['192.168.120.123', '192.168.120.131', '192.168.120.129']
+Compute ip's ['192.168.120.122', '192.168.120.130', '192.168.120.134']
+==========================================================================================================
+====         DVR TEST CASE 3:     Verify that L3 agent must be distributed on all the compute nodes. =====
+==========================================================================================================
+r8-14g-controller-0.oss.labs found
+r8-14g-controller-1.oss.labs found
+r8-14g-controller-2.oss.labs found
+r8-14g-dell-compute-0.oss.labs found
+r8-14g-dell-compute-1.oss.labs found
+r8-14g-dell-compute-2.oss.labs found
+TEST SUCCESSFUL
+==========================================================================================================
+====         DVR TEST CASE 2:     Verify that DVR is deployed on all the compute nodes.              =====
+==========================================================================================================
+Compute ip's ['192.168.120.122', '192.168.120.130', '192.168.120.134']
+Test running for compute- 192.168.120.122
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.130
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.134
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+==========================================================================================================
+====         DVR TEST CASE 1:      Verify that DVR is deployed on all the controller nodes.          =====
+==========================================================================================================
+Controller ip's ['192.168.120.123', '192.168.120.131', '192.168.120.129']
+Test running for controller- 192.168.120.123
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL
+Test running for controller- 192.168.120.131
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL
+Test running for controller- 192.168.120.129
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL

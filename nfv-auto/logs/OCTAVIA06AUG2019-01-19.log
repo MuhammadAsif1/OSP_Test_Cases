@@ -1,0 +1,59 @@
+f_ip value 
+==========================================================================================================
+====         OCTAVIA TEST CASE 1:      CREATE A LOADBALANCER and Verify it By sending HTTP TRAFFIC.  =====
+==========================================================================================================
+Creating two instances on Same Compute and Same Tenant Network..
+Creating Network: octavia-network-http
+Creating Router: octavia-router
+Creating Server: octavia_vm1_http
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Error in creating the server
+Line No: 718 
+
+Creating Server: octavia_vm2_http
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Error in creating the server
+Line No: 718 
+
+
+Unable to create 2 instances on same compute and same network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'accessIPv4'
+Line No: 1400 
+
+output None
+Unable to execute test case 1
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 131 
+
+member1 deleting..
+member2 deleting..
+Pool deleting..
+Listener deleting..
+Loadbalancer deleting..
+Loadbalancer deleted Successfully
+Deleting Server: octavia_vm1_http..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Server: octavia_vm2_http..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

@@ -1,0 +1,35 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net_1
+Creating Sriov Enabled SubNet: sriov_subnet_1
+Creating Sriov Enabled Port: sriov_net1_port_1
+Creating Router: sriov_router_1
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.5) , Floating IP: (100.67.153.75)
+PING 100.67.153.75 (100.67.153.75) 56(84) bytes of data.
+64 bytes from 100.67.153.75: icmp_seq=1 ttl=62 time=0.816 ms
+64 bytes from 100.67.153.75: icmp_seq=2 ttl=62 time=0.460 ms
+64 bytes from 100.67.153.75: icmp_seq=3 ttl=62 time=0.659 ms
+64 bytes from 100.67.153.75: icmp_seq=4 ttl=62 time=0.552 ms
+64 bytes from 100.67.153.75: icmp_seq=5 ttl=62 time=0.385 ms
+
+--- 100.67.153.75 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4002ms
+rtt min/avg/max/mdev = 0.385/0.574/0.816/0.153 ms
+Test 1 SUCCESSFUL
+Deleting Server: sriov-vm1..
+Server Deleted successfully
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnet Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router..
+Router Deleted successfully

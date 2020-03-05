@@ -1,0 +1,50 @@
+==========================================================================================================
+====         TEST CASE 1:     Create SRIOV Enabled Instance.                                     =====
+==========================================================================================================
+Creating Sriov Enabled Network: sriov_net
+Creating Sriov Enabled SubNet: sriov_subnet
+Creating Sriov Enabled Port: s_port1
+Creating Router: sriov_router
+Creating Server with Port ID..
+Creating & Assigning Floating IP..
+Instance >> Fixed IP: (192.168.100.4) , Floating IP: (100.82.39.71)
+PING 100.82.39.71 (100.82.39.71) 56(84) bytes of data.
+64 bytes from 100.82.39.71: icmp_seq=1 ttl=62 time=1.07 ms
+64 bytes from 100.82.39.71: icmp_seq=2 ttl=62 time=0.436 ms
+64 bytes from 100.82.39.71: icmp_seq=3 ttl=62 time=0.459 ms
+64 bytes from 100.82.39.71: icmp_seq=4 ttl=62 time=0.404 ms
+64 bytes from 100.82.39.71: icmp_seq=5 ttl=62 time=0.341 ms
+
+--- 100.82.39.71 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.341/0.542/1.074/0.270 ms
+Test 1 SUCCESSFUL
+Note: Nothing is deleted!
+Network already exists with the same name.
+Creating Sriov Enabled SubNet: sriov_subnet
+
+Unable to create sriov network / subnet / port.
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.82.39.60:9696/v2.0/subnets, Invalid input for operation: Requested subnet with cidr: 192.168.100.0/24 for network: c152581b-d8e6-44b7-82a4-9618cfbf1d0b overlaps with another subnet.
+Line No: 449 
+
+Creating Router: sriov_router
+Router already exists.
+Creating Server with Port ID..
+
+Unable to create server with port id!
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'id'
+Line No: 838 
+
+Unable to execute test case 1
+
+Error: <type 'exceptions.KeyboardInterrupt'>
+Cause: 
+Line No: 266 
+
+Deleting Server: s_instance2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..
+Deleting Interfaces..

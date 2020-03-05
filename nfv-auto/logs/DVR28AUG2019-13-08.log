@@ -1,0 +1,40 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 2:     Verify that DVR is deployed on all the compute nodes.              =====
+==========================================================================================================
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+Test running for compute- 192.168.120.139
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.134
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+Test running for compute- 192.168.120.144
+#agent_mode = legacy
+agent_mode=dvr
+
+TEST SUCCESSFUL
+==========================================================================================================
+====         DVR TEST CASE 1:      Verify that DVR is deployed on all the controller nodes.          =====
+==========================================================================================================
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Test running for controller- 192.168.120.142
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL
+Test running for controller- 192.168.120.125
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL
+Test running for controller- 192.168.120.131
+#agent_mode = legacy
+agent_mode=dvr_snat
+
+TEST SUCCESSFUL

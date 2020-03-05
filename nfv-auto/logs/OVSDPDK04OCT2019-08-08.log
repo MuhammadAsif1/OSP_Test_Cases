@@ -1,0 +1,14 @@
+
+=====================================================================================
+Executing Test Case 4 (Validate Hugepages are enabled and working fine with OVS DPDK)
+=====================================================================================
+
+Error encountered while executing Test Case: 4 !
+Error: <type 'exceptions.NameError'>
+Cause: global name 'cmpt_dict' is not defined
+Line No: 211 
+
+Deleting Server: tt_vm..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network & Router..

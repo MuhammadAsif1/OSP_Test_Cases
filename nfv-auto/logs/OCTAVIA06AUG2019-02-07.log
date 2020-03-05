@@ -1,0 +1,37 @@
+f_ip value 
+==========================================================================================================
+====OCTAVIA TEST CASE 3:     CREATE A LISTENER For TCP Traffic ON LOADBALANCER USED IN TEST CASE 1.  =====
+==========================================================================================================
+Listener creating..
+Pool creating..
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| connection_limit          | -1                                   |
+| created_at                | 2019-08-06T07:07:26                  |
+| default_pool_id           | 65d9dfbb-060c-473e-993d-2dea76cb95a4 |
+| default_tls_container_ref | None                                 |
+| description               |                                      |
+| id                        | 30ff20ef-98d1-457d-a2ce-896eca278651 |
+| insert_headers            | None                                 |
+| l7policies                |                                      |
+| loadbalancers             | d282841b-2b95-43d1-9ea4-eda0115aea2c |
+| name                      | listener2_tcp                        |
+| operating_status          | ONLINE                               |
+| project_id                | 84a2c8361ede4faa963191f65f26dd1b     |
+| protocol                  | TCP                                  |
+| protocol_port             | 23456                                |
+| provisioning_status       | ACTIVE                               |
+| sni_container_refs        | []                                   |
+| updated_at                | 2019-08-06T07:07:33                  |
++---------------------------+--------------------------------------+
+Test Successful
+Unable to execute test case 1
+
+Error: <type 'exceptions.NameError'>
+Cause: global name 'ip_list' is not defined
+Line No: 471 
+
+Pool deleting..
+Listener deleting..

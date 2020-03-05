@@ -1,0 +1,26 @@
+Adding Aggregate and zone for each Compute Node
+Creating Aggregrate : nova0
+Adding host : r153-dell-compute-0.r153.nfv.lab to aggregate.
+Creating Aggregrate : nova1
+Adding host : r153-dell-compute-1.r153.nfv.lab to aggregate.
+Creating Aggregrate : nova2
+Adding host : r153-dell-compute-2.r153.nfv.lab to aggregate.
+Adding Security Group Rules
+Creating Security Group : c5454da7-ea3f-4c9d-8b50-ff8e50d9c0f7
+Adding rule for: tcp, ingress
+Adding rule for: tcp, egress
+Adding rule for: icmp, ingress
+Adding rule for: icmp, egress
+Adding rule for: udp, ingress
+Adding rule for: udp, egress
+Creating Keypair and setting permission
+Creating Network: st_network
+Creating Router: st_router
+Creating Server: tt_vm
+Server Count: 3
+
+Unable to create server!
+Error: <class 'openstack.exceptions.BadRequestException'>
+Cause: BadRequestException: 400: Client Error for url: http://100.67.153.61:8774/v2.1/servers, Invalid key_name provided.
+Line No: 712 
+

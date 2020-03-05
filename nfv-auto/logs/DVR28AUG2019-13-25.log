@@ -1,0 +1,68 @@
+Controller ip's ['192.168.120.142', '192.168.120.125', '192.168.120.131']
+Compute ip's ['192.168.120.139', '192.168.120.134', '192.168.120.144']
+==========================================================================================================
+====         DVR TEST CASE 4:     Verify traffic between 2 Compute nodes bypasses Controller node.   =====
+==========================================================================================================
+Creating two instances on Same Compute and on Different Tenant Network..
+Creating Network: tt_net1
+Creating Network: tt_net2
+Creating Router: tt_router
+Creating Server: tt_vm1
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Multiple matches found for centos
+Line No: 696 
+
+Creating Server: tt_vm2
+Server Count: 1
+
+Unable to create server!
+Error: <class 'openstack.exceptions.SDKException'>
+Cause: Multiple matches found for centos
+Line No: 696 
+
+
+Unable to create 2 instances on different compute and different network
+Error: <type 'exceptions.AttributeError'>
+Cause: 'NoneType' object has no attribute 'accessIPv4'
+Line No: 1356 
+
+None
+73047beb-aa88-47ce-baa7-3b199deca29b
+qrouter-73047beb-aa88-47ce-baa7-3b199deca29b
+qr-1ce42c52-af
+qr-8e161592-3c
+['qr-1ce42c52-af', 'qr-8e161592-3c']
+Unable to execute test case 4
+
+Error: <type 'exceptions.TypeError'>
+Cause: 'NoneType' object has no attribute '__getitem__'
+Line No: 277 
+
+Deleting Server: tt_vm1..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Server: tt_vm2..
+Server deletion failed!
+Deleting all unattached floating IPs.
+Deleting Network: tt_net1 and tt_net2
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Interfaces..
+Interface Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Port..
+Port Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Subnetwork..
+Subnetwork Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Network..
+Network Deleted successfully
+Deleting Router: tt_router..
+Router Deleted successfully
