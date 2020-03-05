@@ -1,5 +1,5 @@
-# NFV_window
-NFV_window repo contains RHOSP Cloud features test cases automation scripts. Automation scripts are written in Python and Bash. Follow given instructions to execute scripts.  
+# OSP_Test_Cases
+OSP_Test_Cases repo contains RHOSP Cloud features test cases automation scripts. Automation scripts are written in Python and Bash. Follow given instructions to execute scripts.  
 # Features List
 | Features	       | No. of Test Cases Automated | Automation Language |
 |------------------|-----------------------------|---------------------|
@@ -37,7 +37,7 @@ Image name should be ‘centos’
 
 - If require then create availability zones by using python script
 
-  > $ python NFV_window/nfv-auto/availability-zone-creation.sh
+  > $ python OSP_Test_Cases/nfv-auto/availability-zone-creation.sh
 
 - Clone repository
   > https://github.com/MuhammadAsif1/NFV_window.git
