@@ -14,6 +14,7 @@ OSP_Test_Cases repo contains RHOSP Cloud features test cases automation scripts.
 | OVS-DPDK         |	  48	                      |     Python          |
 | OVS-DPDK-&-SRIOV |   12	                      |     Python          |
 | SRIOV_OVS-offload|	  16                        |     Python          |
+| HCI              |    10                       |     Ansible         |
 
 
 
