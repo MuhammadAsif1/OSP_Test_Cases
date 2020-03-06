@@ -1,0 +1,72 @@
+---
+- name: Create a environment
+  hosts: localhost
+  tasks:
+    - name: create network
+      os_network:
+        cloud: openstack
+        state: present
+        name: network1
+        external: false
+        wait: yes
+
+    - name: create subnet
+      os_subnet:
+        cloud: openstack
+        state: present
+        network_name: network1
+        name: subnet1
+        cidr: 192.168.50.0/24
+        dns_nameservers:
+          - 8.8.8.8
+        wait: yes
+
+    - name: create a router
+      os_router:
+        cloud: openstack
+        state: present
+        name: router1
+        network: external-network
+        interfaces:
+          - subnet1
+
+    - name: create security group
+      os_security_group:
+        cloud: openstack
+        state: present
+        name: security-group
+        description: Security group for our  instances
+
+    - name: create security group rule for ping
+      os_security_group_rule:
+        cloud: openstack
+        security_group: security-group
+        protocol: icmp
+        remote_ip_prefix: 0.0.0.0/0
+
+    - name: create security group rule for SSH
+      os_security_group_rule:
+        cloud: openstack
+        security_group: security-group
+        protocol: tcp
+        port_range_min: 22
+        port_range_max: 22
+        remote_ip_prefix: 0.0.0.0/0
+
+    - name: Upload CentOS image to openstack
+      os_image:
+        name: CentOS
+        container_format: bare
+        disk_format: qcow2
+        state: present
+        filename: /tmp/cirros-0.3.4-x86_64-disk.img
+
+- name: Create keypair
+  hosts: hosts
+
+  tasks:
+   - name: generate key pair
+     shell: | 
+            source r8  
+            openstack keypair create ssh-key > /osp_admin/home/ssh-key.pem
+           
