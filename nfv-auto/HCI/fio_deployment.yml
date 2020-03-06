@@ -1,0 +1,10 @@
+---
+- name: Install the fio service
+  hosts: fio 
+  become: yes
+
+  tasks:
+   - name: install fio
+     yum:
+       name: fio
+       state: present

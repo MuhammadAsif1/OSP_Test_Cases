@@ -1,0 +1,42 @@
+---
+
+- name: vm creation
+  hosts: hosts
+  gather_facts: false
+  remote_user: root
+  sudo: yes
+  vars:
+    vm_names: [vm1, vm2, vm3, vm4, vm5, vm6, vm7, vm8, vm9, vm10, vm11, vm12, vm13, vm14, vm15, vm16, vm17, vm18, vm19, vm20]
+    vm_ips:[]
+
+  tasks:
+    - name: Creating Instance
+      os_server:
+        state: present
+        cloud: openstack
+        name: "{{item}}"
+        image: CentOS-7-x86_64-GenericCloud
+        key_name: ssh-key
+        timeout: 200
+        flavor: m1.small
+        network: network1
+        auto_ip: yes
+        security_groups:
+          - test-security-group
+      loop: "{{vm_names}}"
+    - name: Assigning Floating IP to VM 
+      os_floating_ip:
+        cloud: dguerri
+        state: present
+        reuse: yes
+        server: cattle001
+        network: ext_net
+        fixed_address: "{{item}}"
+        wait: true
+        timeout: 180
+      loop: "{{vm_ips}}"      
+    - name: VM ping from Externl Network
+      shell: |
+        ping -c 1 "{{item}}" &> /dev/null && echo vm ping successful || echo vm ping failed
+      loop: "{{vm_ips}}"   
+ 

@@ -1,0 +1,31 @@
+---
+- name:  Deleting and umounting volumes
+  hosts: director
+  become: yes
+  vars:                                          #number of vms can increased by addming more vms names, and floating ips respectively
+    number_of_vms: 4
+    vm: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]  
+    volume_size: 50
+    numebr_of_ceph_volumes_perloadgen: 2
+    volume_name: [vdb]
+
+  tasks:
+   - name: Umount volumes
+     shell: |
+            source /home/osp_admin/r62rc
+            openstack server remove volume  vm{{item[2]}} {{item[2]}}.{{item[1]}}
+     with_nested:
+       - ['50']
+       - '{{volume_name}}'
+       - '{{vm}}'
+     when: item[2] < number_of_vms
+
+   - name: Delete openstack volume
+     shell: |
+            source /home/osp_admin/r62rc
+            openstack volume delete  {{item[1]}}.{{item[0]}}
+     with_nested:
+       - '{{volume_name}}'
+       - '{{vm}}'
+     when: item[1] < number_of_vms
+
