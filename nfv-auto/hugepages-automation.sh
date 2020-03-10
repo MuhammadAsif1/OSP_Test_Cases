@@ -78,7 +78,7 @@ instance_creation_using_hugepage_flavor()
   echo "$output1" > instance_creation_using_hugepage_flavor.log
   echo "$output1"
   #### setting properties of flavor
-  output1=$(openstack flavor set --property "hw:mem_page_size"="1048576" --property "aggregate_instance_extra_specs:hugepages"="True" m1.hpg)
+  output1=$(openstack flavor set --property "hw:mem_page_size"="1048576" --property "aggregate_instance_extra_specs:hugepages"="True" $flavor)
   echo "$output1" >> instance_creation_using_hugepage_flavor.log
   echo "$output1"
   ## creating keypair
