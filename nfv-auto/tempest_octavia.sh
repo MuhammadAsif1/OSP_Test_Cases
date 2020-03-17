@@ -1,3 +1,9 @@
+#--------------------------------Pre requisit steps to run tempest ------------------------------------
+# tempest init mytempest
+# cd mytempest
+# openstack network list --------> get uuid of 'public' network
+# discover-tempest-config --deployer-input ~/tempest-deployer-input.conf --debug --create --network-id <UUID of public network>
+#-------------------------------- Then run this script ------------------------------------------------
 #!/bin/bash
 counter=0
 test_execuation()
