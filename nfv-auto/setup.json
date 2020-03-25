@@ -43,7 +43,7 @@
 	"iperf_package_path"		: "/home/osp_admin/NFV_window/nfv-auto/iperf3-3.1.7-2.el7.x86_64.rpm",
 	"static_image_path"			: "/home/osp_admin/CentOS-7-x86_64-GenericCloud.qcow2",
 	"static_image_format"		: "qcow2",
-	"overcloud_rc_file_path"	: "/home/osp_admin/r8-14grc",
+	"overcloud_rc_file_path"	: "/home/osp_admin/r60rc",
 	"static_volume"				: "volume"
 }
 
