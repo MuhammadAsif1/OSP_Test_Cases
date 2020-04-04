@@ -26,7 +26,7 @@ test_execuation()
 
 ##############################
 echo "================================ Octavia Tempest Log File =====================" > octavia_tempest.log
-output=$(ostestr -l | grep barbican)
+output=$(ostestr -l | grep octavia)
 octavia_test_cases_list=$(echo "$output" | awk 'BEGIN { FS="[" } /4/ { print $1}')
 echo "$octavia_test_cases_list" > octavia_test_cases_list.txt
 
